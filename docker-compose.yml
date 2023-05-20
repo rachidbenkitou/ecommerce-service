@@ -1,0 +1,25 @@
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=RACHID123@gmail.com
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - my-ecommerce-spring
+
+  sonarqube:
+    image: sonarqube
+    ports:
+      - 9000:9000
+    networks:
+      - my-ecommerce-spring
+
+networks:
+  my-ecommerce-spring:
+    driver: bridge
+
+volumes:
+  mysql-data:

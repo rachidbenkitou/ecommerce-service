@@ -1,0 +1,38 @@
+package com.benkitoucoders.myecommerce.dtos;
+
+import com.benkitoucoders.myecommerce.entities.Image;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.List;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Builder
+public class ProductRequestDto implements Serializable {
+    @NotBlank(message = "The product name is required")
+    @Size(min = 1, max = 20, message = "The product name must be between 1 and 20 characters")
+    private String name;
+
+    @NotBlank(message = "The description is required")
+    @Size(max = 100, message = "The description must not exceed 100 characters")
+    private String description;
+
+    @Positive(message = "The price must be a positive value")
+    @NotBlank(message = "The price is required")
+    private double price;
+
+    @Positive(message = "The quantity must be a positive value")
+    @NotBlank(message = "The quantity is required")
+    private int quantity;
+
+    @NotBlank(message = "Images are required")
+    private List<Image> images;
+}
