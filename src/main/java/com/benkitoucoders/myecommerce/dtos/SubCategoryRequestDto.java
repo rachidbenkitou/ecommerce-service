@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Data
 @Builder
 public class SubCategoryRequestDto implements Serializable {
-    @NotBlank(message = "The subCategory name is required")
+    @NotBlank(message = "The subCategory name should not be null or empty")
     @Size(min = 1, max = 20, message = "The subCategory name must be between 1 and 20 characters")
     private String name;
 
