@@ -2,12 +2,11 @@ package com.benkitoucoders.myecommerce.services.serviceinterfaces;
 
 import com.benkitoucoders.myecommerce.dtos.CategoryRequestDto;
 import com.benkitoucoders.myecommerce.dtos.CategoryResponseDto;
-import com.benkitoucoders.myecommerce.entities.Category;
 
 import java.util.List;
 
 public interface CategoryService {
-    List<Category> getCategories();
+    List<CategoryResponseDto> getCategories();
     CategoryResponseDto getCategoryByName(String categoryName);
     CategoryResponseDto createNewCategory(CategoryRequestDto categoryRequestDto);
     CategoryResponseDto updateCategory(CategoryRequestDto categoryRequestDto);

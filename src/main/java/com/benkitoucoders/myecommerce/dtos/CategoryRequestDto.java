@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Data
 @Builder
 public class CategoryRequestDto implements Serializable {
-    @NotBlank(message = "The category name is required")
+    @NotBlank(message = "The category name should not be null or empty")
     @Size(min = 1, max = 20, message = "The category name must be between 1 and 20 characters")
     private String name;
 }
