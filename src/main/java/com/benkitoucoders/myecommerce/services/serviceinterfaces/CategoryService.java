@@ -10,6 +10,5 @@ public interface CategoryService {
     CategoryResponseDto getCategoryByName(String categoryName);
     CategoryResponseDto createNewCategory(CategoryRequestDto categoryRequestDto);
     CategoryResponseDto updateCategory(CategoryRequestDto categoryRequestDto);
-    void deteteCategoryByName(String categoryName);
-
+    void deteteCategoryById(int categoryId);
 }

@@ -51,7 +51,6 @@ public class CategoryServiceImpl implements CategoryService {
         log.info("CategoryService:getCategories execution ended.");
         return categoryResponseDtos;
     }
-
     @Override
     public CategoryResponseDto getCategoryByName(String categoryName) {
        CategoryResponseDto categoryResponseDto;
@@ -66,72 +65,56 @@ public class CategoryServiceImpl implements CategoryService {
 
         } catch (Exception ex) {
             log.error("Exception occurred while retrieving category {} from database , Exception message {}", categoryName, ex.getMessage());
-            throw new CategoryServiceBusinessException("Exception occurred while fetch category from Database " + categoryName);
+            throw new CategoryServiceBusinessException("Exception occurred while fetching category from Database " );
         }
 
         log.info("CategoryService:getCategoryByNam execution ended.");
         return categoryResponseDto;
     }
-
     @Override
     public CategoryResponseDto createNewCategory(CategoryRequestDto categoryRequestDto) {
+        return processCategory(categoryRequestDto, "createNewCategory");
+    }
+    @Override
+    public CategoryResponseDto updateCategory(CategoryRequestDto categoryRequestDto) {
+        return processCategory(categoryRequestDto, "updateCategory");
+    }
+
+    private CategoryResponseDto processCategory(CategoryRequestDto categoryRequestDto, String categoryFunctionName){
         CategoryResponseDto categoryResponseDto;
 
         try {
-            log.info("CategoryService:createNewCategory execution started.");
+            log.info(String.format("CategoryService:%s execution started.", categoryFunctionName));
             Category category = categoryMapper.dtoToModule(categoryRequestDto);
-            log.debug("CategoryService:createNewCategory request parameters {}", ObjectFormat.jsonAsString(categoryRequestDto));
+            log.debug(String.format("CategoryService:%s request parameters {}", categoryFunctionName), ObjectFormat.jsonAsString(categoryRequestDto));
 
-            if(categoryDao.existsByName(categoryRequestDto.getName()))
+            if(categoryFunctionName.equals("createNewCategory") && categoryDao.existsByName(categoryRequestDto.getName()))
                 throw new CategoryAlreadyExistsException(String.format("The category with name %s is already exists.", categoryRequestDto.getName()));
 
             Category categoryResults = categoryDao.save(category);
             categoryResponseDto = categoryMapper.modelToDto(categoryResults);
-            log.debug("CategoryService:createNewCategory received response from Database {}", ObjectFormat.jsonAsString(categoryRequestDto));
+            log.debug(String.format("CategoryService:%s received response from Database {}", categoryFunctionName), ObjectFormat.jsonAsString(categoryRequestDto));
 
         } catch (Exception ex) {
             log.error("Exception occurred while persisting category to database , Exception message {}", ex.getMessage());
-            throw new CategoryServiceBusinessException("Exception occurred while create a new category");
+            throw new CategoryServiceBusinessException(String.format("Exception occurred while %s", categoryFunctionName));
         }
-        log.info("CategoryService:createNewCategory execution ended.");
+        log.info(String.format("CategoryService:%s execution ended.", categoryFunctionName));
         return categoryResponseDto;
     }
-
     @Override
-    public CategoryResponseDto updateCategory(CategoryRequestDto categoryRequestDto) {
-        CategoryResponseDto categoryResponseDto;
-
-        try {
-            log.info("CategoryService:updateCategory execution started.");
-            Category category = categoryMapper.dtoToModule(categoryRequestDto);
-            log.debug("CategoryService:updateCategory request parameters {}", ObjectFormat.jsonAsString(categoryRequestDto));
-
-            if(categoryDao.existsByName(categoryRequestDto.getName()))
-                throw new CategoryAlreadyExistsException(String.format("The category with name %s is already exists.", categoryRequestDto.getName()));
-
-            Category categoryResults = categoryDao.save(category);
-            categoryResponseDto = categoryMapper.modelToDto(categoryResults);
-            log.debug("CategoryService:updateCategory received response from Database {}", ObjectFormat.jsonAsString(categoryRequestDto));
-
-        } catch (Exception ex) {
-            log.error("Exception occurred while persisting category {} to database , Exception message {}", categoryRequestDto.getName(), ex.getMessage());
-            throw new CategoryServiceBusinessException("Exception occurred while update a  category");
-        }
-        log.info("CategoryService:updateCategory execution ended.");
-        return categoryResponseDto;
-    }
-
-    @Override
-    public void deteteCategoryByName(String categoryName) {
+    public void deteteCategoryById(int categoryId) {
         try {
             log.info("CategoryService:deleteCategory execution started.");
-            categoryDao.deleteCategoryByName(categoryName);
-            log.debug("CategoryService:deleteCategory category is deleted from Database");
-
-        }catch (Exception ex){
-            log.error("Exception occurred while persisting category {} to database , Exception message {}", categoryName,ex.getMessage());
-            throw new CategoryServiceBusinessException("Exception occurred while delete a  category");
+            categoryDao.deleteById(categoryId);
+            log.debug("CategoryService:deleteCategory category is deleted from the Database");
+        } catch (Exception ex) {
+            log.error("Exception occurred while deleting category {} from the database. Exception message: {}", categoryId, ex.getMessage());
+            throw new CategoryServiceBusinessException("Exception occurred while deleting a category");
         }
         log.info("CategoryService:deleteCategory execution ended.");
     }
-}
+
+
+    }
+

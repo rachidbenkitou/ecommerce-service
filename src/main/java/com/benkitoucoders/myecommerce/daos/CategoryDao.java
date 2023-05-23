@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface CategoryDao extends JpaRepository<Category, Integer> {
     Optional<Category> findCategoryByName(String categoryName);
     boolean existsByName(String categoryName);
-    void deleteCategoryByName(String categoryName);
+    void deleteByName(String categoryName);
 }
