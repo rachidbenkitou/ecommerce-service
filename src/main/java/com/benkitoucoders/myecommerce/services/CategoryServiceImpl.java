@@ -4,20 +4,22 @@ import com.benkitoucoders.myecommerce.daos.CategoryDao;
 import com.benkitoucoders.myecommerce.dtos.CategoryRequestDto;
 import com.benkitoucoders.myecommerce.dtos.CategoryResponseDto;
 import com.benkitoucoders.myecommerce.entities.Category;
-import com.benkitoucoders.myecommerce.exceptions.CategoryAlreadyExistsException;
-import com.benkitoucoders.myecommerce.exceptions.CategoryNotFoundException;
-import com.benkitoucoders.myecommerce.exceptions.CategoryServiceBusinessException;
+import com.benkitoucoders.myecommerce.exceptions.category.CategoryAlreadyExistsException;
+import com.benkitoucoders.myecommerce.exceptions.category.CategoryNotFoundException;
+import com.benkitoucoders.myecommerce.exceptions.category.CategoryServiceBusinessException;
 import com.benkitoucoders.myecommerce.mappers.CategoryMapper;
 import com.benkitoucoders.myecommerce.services.serviceinterfaces.CategoryService;
 import com.benkitoucoders.myecommerce.util.ObjectFormat;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
 
 @Service
+@Profile(value = {"local", "dev", "prod"})
 @RequiredArgsConstructor
 @Slf4j
 public class CategoryServiceImpl implements CategoryService {
@@ -80,6 +82,27 @@ public class CategoryServiceImpl implements CategoryService {
         return processCategory(categoryRequestDto, "updateCategory");
     }
 
+    /**
+     * Processes the category based on the provided category request data and the category function name.
+     *
+     * @param categoryRequestDto    The CategoryRequestDto object containing the category data.
+     * @param categoryFunctionName  The name of the category function being executed ("createNewCategory" or "updateCategory").
+     *                              This parameter is used to differentiate between creating and updating categories.
+     * @return The CategoryResponseDto object representing the processed category.
+     * @throws CategoryAlreadyExistsException   If the category with the same name already exists (applicable for createNewCategory() only).
+     * @throws CategoryServiceBusinessException If an exception occurs while processing the category.
+     */
+    /*
+    To avoid code duplication and handle logs appropriately, a shared function called processCategory()
+     is implemented for creating and updating categories. This function takes the categoryFunctionName as
+      a parameter to determine the specific operation being performed. When calling the function, you need
+       to provide the appropriate function name: "createNewCategory" for creating a new category and "updateCategory" for updating an existing category.
+
+     By using the categoryFunctionName parameter, the function can dynamically generate log messages
+     to indicate whether a category was created or updated. This helps in identifying the state of the operation
+     being executed. When creating a category, the log message will indicate "created", and when updating a category,
+     the log message will indicate "updated".
+     */
     private CategoryResponseDto processCategory(CategoryRequestDto categoryRequestDto, String categoryFunctionName){
         CategoryResponseDto categoryResponseDto;
 
@@ -88,6 +111,10 @@ public class CategoryServiceImpl implements CategoryService {
             Category category = categoryMapper.dtoToModule(categoryRequestDto);
             log.debug(String.format("CategoryService:%s request parameters {}", categoryFunctionName), ObjectFormat.jsonAsString(categoryRequestDto));
 
+            /*
+            To ensure the category's existence, we perform a verification step when creating a category.
+            This verification is not necessary when updating a category since we already know it exists.
+             */
             if(categoryFunctionName.equals("createNewCategory") && categoryDao.existsByName(categoryRequestDto.getName()))
                 throw new CategoryAlreadyExistsException(String.format("The category with name %s is already exists.", categoryRequestDto.getName()));
 
@@ -114,7 +141,5 @@ public class CategoryServiceImpl implements CategoryService {
         }
         log.info("CategoryService:deleteCategory execution ended.");
     }
-
-
     }
 
