@@ -1,0 +1,1 @@
+mvn clean verify sonar:sonar -Dsonar.projectKey=my-ecommerce-spring -Dsonar.projectName='my-ecommerce-spring' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_6ad1eaf2781e095a0b03a8e56a28506583c982bb
