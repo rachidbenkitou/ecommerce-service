@@ -1,10 +1,10 @@
-package com.benkitoucoders.myecommerce.exceptions.category;
+package com.benkitoucoders.myecommerce.exceptions.subcategory;
 
 import com.benkitoucoders.myecommerce.handlers.ApiBasedException;
 import org.springframework.http.HttpStatus;
 
-public class CategoryAlreadyExistsException extends ApiBasedException {
-    public CategoryAlreadyExistsException(String message) {
+public class SubCategoryAlreadyExistsException extends ApiBasedException {
+    public SubCategoryAlreadyExistsException(String message) {
         super(message);
     }
 

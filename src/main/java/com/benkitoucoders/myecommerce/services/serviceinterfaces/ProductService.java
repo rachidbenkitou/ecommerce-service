@@ -7,7 +7,7 @@ import com.benkitoucoders.myecommerce.entities.Product;
 import java.util.List;
 
 public interface ProductService {
-    List<Product> getProducts();
+    List<ProductResponseDto> getProducts();
     ProductResponseDto getProductById(int productId);
     ProductResponseDto createNewProduct(ProductRequestDto productRequestDto);
     ProductResponseDto updateProduct(ProductRequestDto productRequestDto);

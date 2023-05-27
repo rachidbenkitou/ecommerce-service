@@ -1,4 +1,4 @@
-package com.benkitoucoders.myecommerce.handlers.shared;
+package com.benkitoucoders.myecommerce.handlers;
 
 interface ErrorDetailsFactory {
     //This Interface is created to respect dependency injection and inversion of control.

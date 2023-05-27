@@ -1,11 +1,12 @@
-package com.benkitoucoders.myecommerce.exceptions.category;
+package com.benkitoucoders.myecommerce.exceptions.subcategory;
 
 import com.benkitoucoders.myecommerce.handlers.ApiBasedException;
 import org.springframework.http.HttpStatus;
 
-public class CategoryNotFoundException extends ApiBasedException {
-    public CategoryNotFoundException(String message) {
+public class SubCategoryNotFoundException extends ApiBasedException {
+    public SubCategoryNotFoundException(String message) {
         super(message);
+
     }
 
     @Override

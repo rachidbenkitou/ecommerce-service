@@ -1,11 +1,11 @@
-package com.benkitoucoders.myecommerce.exceptions.category;
+package com.benkitoucoders.myecommerce.exceptions.product;
 
 import com.benkitoucoders.myecommerce.handlers.ApiBasedException;
 import org.springframework.http.HttpStatus;
 
-public class CategoryServiceBusinessException extends ApiBasedException {
-    public CategoryServiceBusinessException(String s) {
-        super(s);
+public class ProductNotFoundException extends ApiBasedException {
+    public ProductNotFoundException(String message) {
+        super(message);
     }
 
     @Override

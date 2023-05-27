@@ -7,9 +7,9 @@ import com.benkitoucoders.myecommerce.entities.SubCategory;
 import java.util.List;
 
 public interface SubCategoryService {
-    List<SubCategory> getSubCategories();
+    List<SubCategoryResponseDto> getSubCategories();
     SubCategoryResponseDto getSubCategoryByName(String subCategoryName);
     SubCategoryResponseDto createNewSubCategory(SubCategoryRequestDto subCategoryRequestDto);
     SubCategoryResponseDto updateSubCategory(SubCategoryRequestDto subCategoryRequestDto);
-    void deteteSubCategoryByName(String subCategoryName);
+    void deteteSubCategoryById(int subCategoryId);
 }

@@ -1,4 +1,4 @@
-package com.benkitoucoders.myecommerce.handlers.shared;
+package com.benkitoucoders.myecommerce.handlers;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

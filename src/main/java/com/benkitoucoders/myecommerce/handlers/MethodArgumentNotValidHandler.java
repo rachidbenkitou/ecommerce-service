@@ -1,4 +1,4 @@
-package com.benkitoucoders.myecommerce.handlers.category;
+package com.benkitoucoders.myecommerce.handlers;
 
 import com.benkitoucoders.myecommerce.dtos.ApiResponse;
 import com.benkitoucoders.myecommerce.dtos.ErrorDTO;
@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestControllerAdvice
-public class EntityServiceExceptionHandler {
+public class MethodArgumentNotValidHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiResponse<?> handleMethodArgumentException(MethodArgumentNotValidException exception) {
-        ApiResponse<?> serviceResponse = new ApiResponse<>();
+    public ApiResponse<Void> handleMethodArgumentException(MethodArgumentNotValidException exception) {
+        ApiResponse<Void> serviceResponse = new ApiResponse<>();
         List<ErrorDTO> errors = new ArrayList<>();
         exception.getBindingResult().getFieldErrors()
                 .forEach(error -> {

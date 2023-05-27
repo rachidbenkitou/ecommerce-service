@@ -17,6 +17,7 @@ import java.util.List;
 @Data
 @Builder
 public class ProductRequestDto implements Serializable {
+    private int id;
     @NotBlank(message = "The product name should not be null or empty")
     @Size(min = 1, max = 20, message = "The product name must be between 1 and 20 characters")
     private String name;

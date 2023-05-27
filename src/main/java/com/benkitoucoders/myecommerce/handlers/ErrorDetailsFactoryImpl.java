@@ -1,4 +1,4 @@
-package com.benkitoucoders.myecommerce.handlers.shared;
+package com.benkitoucoders.myecommerce.handlers;
 
 import org.springframework.stereotype.Service;
 
