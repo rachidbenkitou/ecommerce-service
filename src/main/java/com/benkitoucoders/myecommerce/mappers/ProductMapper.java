@@ -1,7 +1,7 @@
 package com.benkitoucoders.myecommerce.mappers;
 
-import com.benkitoucoders.myecommerce.dtos.ProductRequestDto;
-import com.benkitoucoders.myecommerce.dtos.ProductResponseDto;
+import com.benkitoucoders.myecommerce.dtos.product.ProductRequestDto;
+import com.benkitoucoders.myecommerce.dtos.product.ProductResponseDto;
 import com.benkitoucoders.myecommerce.entities.Product;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;

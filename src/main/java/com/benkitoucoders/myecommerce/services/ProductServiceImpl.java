@@ -1,12 +1,11 @@
 package com.benkitoucoders.myecommerce.services;
 
 import com.benkitoucoders.myecommerce.daos.ProductDao;
-import com.benkitoucoders.myecommerce.dtos.ProductRequestDto;
-import com.benkitoucoders.myecommerce.dtos.ProductResponseDto;
+import com.benkitoucoders.myecommerce.dtos.product.ProductRequestDto;
+import com.benkitoucoders.myecommerce.dtos.product.ProductResponseDto;
 import com.benkitoucoders.myecommerce.entities.Product;
 import com.benkitoucoders.myecommerce.exceptions.product.ProductAlreadyExistsException;
 import com.benkitoucoders.myecommerce.exceptions.product.ProductNotFoundException;
-import com.benkitoucoders.myecommerce.exceptions.product.ProductServiceBusinessException;
 import com.benkitoucoders.myecommerce.mappers.ProductMapper;
 import com.benkitoucoders.myecommerce.services.serviceinterfaces.ProductService;
 import com.benkitoucoders.myecommerce.util.ObjectFormat;
@@ -27,7 +26,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductResponseDto> getProducts() {
         List<ProductResponseDto> productResponseDtos = null;
-        try {
             log.info("ProductService:getProducts execution started.");
             List<Product> productList = productDao.findAll();
             if (!productList.isEmpty()) {
@@ -38,10 +36,7 @@ public class ProductServiceImpl implements ProductService {
                 productResponseDtos = Collections.emptyList();
             }
             log.debug("ProductService:getProducts retrieving products from database  {}", ObjectFormat.jsonAsString(productResponseDtos));
-        } catch (Exception ex) {
-            log.error("Exception occurred while retrieving products from database , Exception message {}", ex.getMessage());
-            throw new ProductServiceBusinessException("Exception occurred while fetch all products from Database");
-        }
+
         log.info("ProductService:getProducts execution ended.");
         return productResponseDtos;
     }
@@ -49,16 +44,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductResponseDto getProductById(int productId) {
         ProductResponseDto productResponseDto;
-        try {
             log.info("ProductService:getProductByName execution started.");
             Product product = productDao.findById(productId)
                     .orElseThrow(() -> new ProductNotFoundException(String.format("Product not found with id %s", productId)));
             productResponseDto = productMapper.modelToDto(product);
             log.debug("ProductService:getProductById retrieving product from database for id {} {}", productId, ObjectFormat.jsonAsString(productResponseDto));
-        } catch (Exception ex) {
-            log.error("Exception occurred while retrieving product {} from database , Exception message {}", productId, ex.getMessage());
-            throw new ProductServiceBusinessException("Exception occurred while fetching product from Database " );
-        }
         log.info("ProductService:getProductById execution ended.");
         return productResponseDto;
     }
@@ -98,7 +88,6 @@ public class ProductServiceImpl implements ProductService {
     private ProductResponseDto processProduct(ProductRequestDto productRequestDto, String productFunctionName){
         ProductResponseDto productResponseDto;
 
-        try {
             log.info(String.format("ProductService:%s execution started.", productFunctionName));
             Product product = productMapper.dtoToModule(productRequestDto);
             log.debug(String.format("ProductService:%s request parameters {}", productFunctionName), ObjectFormat.jsonAsString(productRequestDto));
@@ -112,25 +101,16 @@ public class ProductServiceImpl implements ProductService {
             Product productResults = productDao.save(product);
             productResponseDto = productMapper.modelToDto(productResults);
             log.debug(String.format("ProductService:%s received response from Database {}", productFunctionName), ObjectFormat.jsonAsString(productRequestDto));
-        } catch (Exception ex) {
-            log.error("Exception occurred while persisting Product to database , Exception message {}", ex.getMessage());
-            throw new ProductServiceBusinessException(String.format("Exception occurred while %s", productFunctionName));
-        }
         log.info(String.format("ProductService:%s execution ended.", productFunctionName));
         return productResponseDto;
     }
 
     @Override
     public void deteteProductById(int productId) {
-        try {
             log.info("ProductService:deleteProduct execution started.");
             productDao.deleteById(productId);
             log.debug("ProductService:deleteProduct product deleted from the Database");
-        } catch (Exception ex) {
-            log.error("Exception occurred while deleting product {} from the database. Exception message: {}", productId, ex.getMessage());
-            throw new ProductServiceBusinessException("Exception occurred while deleting a product");
-        }
-        log.info("ProductService:deleteProduct execution ended.");
+            log.info("ProductService:deleteProduct execution ended.");
     }
 }
 

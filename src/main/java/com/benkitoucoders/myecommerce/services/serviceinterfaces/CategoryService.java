@@ -1,10 +1,9 @@
 package com.benkitoucoders.myecommerce.services.serviceinterfaces;
 
-import com.benkitoucoders.myecommerce.dtos.CategoryRequestDto;
-import com.benkitoucoders.myecommerce.dtos.CategoryResponseDto;
+import com.benkitoucoders.myecommerce.dtos.category.CategoryRequestDto;
+import com.benkitoucoders.myecommerce.dtos.category.CategoryResponseDto;
 import com.benkitoucoders.myecommerce.exceptions.category.CategoryAlreadyExistsException;
 import com.benkitoucoders.myecommerce.exceptions.category.CategoryNotFoundException;
-import com.benkitoucoders.myecommerce.exceptions.category.CategoryServiceBusinessException;
 
 import java.util.List;
 

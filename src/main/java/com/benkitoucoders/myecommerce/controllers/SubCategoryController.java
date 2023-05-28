@@ -1,8 +1,8 @@
 package com.benkitoucoders.myecommerce.controllers;
 
 import com.benkitoucoders.myecommerce.controllers.api.SubCategoryApi;
-import com.benkitoucoders.myecommerce.dtos.SubCategoryRequestDto;
-import com.benkitoucoders.myecommerce.dtos.SubCategoryResponseDto;
+import com.benkitoucoders.myecommerce.dtos.subCategory.SubCategoryRequestDto;
+import com.benkitoucoders.myecommerce.dtos.subCategory.SubCategoryResponseDto;
 import com.benkitoucoders.myecommerce.services.serviceinterfaces.SubCategoryService;
 import com.benkitoucoders.myecommerce.util.ObjectFormat;
 import jakarta.validation.Valid;

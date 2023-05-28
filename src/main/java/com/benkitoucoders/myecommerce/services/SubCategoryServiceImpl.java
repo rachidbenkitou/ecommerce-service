@@ -1,12 +1,11 @@
 package com.benkitoucoders.myecommerce.services;
 
 import com.benkitoucoders.myecommerce.daos.SubCategoryDao;
-import com.benkitoucoders.myecommerce.dtos.SubCategoryRequestDto;
-import com.benkitoucoders.myecommerce.dtos.SubCategoryResponseDto;
+import com.benkitoucoders.myecommerce.dtos.subCategory.SubCategoryRequestDto;
+import com.benkitoucoders.myecommerce.dtos.subCategory.SubCategoryResponseDto;
 import com.benkitoucoders.myecommerce.entities.SubCategory;
 import com.benkitoucoders.myecommerce.exceptions.subcategory.SubCategoryAlreadyExistsException;
 import com.benkitoucoders.myecommerce.exceptions.subcategory.SubCategoryNotFoundException;
-import com.benkitoucoders.myecommerce.exceptions.subcategory.SubCategoryServiceBusinessException;
 import com.benkitoucoders.myecommerce.mappers.SubCategoryMapper;
 import com.benkitoucoders.myecommerce.services.serviceinterfaces.SubCategoryService;
 import com.benkitoucoders.myecommerce.util.ObjectFormat;
@@ -27,7 +26,6 @@ public class SubCategoryServiceImpl implements SubCategoryService {
     @Override
     public List<SubCategoryResponseDto> getSubCategories() {
         List<SubCategoryResponseDto> subCategoryResponseDtos = null;
-        try {
             log.info("SubCategoryService:getSuvCategories execution started.");
             List<SubCategory> subCategoryList = subCategoryDao.findAll();
             if (!subCategoryList.isEmpty()) {
@@ -38,10 +36,7 @@ public class SubCategoryServiceImpl implements SubCategoryService {
                 subCategoryResponseDtos = Collections.emptyList();
             }
             log.debug("SubCategoryService:getSubCategories retrieving subCategories from database  {}", ObjectFormat.jsonAsString(subCategoryResponseDtos));
-        } catch (Exception ex) {
-            log.error("Exception occurred while retrieving subCategories from database , Exception message {}", ex.getMessage());
-            throw new SubCategoryServiceBusinessException("Exception occurred while fetch all subCategories from Database");
-        }
+
         log.info("SubCategoryService:getSubCategories execution ended.");
         return subCategoryResponseDtos;
     }
@@ -49,16 +44,12 @@ public class SubCategoryServiceImpl implements SubCategoryService {
     @Override
     public SubCategoryResponseDto getSubCategoryByName(String subCategoryName) {
         SubCategoryResponseDto subCategoryResponseDto;
-        try {
             log.info("subCategoryService:getsubCategoryByName execution started.");
             SubCategory subCategory = subCategoryDao.findSubCategoryByName(subCategoryName)
                     .orElseThrow(() -> new SubCategoryNotFoundException(String.format("SubCategory not found with name %s", subCategoryName)));
             subCategoryResponseDto = subCategoryMapper.modelToDto(subCategory);
             log.debug("subCategoryService:getsubCategoryByName retrieving subCategory from database for id {} {}", subCategoryName, ObjectFormat.jsonAsString(subCategoryResponseDto));
-        } catch (Exception ex) {
-            log.error("Exception occurred while retrieving subCategory {} from database , Exception message {}", subCategoryName, ex.getMessage());
-            throw new SubCategoryServiceBusinessException("Exception occurred while fetching subCategory from Database " );
-        }
+
         log.info("subCategoryService:getsubCategoryByNam execution ended.");
         return subCategoryResponseDto;
 
@@ -97,9 +88,7 @@ public class SubCategoryServiceImpl implements SubCategoryService {
      the log message will indicate "updated".
      */
     private SubCategoryResponseDto processSubCategory(SubCategoryRequestDto subCategoryRequestDto, String subCategoryFunctionName){
-        SubCategoryResponseDto subCategoryResponseDto;
-
-        try {
+            SubCategoryResponseDto subCategoryResponseDto;
             log.info(String.format("SubCategoryService:%s execution started.", subCategoryFunctionName));
             SubCategory subCategory = subCategoryMapper.dtoToModule(subCategoryRequestDto);
             log.debug(String.format("SubCategoryService:%s request parameters {}", subCategoryFunctionName), ObjectFormat.jsonAsString(subCategoryRequestDto));
@@ -113,24 +102,15 @@ public class SubCategoryServiceImpl implements SubCategoryService {
             SubCategory subCategoryResults = subCategoryDao.save(subCategory);
             subCategoryResponseDto = subCategoryMapper.modelToDto(subCategoryResults);
             log.debug(String.format("SubCategoryService:%s received response from Database {}", subCategoryFunctionName), ObjectFormat.jsonAsString(subCategoryRequestDto));
-        } catch (Exception ex) {
-            log.error("Exception occurred while persisting SubCategory to database , Exception message {}", ex.getMessage());
-            throw new SubCategoryServiceBusinessException(String.format("Exception occurred while %s", subCategoryFunctionName));
-        }
         log.info(String.format("SubCategoryService:%s execution ended.", subCategoryFunctionName));
         return subCategoryResponseDto;
     }
 
     @Override
     public void deteteSubCategoryById(int subCategoryId) {
-        try {
             log.info("subCategoryService:deletesubCategory execution started.");
             subCategoryDao.deleteById(subCategoryId);
             log.debug("subCategoryService:deletesubCategory subCategory is deleted from the Database");
-        } catch (Exception ex) {
-            log.error("Exception occurred while deleting subCategory {} from the database. Exception message: {}", subCategoryId, ex.getMessage());
-            throw new SubCategoryServiceBusinessException("Exception occurred while deleting a subCategory");
-        }
-        log.info("subCategoryService:deletesubCategory execution ended.");
+            log.info("subCategoryService:deletesubCategory execution ended.");
     }
 }

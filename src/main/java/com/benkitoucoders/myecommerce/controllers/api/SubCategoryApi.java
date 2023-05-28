@@ -1,7 +1,7 @@
 package com.benkitoucoders.myecommerce.controllers.api;
 
-import com.benkitoucoders.myecommerce.dtos.SubCategoryRequestDto;
-import com.benkitoucoders.myecommerce.dtos.SubCategoryResponseDto;
+import com.benkitoucoders.myecommerce.dtos.subCategory.SubCategoryRequestDto;
+import com.benkitoucoders.myecommerce.dtos.subCategory.SubCategoryResponseDto;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

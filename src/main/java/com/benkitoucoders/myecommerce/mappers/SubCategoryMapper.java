@@ -1,7 +1,7 @@
 package com.benkitoucoders.myecommerce.mappers;
 
-import com.benkitoucoders.myecommerce.dtos.SubCategoryRequestDto;
-import com.benkitoucoders.myecommerce.dtos.SubCategoryResponseDto;
+import com.benkitoucoders.myecommerce.dtos.subCategory.SubCategoryRequestDto;
+import com.benkitoucoders.myecommerce.dtos.subCategory.SubCategoryResponseDto;
 import com.benkitoucoders.myecommerce.entities.SubCategory;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;

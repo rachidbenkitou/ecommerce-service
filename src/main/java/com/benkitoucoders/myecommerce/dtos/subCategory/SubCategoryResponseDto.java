@@ -1,17 +1,15 @@
-package com.benkitoucoders.myecommerce.dtos;
+package com.benkitoucoders.myecommerce.dtos.subCategory;
 
 import com.benkitoucoders.myecommerce.entities.Category;
 import com.benkitoucoders.myecommerce.entities.Product;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@EqualsAndHashCode
 @Builder
 public class SubCategoryResponseDto implements Serializable {
     private int id;

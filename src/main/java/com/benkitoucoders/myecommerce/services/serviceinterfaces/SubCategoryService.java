@@ -1,8 +1,7 @@
 package com.benkitoucoders.myecommerce.services.serviceinterfaces;
 
-import com.benkitoucoders.myecommerce.dtos.SubCategoryRequestDto;
-import com.benkitoucoders.myecommerce.dtos.SubCategoryResponseDto;
-import com.benkitoucoders.myecommerce.entities.SubCategory;
+import com.benkitoucoders.myecommerce.dtos.subCategory.SubCategoryRequestDto;
+import com.benkitoucoders.myecommerce.dtos.subCategory.SubCategoryResponseDto;
 
 import java.util.List;
 

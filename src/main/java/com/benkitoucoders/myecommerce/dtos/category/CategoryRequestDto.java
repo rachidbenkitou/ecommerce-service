@@ -1,18 +1,16 @@
-package com.benkitoucoders.myecommerce.dtos;
+package com.benkitoucoders.myecommerce.dtos.category;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@EqualsAndHashCode
 @Builder
 public class CategoryRequestDto implements Serializable {
     private int id;

@@ -1,10 +1,7 @@
-package com.benkitoucoders.myecommerce.dtos;
+package com.benkitoucoders.myecommerce.dtos.product;
 
 import com.benkitoucoders.myecommerce.entities.Image;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -13,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@EqualsAndHashCode
 @Builder
 public class ProductResponseDto implements Serializable {
     private int id;
