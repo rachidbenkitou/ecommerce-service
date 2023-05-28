@@ -22,7 +22,6 @@ public class SubCategoryRequestDto implements Serializable {
     @Size(min = 1, max = 20, message = "The subCategory name must be between 1 and 20 characters")
     @Column(unique = true)
     private String name;
-ddd
     //@NotNull(message = "The category is required")
     private Category category;
 }
