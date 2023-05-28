@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/subcategories")
+@RequestMapping("/subCategories")
 public interface SubCategoryApi {
     @GetMapping
     ResponseEntity<List<SubCategoryResponseDto>> getSubCategories();
-    @GetMapping
+    @GetMapping("{subCategoryName}")
     ResponseEntity<SubCategoryResponseDto> getCategoryByName(@PathVariable String subCategoryName);
     @PostMapping
     ResponseEntity<SubCategoryResponseDto> addSubCategory(@RequestBody @Valid SubCategoryRequestDto subCategoryRequestDto);
     @PutMapping
     ResponseEntity<SubCategoryResponseDto> updateSubCategory(@RequestBody @Valid SubCategoryRequestDto subCategoryRequestDto);
-    @DeleteMapping
+    @DeleteMapping("{subCategoryId}")
     ResponseEntity<Void> deleteSubCategory(@PathVariable int subCategoryId);
 }

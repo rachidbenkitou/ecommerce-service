@@ -24,7 +24,7 @@ public class ProdcutController implements ProductApi {
     @Override
     public ResponseEntity<List<ProductResponseDto>> getProducts(){
         List<ProductResponseDto> categories = productService.getProducts();
-        log.info("ProductController::getCategories response {}", ObjectFormat.jsonAsString(categories));
+        log.info("ProductController::getProducts response {}", ObjectFormat.jsonAsString(categories));
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 

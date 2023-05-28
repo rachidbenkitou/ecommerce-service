@@ -2,6 +2,7 @@ package com.benkitoucoders.myecommerce.handlers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 // This class returns the status of the error (like not_found and bad_request) also errorDetails as we defined
 // in the ErrorDetails Class (Message, Url, Time and Date)
 @ControllerAdvice
+@Component("sharedApiExceptionHandller")
 public class ApiExceptionHandller extends ResponseEntityExceptionHandler {
     @Autowired
     private   ErrorDetailsFactory errorDetailsFactory;

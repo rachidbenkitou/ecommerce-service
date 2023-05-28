@@ -15,8 +15,8 @@ import java.util.List;
 public class MethodArgumentNotValidHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiResponse<Void> handleMethodArgumentException(MethodArgumentNotValidException exception) {
-        ApiResponse<Void> serviceResponse = new ApiResponse<>();
+    public ApiResponse<?> handleMethodArgumentException(MethodArgumentNotValidException exception) {
+        ApiResponse<?> serviceResponse = new ApiResponse<>();
         List<ErrorDTO> errors = new ArrayList<>();
         exception.getBindingResult().getFieldErrors()
                 .forEach(error -> {

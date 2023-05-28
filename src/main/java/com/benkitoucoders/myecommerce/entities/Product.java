@@ -27,6 +27,6 @@ public class Product implements Serializable {
     private Date dateUpdated;
     @ManyToOne
     private SubCategory subCategory;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE)
     private List<Image> images;
 }

@@ -26,14 +26,14 @@ public class ProductRequestDto implements Serializable {
     @Size(max = 100, message = "The description must not exceed 100 characters")
     private String description;
 
-    @Positive(message = "The price must be a positive value")
-    @NotBlank(message = "The price is required")
+    //@Positive(message = "The price must be a positive value")
+    //@NotBlank(message = "The price is required")
     private double price;
 
-    @Positive(message = "The quantity must be a positive value")
-    @NotBlank(message = "The quantity is required")
+    //@Positive(message = "The quantity must be a positive value")
+    //@NotBlank(message = "The quantity is required")
     private int quantity;
 
-    @NotBlank(message = "Images are required")
+    //@NotBlank(message = "Images are required")
     private List<Image> images;
 }
