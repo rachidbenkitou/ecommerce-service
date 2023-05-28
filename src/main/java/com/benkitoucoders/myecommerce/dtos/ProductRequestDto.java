@@ -33,7 +33,6 @@ public class ProductRequestDto implements Serializable {
     //@Positive(message = "The quantity must be a positive value")
     //@NotBlank(message = "The quantity is required")
     private int quantity;
-
     //@NotBlank(message = "Images are required")
     private List<Image> images;
 }
