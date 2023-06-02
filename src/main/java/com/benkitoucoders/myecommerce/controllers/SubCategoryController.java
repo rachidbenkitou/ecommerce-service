@@ -21,26 +21,30 @@ import java.util.List;
 @Slf4j
 public class SubCategoryController implements SubCategoryApi {
     private final SubCategoryService subCategoryService;
+
     @Override
-    public ResponseEntity<List<SubCategoryResponseDto>> getSubCategories(){
+    public ResponseEntity<List<SubCategoryResponseDto>> getSubCategories() {
         List<SubCategoryResponseDto> subCategories = subCategoryService.getSubCategories();
         log.info("SubCategoryController::getSubCategories response {}", ObjectFormat.jsonAsString(subCategories));
         return new ResponseEntity<>(subCategories, HttpStatus.OK);
     }
+
     @Override
-    public ResponseEntity<SubCategoryResponseDto> getCategoryByName(@PathVariable String subCategoryName){
+    public ResponseEntity<SubCategoryResponseDto> getCategoryByName(@PathVariable String subCategoryName) {
         SubCategoryResponseDto subCategoryResponseDto = subCategoryService.getSubCategoryByName(subCategoryName);
         log.info("SubCategoryController::getSubCategory response {}", ObjectFormat.jsonAsString(subCategoryResponseDto));
         return new ResponseEntity<>(subCategoryResponseDto, HttpStatus.OK);
     }
+
     @Override
-    public ResponseEntity<SubCategoryResponseDto> addSubCategory(@RequestBody @Valid SubCategoryRequestDto subCategoryRequestDto){
-        SubCategoryResponseDto  subCategoryResponseDto = subCategoryService.createNewSubCategory(subCategoryRequestDto);
+    public ResponseEntity<SubCategoryResponseDto> addSubCategory(@RequestBody @Valid SubCategoryRequestDto subCategoryRequestDto) {
+        SubCategoryResponseDto subCategoryResponseDto = subCategoryService.createNewSubCategory(subCategoryRequestDto);
         return processSubCategory(subCategoryResponseDto, "addSubCategory", HttpStatus.CREATED);
     }
+
     @Override
-    public ResponseEntity<SubCategoryResponseDto> updateSubCategory(@RequestBody @Valid SubCategoryRequestDto subCategoryRequestDto){
-        SubCategoryResponseDto  subCategoryResponseDto = subCategoryService.updateSubCategory(subCategoryRequestDto);
+    public ResponseEntity<SubCategoryResponseDto> updateSubCategory(@RequestBody @Valid SubCategoryRequestDto subCategoryRequestDto) {
+        SubCategoryResponseDto subCategoryResponseDto = subCategoryService.updateSubCategory(subCategoryRequestDto);
         return processSubCategory(subCategoryResponseDto, "updateCategory", HttpStatus.OK);
     }
 
@@ -52,18 +56,18 @@ public class SubCategoryController implements SubCategoryApi {
      *
      * @param subCategoryResponseDto  The response DTO containing the SubCategory data.
      * @param subCategoryFunctionName The name of the SubCategory function being processed.
-     * @param httpStatus           The HTTP status to be returned in the ResponseEntity.
+     * @param httpStatus              The HTTP status to be returned in the ResponseEntity.
      * @return A ResponseEntity containing the SubCategory response DTO and the specified HTTP status.
      */
-    private ResponseEntity<SubCategoryResponseDto> processSubCategory(SubCategoryResponseDto subCategoryResponseDto, String subCategoryFunctionName, HttpStatus httpStatus){
+    private ResponseEntity<SubCategoryResponseDto> processSubCategory(SubCategoryResponseDto subCategoryResponseDto, String subCategoryFunctionName, HttpStatus httpStatus) {
         log.info(String.format("SubCategoryController::%s response {}", subCategoryFunctionName), ObjectFormat.jsonAsString(subCategoryResponseDto));
         return new ResponseEntity<>(subCategoryResponseDto, httpStatus);
     }
 
     @Override
-    public ResponseEntity<Void> deleteSubCategory(@PathVariable int subCategoryId) {
-        subCategoryService.deteteSubCategoryById(subCategoryId);
-        log.info(String.format("SubCategoryController::SubCategoryController subCategory %s deleted", subCategoryId));
+    public ResponseEntity<Void> deleteSubCategory(@PathVariable String subCategoryName) {
+        subCategoryService.deteteSubCategoryByName(subCategoryName);
+        log.info(String.format("SubCategoryController::SubCategoryController subCategory %s deleted", subCategoryName));
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

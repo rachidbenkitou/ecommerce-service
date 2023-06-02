@@ -59,11 +59,12 @@ public interface CategoryApi {
     })
     @PutMapping
     ResponseEntity<CategoryResponseDto> updateCategory(@RequestBody @Valid CategoryRequestDto categoryRequestDto);
-    @Operation(summary = "Delete a category by ID", description = "Deletes a category with the specified ID.")
+
+    @Operation(summary = "Delete a category by Name", description = "Deletes a category with the specified Name.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Category deleted"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @DeleteMapping("{categoryId}")
-    ResponseEntity<Void> deleteCategory(@PathVariable int categoryId);
+    @DeleteMapping("{categoryName}")
+    ResponseEntity<Void> deleteCategoryByName(@PathVariable String categoryName);
 }

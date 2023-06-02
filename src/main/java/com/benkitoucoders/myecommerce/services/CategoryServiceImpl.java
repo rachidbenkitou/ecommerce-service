@@ -24,19 +24,20 @@ import java.util.List;
 public class CategoryServiceImpl implements CategoryService {
     private final CategoryDao categoryDao;
     private final CategoryMapper categoryMapper;
+
     @Override
     public List<CategoryResponseDto> getCategories() {
         List<CategoryResponseDto> categoryResponseDtos = null;
-            log.info("CategoryService:getCategories execution started.");
-            List<Category> categoryList = categoryDao.findAll();
-            if (!categoryList.isEmpty()) {
-                categoryResponseDtos = categoryList.stream()
-                        .map(categoryMapper::modelToDto)
-                        .toList();
-            } else {
-                categoryResponseDtos = Collections.emptyList();
-            }
-            log.debug("CategoryService:getCategories retrieving categories from database  {}", ObjectFormat.jsonAsString(categoryResponseDtos));
+        log.info("CategoryService:getCategories execution started.");
+        List<Category> categoryList = categoryDao.findAll();
+        if (!categoryList.isEmpty()) {
+            categoryResponseDtos = categoryList.stream()
+                    .map(categoryMapper::modelToDto)
+                    .toList();
+        } else {
+            categoryResponseDtos = Collections.emptyList();
+        }
+        log.debug("CategoryService:getCategories retrieving categories from database  {}", ObjectFormat.jsonAsString(categoryResponseDtos));
         log.info("CategoryService:getCategories execution ended.");
         return categoryResponseDtos;
     }
@@ -44,12 +45,12 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryResponseDto getCategoryByName(String categoryName) {
-       CategoryResponseDto categoryResponseDto;
-            log.info("CategoryService:getCategoryByName execution started.");
-            Category category = categoryDao.findCategoryByName(categoryName)
-                    .orElseThrow(() -> new CategoryNotFoundException(String.format("Category not found with name %s", categoryName)));
-            categoryResponseDto = categoryMapper.modelToDto(category);
-            log.debug("CategoryService:getCategoryByName retrieving category from database for id {} {}", categoryName, ObjectFormat.jsonAsString(categoryResponseDto));
+        CategoryResponseDto categoryResponseDto;
+        log.info("CategoryService:getCategoryByName execution started.");
+        Category category = categoryDao.findCategoryByName(categoryName)
+                .orElseThrow(() -> new CategoryNotFoundException(String.format("Category not found with name %s", categoryName)));
+        categoryResponseDto = categoryMapper.modelToDto(category);
+        log.debug("CategoryService:getCategoryByName retrieving category from database for id {} {}", categoryName, ObjectFormat.jsonAsString(categoryResponseDto));
         log.info("CategoryService:getCategoryByNam execution ended.");
         return categoryResponseDto;
     }
@@ -67,16 +68,14 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
 
-
     /**
      * Processes the category based on the provided category request data and the category function name.
      *
-     * @param categoryRequestDto    The CategoryRequestDto object containing the category data.
-     * @param categoryFunctionName  The name of the category function being executed ("createNewCategory" or "updateCategory").
-     *                              This parameter is used to differentiate between creating and updating categories.
+     * @param categoryRequestDto   The CategoryRequestDto object containing the category data.
+     * @param categoryFunctionName The name of the category function being executed ("createNewCategory" or "updateCategory").
+     *                             This parameter is used to differentiate between creating and updating categories.
      * @return The CategoryResponseDto object representing the processed category.
      * @throws CategoryAlreadyExistsException   If the category with the same name already exists (applicable for createNewCategory() only).
-     * @throws CategoryServiceBusinessException If an exception occurs while processing the category.
      */
     /*
     To avoid code duplication and handle logs appropriately, a shared function called processCategory()
@@ -89,35 +88,41 @@ public class CategoryServiceImpl implements CategoryService {
      being executed. When creating a category, the log message will indicate "created", and when updating a category,
      the log message will indicate "updated".
      */
-    private CategoryResponseDto processCategory(CategoryRequestDto categoryRequestDto, String categoryFunctionName){
-            CategoryResponseDto categoryResponseDto;
+    private CategoryResponseDto processCategory(CategoryRequestDto categoryRequestDto, String categoryFunctionName) {
+        CategoryResponseDto categoryResponseDto;
 
-            log.info(String.format("CategoryService:%s execution started.", categoryFunctionName));
-            Category category = categoryMapper.dtoToModule(categoryRequestDto);
-            log.debug(String.format("CategoryService:%s request parameters {}", categoryFunctionName), ObjectFormat.jsonAsString(categoryRequestDto));
+        log.info(String.format("CategoryService:%s execution started.", categoryFunctionName));
+        Category category = categoryMapper.dtoToModule(categoryRequestDto);
+        log.debug(String.format("CategoryService:%s request parameters {}", categoryFunctionName), ObjectFormat.jsonAsString(categoryRequestDto));
 
             /*
             To ensure the category's existence, we perform a verification step when creating a category.
             This verification is not necessary when updating a category since we already know it exists.
              */
-            if(categoryFunctionName.equals("createNewCategory") && categoryDao.existsByName(categoryRequestDto.getName()))
-                throw new CategoryAlreadyExistsException(String.format("The category with name %s is already exists.", categoryRequestDto.getName()));
-            Category categoryResults = categoryDao.save(category);
-            categoryResponseDto = categoryMapper.modelToDto(categoryResults);
-            log.debug(String.format("CategoryService:%s received response from Database {}", categoryFunctionName), ObjectFormat.jsonAsString(categoryRequestDto));
+        if (categoryFunctionName.equals("createNewCategory") && categoryDao.existsByName(categoryRequestDto.getName()))
+            throw new CategoryAlreadyExistsException(String.format("The category with name %s is already exists.", categoryRequestDto.getName()));
+        Category categoryResults = categoryDao.save(category);
+        categoryResponseDto = categoryMapper.modelToDto(categoryResults);
+        log.debug(String.format("CategoryService:%s received response from Database {}", categoryFunctionName), ObjectFormat.jsonAsString(categoryRequestDto));
 
-            log.info(String.format("CategoryService:%s execution ended.", categoryFunctionName));
-            return categoryResponseDto;
+        log.info(String.format("CategoryService:%s execution ended.", categoryFunctionName));
+        return categoryResponseDto;
     }
-
-
     @Override
     public void deteteCategoryById(int categoryId) {
-            log.info("CategoryService:deleteCategory execution started.");
-            categoryDao.deleteById(categoryId);
-            log.debug("CategoryService:deleteCategory category is deleted from the Database");
+        log.info("CategoryService:deleteCategory execution started.");
+        categoryDao.deleteById(categoryId);
+        log.debug("CategoryService:deleteCategory category is deleted from the Database");
 
-            log.info("CategoryService:deleteCategory execution ended.");
+        log.info("CategoryService:deleteCategory execution ended.");
+    }
+    @Override
+    public void deteteCategoryByName(String categoryName) {
+        log.info("CategoryService:deleteCategory execution started.");
+        categoryDao.deleteByName(categoryName);
+        log.debug("CategoryService:deleteCategory category is deleted from the Database");
+
+        log.info("CategoryService:deleteCategory execution ended.");
     }
 }
 

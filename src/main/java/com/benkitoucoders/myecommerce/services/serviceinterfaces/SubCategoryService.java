@@ -7,8 +7,12 @@ import java.util.List;
 
 public interface SubCategoryService {
     List<SubCategoryResponseDto> getSubCategories();
+
     SubCategoryResponseDto getSubCategoryByName(String subCategoryName);
+
     SubCategoryResponseDto createNewSubCategory(SubCategoryRequestDto subCategoryRequestDto);
+
     SubCategoryResponseDto updateSubCategory(SubCategoryRequestDto subCategoryRequestDto);
-    void deteteSubCategoryById(int subCategoryId);
+
+    void deteteSubCategoryByName(String subCategoryName);
 }

@@ -1,6 +1,7 @@
 package com.benkitoucoders.myecommerce.controllers;
 
 import com.benkitoucoders.myecommerce.controllers.api.CategoryApi;
+import com.benkitoucoders.myecommerce.daos.CategoryDao;
 import com.benkitoucoders.myecommerce.dtos.category.CategoryRequestDto;
 import com.benkitoucoders.myecommerce.dtos.category.CategoryResponseDto;
 import com.benkitoucoders.myecommerce.services.serviceinterfaces.CategoryService;
@@ -21,26 +22,31 @@ import java.util.List;
 @Slf4j
 public class CategoryController implements CategoryApi {
     private final CategoryService categoryService;
+    private final CategoryDao categoryDao;
+
     @Override
-    public ResponseEntity<List<CategoryResponseDto>> getCategories(){
+    public ResponseEntity<List<CategoryResponseDto>> getCategories() {
         List<CategoryResponseDto> categories = categoryService.getCategories();
         log.info("CategoryController::getCategories response {}", ObjectFormat.jsonAsString(categories));
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
+
     @Override
-    public ResponseEntity<CategoryResponseDto> getCategoryByName(@PathVariable String categoryName){
+    public ResponseEntity<CategoryResponseDto> getCategoryByName(@PathVariable String categoryName) {
         CategoryResponseDto categoryResponseDto = categoryService.getCategoryByName(categoryName);
         log.info("CategoryController::getCategory response {}", ObjectFormat.jsonAsString(categoryResponseDto));
         return new ResponseEntity<>(categoryResponseDto, HttpStatus.OK);
     }
+
     @Override
-    public ResponseEntity<CategoryResponseDto> addCategory(@RequestBody @Valid CategoryRequestDto categoryRequestDto){
-        CategoryResponseDto  categoryResponseDto = categoryService.createNewCategory(categoryRequestDto);
+    public ResponseEntity<CategoryResponseDto> addCategory(@RequestBody @Valid CategoryRequestDto categoryRequestDto) {
+        CategoryResponseDto categoryResponseDto = categoryService.createNewCategory(categoryRequestDto);
         return processCategory(categoryResponseDto, "addCategory", HttpStatus.CREATED);
     }
+
     @Override
-    public ResponseEntity<CategoryResponseDto> updateCategory(@RequestBody @Valid CategoryRequestDto categoryRequestDto){
-        CategoryResponseDto  categoryResponseDto = categoryService.updateCategory(categoryRequestDto);
+    public ResponseEntity<CategoryResponseDto> updateCategory(@RequestBody @Valid CategoryRequestDto categoryRequestDto) {
+        CategoryResponseDto categoryResponseDto = categoryService.updateCategory(categoryRequestDto);
         return processCategory(categoryResponseDto, "updateCategory", HttpStatus.OK);
     }
 
@@ -55,14 +61,17 @@ public class CategoryController implements CategoryApi {
      * @param httpStatus           The HTTP status to be returned in the ResponseEntity.
      * @return A ResponseEntity containing the category response DTO and the specified HTTP status.
      */
-    private ResponseEntity<CategoryResponseDto> processCategory(CategoryResponseDto categoryResponseDto, String categoryFunctionName, HttpStatus httpStatus){
+    private ResponseEntity<CategoryResponseDto> processCategory(CategoryResponseDto categoryResponseDto, String categoryFunctionName, HttpStatus httpStatus) {
         log.info(String.format("CategoryController::%s response {}", categoryFunctionName), ObjectFormat.jsonAsString(categoryResponseDto));
         return new ResponseEntity<>(categoryResponseDto, httpStatus);
     }
+
     @Override
-    public ResponseEntity<Void> deleteCategory(@PathVariable int categoryId) {
-        categoryService.deteteCategoryById(categoryId);
-        log.info(String.format("CategoryController::CategoryController category %s deleted", categoryId));
+    public ResponseEntity<Void> deleteCategoryByName(@PathVariable String categoryName) {
+        categoryService.deteteCategoryByName(categoryName);
+        log.info(String.format("CategoryController::CategoryController category %s deleted", categoryName));
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 }

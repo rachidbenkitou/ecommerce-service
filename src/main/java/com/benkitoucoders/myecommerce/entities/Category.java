@@ -17,6 +17,7 @@ public class Category implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
-    @OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE)
+    //, cascade = CascadeType.REMOVE
+    @OneToMany(mappedBy = "category")
     private List<SubCategory> subCategories;
 }
