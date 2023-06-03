@@ -4,61 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38b35a7b-e0e7-4958-8898-9ef8b52a7b9b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sonarQubeToken.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/MyEcommerceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/controllers/CategoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/controllers/ProdcutController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/controllers/SubCategoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/controllers/api/CategoryApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/controllers/api/ProductApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/controllers/api/SubCategoryApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/daos/CategoryDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/daos/ProductDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/daos/SubCategoryDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/dtos/category/CategoryRequestDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/dtos/category/CategoryResponseDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/dtos/product/ProductRequestDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/dtos/product/ProductResponseDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/dtos/subCategory/SubCategoryRequestDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/dtos/subCategory/SubCategoryResponseDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/entities/Category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/entities/Image.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/entities/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/entities/SubCategory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/exceptions/category/CategoryAlreadyExistsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/exceptions/category/CategoryNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/exceptions/product/ProductAlreadyExistsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/exceptions/product/ProductNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/exceptions/subcategory/SubCategoryAlreadyExistsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/exceptions/subcategory/SubCategoryNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/handlers/ApiBasedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/handlers/ApplicationExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/handlers/ErrorDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/mappers/CategoryMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/mappers/ProductMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/mappers/SubCategoryMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/services/CategoryServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/services/ProductServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/services/SubCategoryServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/services/serviceinterfaces/CategoryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/services/serviceinterfaces/ProductService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/services/serviceinterfaces/SubCategoryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/myecommerce/util/ObjectFormat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/benkitoucoders/myecommerce/MyEcommerceApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="38b35a7b-e0e7-4958-8898-9ef8b52a7b9b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +48,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Rachid Benkitou/Desktop/MyFirst/3-My Personal Projects/2-My-Ecommerce-Application/My-Ecommerce-Application-Spring-Boot/order-service",
+    "last_opened_file_path": "C:/Users/Rachid Benkitou/Desktop/MyFirst/3-My Personal Projects/2-My-Ecommerce-Application/My-Ecommerce-Application-Spring-Boot/product-service",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -179,6 +125,7 @@
       <workItem from="1685725680698" duration="2018000" />
       <workItem from="1685794652945" duration="365000" />
       <workItem from="1685810831168" duration="1279000" />
+      <workItem from="1685818399014" duration="82000" />
     </task>
     <servers />
   </component>

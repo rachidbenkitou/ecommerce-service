@@ -5,10 +5,12 @@ import com.benkitoucoders.myecommerce.dtos.category.CategoryResponseDto;
 import com.benkitoucoders.myecommerce.entities.Category;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Mapper(componentModel = "spring", builder = @Builder(disableBuilder = true))
+@Service
 public interface CategoryMapper {
     CategoryResponseDto modelToDto(Category category);
     List<CategoryResponseDto> modelToDtos(List<Category> categories);
