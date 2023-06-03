@@ -1,6 +1,5 @@
 package com.benkitoucoders.myecommerce.daos;
 
-import com.benkitoucoders.myecommerce.entities.Category;
 import com.benkitoucoders.myecommerce.entities.SubCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
