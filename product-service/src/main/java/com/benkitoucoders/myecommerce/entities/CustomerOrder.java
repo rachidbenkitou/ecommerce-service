@@ -1,7 +1,6 @@
 package com.benkitoucoders.myecommerce.entities;
 
 import com.benkitoucoders.myecommerce.entities.superentities.Order;
-import com.benkitoucoders.myecommerce.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
