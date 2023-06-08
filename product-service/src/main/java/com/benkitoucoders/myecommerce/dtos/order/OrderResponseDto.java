@@ -10,7 +10,6 @@ import java.util.Date;
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode
-@Builder
 public class OrderResponseDto implements Serializable {
     private Long id;
     private Date date;

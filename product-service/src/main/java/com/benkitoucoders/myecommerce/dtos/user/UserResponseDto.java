@@ -7,7 +7,6 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @EqualsAndHashCode
 public class UserResponseDto implements Serializable {
     private Long id;
