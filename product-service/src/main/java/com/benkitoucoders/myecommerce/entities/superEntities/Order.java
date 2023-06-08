@@ -1,6 +1,11 @@
-package com.benkitoucoders.myecommerce.entities.superEntities;
+package com.benkitoucoders.myecommerce.entities.superentities;
 
+import com.benkitoucoders.myecommerce.enums.OrderStatus;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
+
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -8,5 +13,7 @@ import lombok.*;
 @Builder
 @EqualsAndHashCode
 public class Order {
-    private double totalPrice;
+    private Date date;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
 }

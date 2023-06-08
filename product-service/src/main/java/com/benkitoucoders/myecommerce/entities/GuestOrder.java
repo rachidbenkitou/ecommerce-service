@@ -1,13 +1,12 @@
 package com.benkitoucoders.myecommerce.entities;
 
-import com.benkitoucoders.myecommerce.entities.superEntities.Order;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.benkitoucoders.myecommerce.entities.superentities.Order;
+import com.benkitoucoders.myecommerce.enums.OrderStatus;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -19,5 +18,12 @@ public class GuestOrder extends Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @OneToOne
+    @Column(unique = true)
+    private Address address;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+    private Date date;
+
 
 }

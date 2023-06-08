@@ -1,4 +1,4 @@
-package com.benkitoucoders.myecommerce.entities.superEntities;
+package com.benkitoucoders.myecommerce.entities.superentities;
 
 import lombok.*;
 
@@ -12,5 +12,5 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = false)
 public class ProductOrder extends Order implements Serializable {
     private int quantity;
-    private Date orderDate;
+    private double totalPrice;
 }

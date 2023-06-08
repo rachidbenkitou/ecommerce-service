@@ -1,13 +1,11 @@
 package com.benkitoucoders.myecommerce.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -23,4 +21,9 @@ public class Customer implements Serializable {
     private String secondName;
     private String phone;
     private Date birthDayDate;
+    @OneToOne
+    @Column(unique = true)
+    private Address address;
+    @OneToMany(mappedBy = "customer")
+    private List<CustomerOrder> customerOrders;
 }

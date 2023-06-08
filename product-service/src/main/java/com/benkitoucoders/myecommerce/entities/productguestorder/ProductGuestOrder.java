@@ -1,16 +1,19 @@
-package com.benkitoucoders.myecommerce.entities;
+package com.benkitoucoders.myecommerce.entities.productguestorder;
 
-import com.benkitoucoders.myecommerce.entities.superEntities.ProductOrder;
+import com.benkitoucoders.myecommerce.entities.superentities.ProductOrder;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+//@Builder
 @EqualsAndHashCode(callSuper = false)
 @Entity
 public class ProductGuestOrder extends ProductOrder implements Serializable {
