@@ -1,6 +1,6 @@
 package com.benkitoucoders.myecommerce.daos;
 
-import com.benkitoucoders.myecommerce.entities.GuestOrder;
+import com.benkitoucoders.myecommerce.entities.order.GuestOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,29 +1,22 @@
 package com.benkitoucoders.myecommerce.entities;
 
-import jakarta.persistence.*;
+import com.benkitoucoders.myecommerce.entities.order.CustomerOrder;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
+@DiscriminatorValue("customer")
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class Customer implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String firstName;
-    private String secondName;
-    private String phone;
-    private Date birthDayDate;
-    @OneToOne
-    @Column(unique = true)
-    private Address address;
-    @OneToMany(mappedBy = "customer")
+public class Customer extends User implements Serializable {
+    @OneToMany
     private List<CustomerOrder> customerOrders;
 }
