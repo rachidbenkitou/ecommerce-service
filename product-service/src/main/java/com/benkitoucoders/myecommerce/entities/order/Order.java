@@ -3,10 +3,13 @@ package com.benkitoucoders.myecommerce.entities.order;
 import com.benkitoucoders.myecommerce.entities.Address;
 import com.benkitoucoders.myecommerce.enums.OrderStatus;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -21,7 +24,8 @@ public abstract class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Date date;
+    @CreatedDate
+    private LocalDateTime date;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;

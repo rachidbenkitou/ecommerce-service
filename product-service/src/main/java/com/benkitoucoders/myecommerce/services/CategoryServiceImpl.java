@@ -75,7 +75,7 @@ public class CategoryServiceImpl implements CategoryService {
      * @param categoryFunctionName The name of the category function being executed ("createNewCategory" or "updateCategory").
      *                             This parameter is used to differentiate between creating and updating categories.
      * @return The CategoryResponseDto object representing the processed category.
-     * @throws CategoryAlreadyExistsException   If the category with the same name already exists (applicable for createNewCategory() only).
+     * @throws CategoryAlreadyExistsException If the category with the same name already exists (applicable for createNewCategory() only).
      */
     /*
     To avoid code duplication and handle logs appropriately, a shared function called processCategory()
@@ -108,6 +108,7 @@ public class CategoryServiceImpl implements CategoryService {
         log.info(String.format("CategoryService:%s execution ended.", categoryFunctionName));
         return categoryResponseDto;
     }
+
     @Override
     public void deteteCategoryById(int categoryId) {
         log.info("CategoryService:deleteCategory execution started.");
@@ -116,6 +117,7 @@ public class CategoryServiceImpl implements CategoryService {
 
         log.info("CategoryService:deleteCategory execution ended.");
     }
+
     @Override
     public void deteteCategoryByName(String categoryName) {
         log.info("CategoryService:deleteCategory execution started.");
