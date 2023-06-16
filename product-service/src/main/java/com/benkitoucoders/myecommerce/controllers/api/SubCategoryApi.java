@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequestMapping("/subCategories")
+@CrossOrigin("*")
 public interface SubCategoryApi {
     @GetMapping
     ResponseEntity<List<SubCategoryResponseDto>> getSubCategories();

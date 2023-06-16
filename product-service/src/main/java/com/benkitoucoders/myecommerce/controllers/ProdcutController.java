@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -21,28 +22,58 @@ import java.util.List;
 @Slf4j
 public class ProdcutController implements ProductApi {
     private final ProductService productService;
-    @Override
-    public ResponseEntity<List<ProductResponseDto>> getProducts(){
-        List<ProductResponseDto> categories = productService.getProducts();
-        log.info("ProductController::getProducts response {}", ObjectFormat.jsonAsString(categories));
-        return new ResponseEntity<>(categories, HttpStatus.OK);
+
+    private ResponseEntity<List<ProductResponseDto>> getProductsBySpecificGivenParameter(List<ProductResponseDto> products) {
+        log.info("ProductController::getProducts response {}", ObjectFormat.jsonAsString(products));
+        return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<ProductResponseDto> getProductByName(@PathVariable int productId){
+    public ResponseEntity<List<ProductResponseDto>> getProducts() {
+        List<ProductResponseDto> products = productService.getProducts();
+        return getProductsBySpecificGivenParameter(products);
+    }
+
+    @Override
+    public ResponseEntity<List<ProductResponseDto>> getProductsByName(@PathVariable("productName") String productName) {
+        List<ProductResponseDto> products = productService.getProductsByName(productName);
+        return getProductsBySpecificGivenParameter(products);
+    }
+
+    @Override
+    public ResponseEntity<List<ProductResponseDto>> getProductsBySubCategoryName(String subCategoryName) {
+        List<ProductResponseDto> products = productService.getProductsBySubCategoryName(subCategoryName);
+        return getProductsBySpecificGivenParameter(products);
+    }
+
+    @Override
+    public ResponseEntity<List<ProductResponseDto>> getProductsByCategoryName(String categoryName) {
+        List<ProductResponseDto> products = productService.getProductsByCategoryName(categoryName);
+        return getProductsBySpecificGivenParameter(products);
+    }
+
+    @Override
+    public ResponseEntity<List<ProductResponseDto>> getProductsByCreatedDate(Date createdDate) {
+        List<ProductResponseDto> products = productService.getProductsByCreatedDate(createdDate);
+        return getProductsBySpecificGivenParameter(products);
+    }
+
+    @Override
+    public ResponseEntity<ProductResponseDto> getProductByName(@PathVariable int productId) {
         ProductResponseDto productResponseDto = productService.getProductById(productId);
         log.info("ProductController::getProduct response {}", ObjectFormat.jsonAsString(productResponseDto));
         return new ResponseEntity<>(productResponseDto, HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<ProductResponseDto> addProduct(@RequestBody @Valid ProductRequestDto productRequestDto){
-        ProductResponseDto  productResponseDto = productService.createNewProduct(productRequestDto);
+    public ResponseEntity<ProductResponseDto> addProduct(@RequestBody @Valid ProductRequestDto productRequestDto) {
+        ProductResponseDto productResponseDto = productService.createNewProduct(productRequestDto);
         return processProduct(productResponseDto, "addProduct", HttpStatus.CREATED);
     }
+
     @Override
-    public ResponseEntity<ProductResponseDto> updateProduct(@RequestBody @Valid ProductRequestDto productRequestDto){
-        ProductResponseDto  productResponseDto = productService.updateProduct(productRequestDto);
+    public ResponseEntity<ProductResponseDto> updateProduct(@RequestBody @Valid ProductRequestDto productRequestDto) {
+        ProductResponseDto productResponseDto = productService.updateProduct(productRequestDto);
         return processProduct(productResponseDto, "updateProduct", HttpStatus.OK);
     }
 
@@ -54,10 +85,10 @@ public class ProdcutController implements ProductApi {
      *
      * @param productResponseDto  The response DTO containing the Product data.
      * @param productFunctionName The name of the Product function being processed.
-     * @param httpStatus           The HTTP status to be returned in the ResponseEntity.
+     * @param httpStatus          The HTTP status to be returned in the ResponseEntity.
      * @return A ResponseEntity containing the Product response DTO and the specified HTTP status.
      */
-    private ResponseEntity<ProductResponseDto> processProduct(ProductResponseDto productResponseDto, String productFunctionName, HttpStatus httpStatus){
+    private ResponseEntity<ProductResponseDto> processProduct(ProductResponseDto productResponseDto, String productFunctionName, HttpStatus httpStatus) {
         log.info(String.format("ProductController::%s response {}", productFunctionName), ObjectFormat.jsonAsString(productResponseDto));
         return new ResponseEntity<>(productResponseDto, httpStatus);
     }

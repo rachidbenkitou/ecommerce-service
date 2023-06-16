@@ -22,4 +22,5 @@ public class SubCategoryRequestDto implements Serializable {
     private String name;
     @NotNull(message = "The category is required")
     private Category category;
+
 }

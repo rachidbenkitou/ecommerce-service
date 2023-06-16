@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 @Service
 @Profile(value = {"local", "dev", "prod"})
@@ -23,24 +24,52 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     private final ProductDao productDao;
     private final ProductMapper productMapper;
+    private  static final String GET_PRODUCTS_EXECUTION_START_LOG_MESSAGE="ProductService:getProducts execution started.";
     @Override
     public List<ProductResponseDto> getProducts() {
-        List<ProductResponseDto> productResponseDtos = null;
-            log.info("ProductService:getProducts execution started.");
+            log.info(GET_PRODUCTS_EXECUTION_START_LOG_MESSAGE);
             List<Product> productList = productDao.findAll();
-            if (!productList.isEmpty()) {
-                productResponseDtos = productList.stream()
-                        .map(productMapper::modelToDto)
-                        .toList();
-            } else {
-                productResponseDtos = Collections.emptyList();
-            }
-            log.debug("ProductService:getProducts retrieving products from database  {}", ObjectFormat.jsonAsString(productResponseDtos));
+            return findProductsWithSpecificParameter(productList);
+    }
+    @Override
+    public List<ProductResponseDto> getProductsBySubCategoryName(String subCategoryName) {
+        log.info(GET_PRODUCTS_EXECUTION_START_LOG_MESSAGE);
+        List<Product> productList = productDao.findProductsBySubCategoryName(subCategoryName);
+        return findProductsWithSpecificParameter(productList);
+    }
+    @Override
+    public List<ProductResponseDto> getProductsByCategoryName(String categoryName) {
+        log.info(GET_PRODUCTS_EXECUTION_START_LOG_MESSAGE);
+        List<Product> productList = productDao.findAllBySubCategoryCategoryName(categoryName);
+        return findProductsWithSpecificParameter(productList);
+    }
+    @Override
+    public List<ProductResponseDto> getProductsByName(String productName) {
+        log.info(GET_PRODUCTS_EXECUTION_START_LOG_MESSAGE);
+        List<Product> productList = productDao.findAllByNameLikeIgnoreCase(productName);
+        return findProductsWithSpecificParameter(productList);
+    }
+    @Override
+    public List<ProductResponseDto> getProductsByCreatedDate(Date productCreatedDate) {
+        log.info(GET_PRODUCTS_EXECUTION_START_LOG_MESSAGE);
+        List<Product> productList = productDao.findAllByDateCreated(productCreatedDate);
+        return findProductsWithSpecificParameter(productList);
+    }
+    private List<ProductResponseDto> findProductsWithSpecificParameter(List<Product> productList){
+        List<ProductResponseDto> productResponseDtos = null;
+
+        if (!productList.isEmpty()) {
+            productResponseDtos = productList.stream()
+                    .map(productMapper::modelToDto)
+                    .toList();
+        } else {
+            productResponseDtos = Collections.emptyList();
+        }
+        log.debug("ProductService:getProducts retrieving products from database  {}", ObjectFormat.jsonAsString(productResponseDtos));
 
         log.info("ProductService:getProducts execution ended.");
         return productResponseDtos;
     }
-
     @Override
     public ProductResponseDto getProductById(int productId) {
         ProductResponseDto productResponseDto;
@@ -72,7 +101,6 @@ public class ProductServiceImpl implements ProductService {
      *                              This parameter is used to differentiate between creating and updating categories.
      * @return The ProductResponseDto object representing the processed Product.
      * @throws ProductAlreadyExistsException   If the Product with the same name already exists (applicable for createNewProduct() only).
-     * @throws ProductServiceBusinessException If an exception occurs while processing the Product.
      */
     /*
     To avoid code duplication and handle logs appropriately, a shared function called processProduct()

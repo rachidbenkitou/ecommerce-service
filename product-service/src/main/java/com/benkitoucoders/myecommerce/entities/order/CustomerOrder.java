@@ -1,6 +1,7 @@
 package com.benkitoucoders.myecommerce.entities.order;
 
-import com.benkitoucoders.myecommerce.entities.productorder.ProductCustomerOrder;
+import com.benkitoucoders.myecommerce.entities.orderdetails.CustomerOrderDetails;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -18,7 +19,7 @@ import java.util.Set;
 @Entity
 public class CustomerOrder extends Order implements Serializable {
 
-    @OneToMany(mappedBy = "customerOrder")
-    private Set<ProductCustomerOrder> customerOrders;
+    @OneToMany(mappedBy = "customerOrder",cascade = CascadeType.ALL)
+    private Set<CustomerOrderDetails> customerOrders;
 
 }

@@ -1,4 +1,4 @@
-package com.benkitoucoders.myecommerce.entities.productorder;
+package com.benkitoucoders.myecommerce.entities.orderdetails;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", length = 8)
 @Entity
-public abstract class ProductOrder  implements Serializable {
+public abstract class OrderDetails implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

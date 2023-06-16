@@ -1,5 +1,6 @@
 package com.benkitoucoders.myecommerce.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,8 +18,13 @@ public class SubCategory implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+
     @OneToMany(mappedBy = "subCategory")
+    @JsonIgnore
     private List<Product> products;
+
     @ManyToOne
     private Category category;
+
+
 }

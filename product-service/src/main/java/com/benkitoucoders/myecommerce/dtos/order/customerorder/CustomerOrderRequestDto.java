@@ -1,7 +1,7 @@
 package com.benkitoucoders.myecommerce.dtos.order.customerorder;
 
 import com.benkitoucoders.myecommerce.dtos.order.OrderRequestDto;
-import com.benkitoucoders.myecommerce.entities.productorder.ProductCustomerOrder;
+import com.benkitoucoders.myecommerce.entities.orderdetails.CustomerOrderDetails;
 import lombok.*;
 
 import java.io.Serializable;
@@ -12,6 +12,6 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = false)
 @Builder
 public class CustomerOrderRequestDto extends OrderRequestDto implements Serializable {
-    private Set<ProductCustomerOrder> customerOrders;
+    private Set<CustomerOrderDetails> customerOrders;
 
 }

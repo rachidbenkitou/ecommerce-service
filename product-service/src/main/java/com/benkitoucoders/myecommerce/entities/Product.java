@@ -2,11 +2,13 @@ package com.benkitoucoders.myecommerce.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -29,15 +31,18 @@ public class Product implements Serializable {
 
     private int quantity;
 
-    @CreatedDate
-    private LocalDateTime dateCreated;
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private Date dateCreated;
 
-    @LastModifiedDate
-    private LocalDateTime dateUpdated;
+    @UpdateTimestamp
+    @Column(nullable = false)
+    private Date dateUpdated;
 
     @ManyToOne
     private SubCategory subCategory;
 
-    @OneToMany(cascade = CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Image> images;
+
 }

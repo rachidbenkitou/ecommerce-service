@@ -13,6 +13,7 @@ import java.io.Serializable;
 @EqualsAndHashCode
 @Builder
 public class CategoryRequestDto implements Serializable {
+
     private int id;
     @NotBlank(message = "The category name should not be null or empty")
     @Size(min = 1, max = 20, message = "The category name must be between 1 and 20 characters")

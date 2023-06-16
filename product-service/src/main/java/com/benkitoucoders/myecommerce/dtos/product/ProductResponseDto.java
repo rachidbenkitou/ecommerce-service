@@ -1,10 +1,11 @@
 package com.benkitoucoders.myecommerce.dtos.product;
 
 import com.benkitoucoders.myecommerce.entities.Image;
+import com.benkitoucoders.myecommerce.entities.SubCategory;
 import lombok.*;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor
@@ -20,5 +21,6 @@ public class ProductResponseDto implements Serializable {
     private int quantity;
     private Date dateCreated;
     private Date dateUpdated;
+    private SubCategory subCategory;
     private List<Image> images;
 }
