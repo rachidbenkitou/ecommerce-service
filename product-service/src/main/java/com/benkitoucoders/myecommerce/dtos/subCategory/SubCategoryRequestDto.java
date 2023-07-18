@@ -1,6 +1,5 @@
 package com.benkitoucoders.myecommerce.dtos.subCategory;
 
-import com.benkitoucoders.myecommerce.entities.Category;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

@@ -1,6 +1,5 @@
 package com.benkitoucoders.myecommerce.dtos.subCategory;
 
-import com.benkitoucoders.myecommerce.entities.Category;
 import com.benkitoucoders.myecommerce.entities.Product;
 import lombok.*;
 
