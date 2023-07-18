@@ -4,29 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38b35a7b-e0e7-4958-8898-9ef8b52a7b9b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/benkitoucoders/myecommerce/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/benkitoucoders/myecommerce/entities/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/benkitoucoders/myecommerce/entities/order/CustomerOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/benkitoucoders/myecommerce/entities/order/CustomerOrder.java" afterDir="false" />
-    </list>
+    <list default="true" id="9e711e69-1e7d-47b8-92b4-d43eca136a0d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CompilerWorkspaceConfiguration">
-    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="package-info" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -39,8 +21,7 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2Pz9cYmXfcvJo6AcPDxgaADwmKh" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2SjvMBUQ9k5HIhZ55IAH0kvI0JX" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,105 +31,36 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Rachid Benkitou/Desktop/New folder/wimapp-service-main",
+    "last_opened_file_path": "C:/Users/Rachid_Projects/Desktop/Ecom-Spring/product-service-old-version",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "d2c0846aa6e4068768a29737a8d1c68a",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.benkitoucoders.myecommerce.exceptions.subcategory" />
-      <recent name="com.benkitoucoders.myecommerce.exceptions.product" />
-      <recent name="com.benkitoucoders.myecommerce.exceptions" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Rachid Benkitou\Desktop\MyFirst\3-My Personal Projects\2-My-Ecommerce-Application\My-Ecommerce-Application-Spring-Boot\src\main\java\com\benkitoucoders\myecommerce\handlers" />
-      <recent name="C:\Users\Rachid Benkitou\Desktop\MyFirst\3-My Personal Projects\2-Ecommerce-Application\3-Ecommerce-Application-Spring-Boot\My-Ecommerce-Application-Spring-Boot\src\main\java\com\benkitoucoders\myecommerce\dtos" />
-      <recent name="C:\Users\Rachid Benkitou\Desktop\MyFirst\3-My Personal Projects\2-Ecommerce-Application\3-Ecommerce-Application-Spring-Boot\My-Ecommerce-Application-Spring-Boot\src\main\java\com\benkitoucoders\myecommerce" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.MyEcommerceApplication">
-    <configuration name="MyEcommerceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.benkitoucoders.myecommerce.MyEcommerceApplication" />
-      <module name="my-ecommerce" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.benkitoucoders.myecommerce.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager">
+    <configuration name="EcommerceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ecommerce" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.benkitoucoders.ecommerce.EcommerceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyEcommerceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="my-ecommerce" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.benkitoucoders.myecommerce.MyEcommerceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml">
-        <settings />
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.MyEcommerceApplication" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="38b35a7b-e0e7-4958-8898-9ef8b52a7b9b" name="Changes" comment="" />
-      <created>1684449124323</created>
+      <changelist id="9e711e69-1e7d-47b8-92b4-d43eca136a0d" name="Changes" comment="" />
+      <created>1689672759545</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1684449124323</updated>
-      <workItem from="1685720985118" duration="1143000" />
-      <workItem from="1685725680698" duration="2018000" />
-      <workItem from="1685794652945" duration="365000" />
-      <workItem from="1685810831168" duration="1279000" />
-      <workItem from="1685818399014" duration="82000" />
+      <updated>1689672759545</updated>
+      <workItem from="1689672762178" duration="1292000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/../../../.." />
-    </ignored-roots>
   </component>
 </project>
