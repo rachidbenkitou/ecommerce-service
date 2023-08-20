@@ -10,6 +10,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -28,25 +40,68 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Rachid_Projects/Desktop/Ecom-Spring/product-service-old-version",
+    "git-widget-placeholder": "rachid/dev",
+    "last_opened_file_path": "C:/Users/Rachid Benkitou/Desktop/MyEcommerce/ecommerce-service/src/main/java/com/benkitoucoders/ecommerce",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "spring.configuration.checksum": "db96ff26706a1a3d595ecb67266c2d94",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.benkitoucoders.ecommerce.exceptions" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce" />
+      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce\mappers" />
+      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce\daos" />
+      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce\dtos" />
+      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce\entities" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.EcommerceServiceApplication">
     <configuration name="EcommerceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="ecommerce" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.benkitoucoders.ecommerce.EcommerceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EcommerceServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ecommerce-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.benkitoucoders.ecommerce.EcommerceServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.benkitoucoders.ecommerce.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.EcommerceServiceApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -57,6 +112,29 @@
       <option name="presentableId" value="Default" />
       <updated>1689672759545</updated>
       <workItem from="1689672762178" duration="1292000" />
+      <workItem from="1689786817401" duration="9833000" />
+      <workItem from="1689869824038" duration="8356000" />
+      <workItem from="1690046039151" duration="4522000" />
+      <workItem from="1690109423969" duration="22770000" />
+      <workItem from="1690156293565" duration="12833000" />
+      <workItem from="1690283527631" duration="48000" />
+      <workItem from="1690489858288" duration="4759000" />
+      <workItem from="1690558215051" duration="82000" />
+      <workItem from="1690625017331" duration="2000" />
+      <workItem from="1690718993280" duration="31000" />
+      <workItem from="1690836121503" duration="4477000" />
+      <workItem from="1690992584422" duration="42000" />
+      <workItem from="1690993274210" duration="591000" />
+      <workItem from="1691013964330" duration="196000" />
+      <workItem from="1691073881575" duration="80000" />
+      <workItem from="1692174370998" duration="1006000" />
+      <workItem from="1692183300737" duration="60000" />
+      <workItem from="1692295449450" duration="26000" />
+      <workItem from="1692353485130" duration="358000" />
+      <workItem from="1692378263866" duration="539000" />
+      <workItem from="1692399773006" duration="518000" />
+      <workItem from="1692539330108" duration="167000" />
+      <workItem from="1692540126626" duration="1029000" />
     </task>
     <servers />
   </component>
