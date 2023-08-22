@@ -24,14 +24,5 @@ public interface ProductDao extends JpaRepository<Product, Long>, JpaSpecificati
             , @Param("categoryId") Long categoryId
     );
 
-    @Query(value = "select new com.benkitoucoders.ecommerce.dtos.ProductDto(" +
-            " p.id,p.name, p.description, p.price, p.quantity, c.name, p.dateCreated, p.dateUpdated) " +
-            " FROM Product p " +
-            " JOIN Category c ON p.categoryId = c.id " +
-            " WHERE   p.id = :id ")
-    ProductDto getProductByIdByQuery(
-           @Param("id") Long id
-    );
-
     boolean existsByName(String name);*/
 }

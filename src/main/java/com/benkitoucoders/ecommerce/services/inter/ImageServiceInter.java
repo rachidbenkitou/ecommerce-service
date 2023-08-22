@@ -2,14 +2,16 @@ package com.benkitoucoders.ecommerce.services.inter;
 
 import com.benkitoucoders.ecommerce.dtos.ImageDto;
 
-public interface ImageServiceInter {
-/*    ImageDto getImageById(Long id);
+import java.util.List;
 
-    ImageDto getPrimayImage(boolean isPrimary);
+public interface ImageServiceInter {
+    List<ImageDto> getImagesByQuery(Long imageId, String imageUrl, Long productId);
+
+    ImageDto getImageById(Long id);
 
     ImageDto addImage(ImageDto imageDto);
 
     ImageDto updateImage(Long id, ImageDto imageDto);
 
-    void deleteImageById(Long id);*/
+    void deleteImageById(Long id);
 }

@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,26 +21,20 @@ public class ImageService implements ImageServiceInter {
     private final ImageDao imageDao;
     private final ImageMapper imageMapper;
 
-/*    @Override
-    public List<ImageDto> getImagesUrlsByProductIdByQuery(Long productId, Long imageId) {
-        List<ImageDto> imageDtoList = imageDao.findImagesUrlsByProductId(productId, imageId);
+    @Override
+    public List<ImageDto> getImagesByQuery(Long imageId, String imageUrl, Long productId) {
+        List<ImageDto> imageDtoList = imageDao.findImagesByQuery(imageId, imageUrl, productId);
         return Optional.ofNullable(imageDtoList)
                 .filter(list -> !list.isEmpty())
-                .orElseThrow(() -> new ListIsEmptyException("The image list is empty"));
+                .orElse(Collections.emptyList());
     }
 
     @Override
     public ImageDto getImageById(Long id) {
-        List<ImageDto> imageDtoList = imageDao.findImagesUrlsByProductId(null, id);
+        List<ImageDto> imageDtoList = imageDao.findImagesByQuery(id, null, null);
         return imageDtoList.stream()
                 .findFirst()
-                .orElseThrow(() -> new EntityNotFoundException("There is no image with the provided ID."));
-    }
-
-    @Override
-    public ImageDto getImageWhenIsPrimary(boolean isPrimary) {
-        ImageDto imageDto = imageDao.getImageWhenIsPrimary(isPrimary).get(0);
-        return Optional.ofNullable(imageDto).orElseThrow(() -> new EntityNotFoundException("There is no primary image."));
+                .orElseThrow(() -> new EntityNotFoundException(String.format("There is no image with the ID %d.", id)));
     }
 
     @Override
@@ -61,5 +56,5 @@ public class ImageService implements ImageServiceInter {
     public void deleteImageById(Long id) {
         getImageById(id);
         imageDao.deleteById(id);
-    }*/
+    }
 }

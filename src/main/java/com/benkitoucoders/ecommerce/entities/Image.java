@@ -21,8 +21,6 @@ public class Image implements Serializable {
 
     private String url;
 
-    private boolean isPrimary;
-
     @Column(name = "PRODUCT_ID")
     private Long productId;
 

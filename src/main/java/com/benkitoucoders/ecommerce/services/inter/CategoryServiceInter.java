@@ -5,7 +5,7 @@ import com.benkitoucoders.ecommerce.dtos.CategoryDto;
 import java.util.List;
 
 public interface CategoryServiceInter {
-/*    List<CategoryDto> getCategoriesByQuery(Long id, String name);
+    List<CategoryDto> getCategoriesByQuery(Long id, String name);
 
     CategoryDto getCategoryById(Long id);
 
@@ -13,6 +13,6 @@ public interface CategoryServiceInter {
 
     CategoryDto updateCategory(Long id, CategoryDto categoryDto);
 
-    void deleteCategoryById(Long id);*/
+    void deleteCategoryById(Long id);
 
 }

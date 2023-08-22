@@ -11,10 +11,13 @@ import java.util.List;
 
 @Repository
 public interface ImageDao extends JpaRepository<Image, Long> {
-/*    @Query("SELECT NEW com.benkitoucoders.ecommerce.dtos.ImageDto(i.id, i.url) FROM Image i WHERE (:productId IS NULL OR i.productId = :productId)" +
-            "AND  (:imageId IS NULL OR i.id = :imageId)")
-    List<ImageDto> findImagesUrlsByProductId(@Param("productId") Long productId, @Param("imageId") Long imageId);
-
-    @Query("SELECT NEW com.benkitoucoders.ecommerce.dtos.ImageDto(i.id, i.url) FROM Image i WHERE i.isPrimary= :isPrimary")
-    List<ImageDto> getImageWhenIsPrimary(@Param("isPrimary") boolean isPrimary);*/
+    @Query("SELECT NEW com.benkitoucoders.ecommerce.dtos.ImageDto(i.id, i.url, i.productId) " +
+            "FROM Image i " +
+            "WHERE (:productId IS NULL OR i.productId = :productId)" +
+            "AND  (:imageId IS NULL OR i.id = :imageId)" +
+            "AND  (:imageUrl IS NULL OR i.url = :imageUrl)")
+    List<ImageDto> findImagesByQuery(
+            @Param("imageId") Long imageId,
+            @Param("imageUrl") String imageUrl,
+            @Param("productId") Long productId);
 }

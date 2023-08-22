@@ -8,10 +8,10 @@ import com.benkitoucoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoucoders.ecommerce.mappers.CategoryMapper;
 import com.benkitoucoders.ecommerce.services.inter.CategoryServiceInter;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,13 +22,14 @@ public class CategoryService implements CategoryServiceInter {
     private final CategoryDao categoryDao;
     private final CategoryMapper categoryMapper;
 
-/*    @Override
+    @Override
     public List<CategoryDto> getCategoriesByQuery(Long id, String name) {
         List<CategoryDto> categoryDtoList = categoryDao.findAllCategoryIdsAndNames(id, name);
         return Optional.ofNullable(categoryDtoList)
                 .filter(list -> !list.isEmpty())
-                .orElseThrow(() -> new ListIsEmptyException("No category found."));
+                .orElse(Collections.emptyList()); // Return an empty list if no categories found
     }
+
 
     @Override
     public CategoryDto getCategoryById(Long id) {
@@ -58,10 +59,8 @@ public class CategoryService implements CategoryServiceInter {
 
     @Override
     public void deleteCategoryById(Long id) {
-
         getCategoryById(id);
         categoryDao.deleteById(id);
-
-    }*/
+    }
 
 }
