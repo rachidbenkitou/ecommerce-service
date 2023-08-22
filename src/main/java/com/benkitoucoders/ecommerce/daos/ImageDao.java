@@ -15,7 +15,7 @@ public interface ImageDao extends JpaRepository<Image, Long> {
             "FROM Image i " +
             "WHERE (:productId IS NULL OR i.productId = :productId)" +
             "AND  (:imageId IS NULL OR i.id = :imageId)" +
-            "AND  (:imageUrl IS NULL OR i.url = :imageUrl)")
+            "AND  (:imageUrl IS NULL OR LOWER(i.url) LIKE LOWER(CONCAT('%', :imageUrl, '%')))")
     List<ImageDto> findImagesByQuery(
             @Param("imageId") Long imageId,
             @Param("imageUrl") String imageUrl,

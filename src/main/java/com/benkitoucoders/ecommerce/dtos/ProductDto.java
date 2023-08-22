@@ -15,9 +15,9 @@ public class ProductDto {
 
     private String description;
 
-    private double price;
+    private Double price;
 
-    private int quantity;
+    private Integer quantity;
 
     private Long categoryId;
 
@@ -27,7 +27,7 @@ public class ProductDto {
 
     private LocalDate dateUpdated;
 
-    public ProductDto(Long id, String name, String description, double price, int quantity, Long categoryId, String categoryName, LocalDate dateCreated, LocalDate dateUpdated) {
+    public ProductDto(Long id, String name, String description, Double price, Integer quantity, Long categoryId, String categoryName, LocalDate dateCreated, LocalDate dateUpdated) {
         this.id = id;
         this.name = name;
         this.description = description;

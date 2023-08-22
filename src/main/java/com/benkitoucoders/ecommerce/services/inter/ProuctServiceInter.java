@@ -5,7 +5,8 @@ import com.benkitoucoders.ecommerce.dtos.ProductDto;
 import java.util.List;
 
 public interface ProuctServiceInter {
-/*    List<ProductDto> getProductsByQuery(Long id, String name, double price, int quantity, Long categoryId);
+
+    List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, Long categoryId);
 
     ProductDto getProductById(Long id);
 
@@ -13,5 +14,5 @@ public interface ProuctServiceInter {
 
     ProductDto updateProduct(Long id, ProductDto productDto);
 
-    void deleteProductById(Long id);*/
+    void deleteProductById(Long id);
 }

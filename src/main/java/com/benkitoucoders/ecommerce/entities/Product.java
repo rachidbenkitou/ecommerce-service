@@ -27,9 +27,9 @@ public class Product implements Serializable {
 
     private String description;
 
-    private double price;
+    private Double price;
 
-    private int quantity;
+    private Integer quantity;
 
     @Column(name = "CATEGORY_ID")
     private Long categoryId;
