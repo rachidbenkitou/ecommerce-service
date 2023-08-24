@@ -1,11 +1,13 @@
 package com.benkitoucoders.ecommerce.services.inter;
 
 import com.benkitoucoders.ecommerce.dtos.ImageDto;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface ImageServiceInter {
-    List<ImageDto> getImagesByQuery(Long imageId, String imageUrl, Long productId);
+    List<ImageDto> getImagesByQuery(Long imageId, String imageName, String imageType, String imageFilePath, Long productId);
 
     ImageDto getImageById(Long id);
 
@@ -14,4 +16,8 @@ public interface ImageServiceInter {
     ImageDto updateImage(Long id, ImageDto imageDto);
 
     void deleteImageById(Long id);
+
+    String uploadImageToFileSystem(MultipartFile file, Long productId) throws IOException;
+
+    void uploadImagesToFileSystem(List<MultipartFile> images, Long productId) throws IOException;
 }

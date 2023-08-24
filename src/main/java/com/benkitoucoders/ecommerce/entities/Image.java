@@ -19,7 +19,11 @@ public class Image implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String url;
+    private String name;
+
+    private String type;
+
+    private String filePath;
 
     @Column(name = "PRODUCT_ID")
     private Long productId;

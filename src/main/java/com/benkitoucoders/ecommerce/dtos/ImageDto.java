@@ -8,13 +8,19 @@ import lombok.NoArgsConstructor;
 public class ImageDto {
     private Long id;
 
-    private String url;
+    private String name;
+
+    private String type;
+
+    private String filePath;
 
     private Long productId;
 
-    public ImageDto(Long id, String url, Long productId) {
+    public ImageDto(Long id, String name, String type ,String filePath, Long productId) {
         this.id = id;
-        this.url = url;
+        this.name = name;
+        this.type = type;
+        this.filePath = filePath;
         this.productId = productId;
     }
 
