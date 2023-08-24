@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e711e69-1e7d-47b8-92b4-d43eca136a0d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/controllers/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/controllers/ImageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/daos/ImageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/daos/ImageDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/dtos/ImageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/dtos/ImageDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/entities/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/entities/Image.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/services/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/services/ImageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/services/inter/ImageServiceInter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/services/inter/ImageServiceInter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoucoders/ecommerce/utils/Constants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +159,7 @@
       <workItem from="1692865452073" duration="781000" />
       <workItem from="1692866614799" duration="474000" />
       <workItem from="1692875021076" duration="596000" />
-      <workItem from="1692884008090" duration="6036000" />
+      <workItem from="1692884008090" duration="6379000" />
     </task>
     <servers />
   </component>

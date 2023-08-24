@@ -63,14 +63,8 @@ public class ImageService implements ImageServiceInter {
     @Override
     public void deleteImageById(Long id) {
         ImageDto image = getImageById(id); // Make sure this method retrieves the image entity
-
-        System.out.println(image);
-
         // Delete the image file from the file system
         String filePath = image.getFilePath();
-
-        System.out.println(filePath);
-
         File imageFile = new File(filePath);
 
         if (imageFile.exists()) {
