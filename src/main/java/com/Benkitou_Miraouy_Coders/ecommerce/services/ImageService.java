@@ -1,12 +1,12 @@
 package com.Benkitou_Miraouy_Coders.ecommerce.services;
 
-import com.Benkitou_Miraouy_Coders.ecommerce.exceptions.EntityAlreadyExistsException;
-import com.Benkitou_Miraouy_Coders.ecommerce.exceptions.EntityNotFoundException;
-import com.Benkitou_Miraouy_Coders.ecommerce.services.inter.ImageServiceInter;
 import com.Benkitou_Miraouy_Coders.ecommerce.dao.ImageDao;
 import com.Benkitou_Miraouy_Coders.ecommerce.dtos.ImageDto;
 import com.Benkitou_Miraouy_Coders.ecommerce.entities.Image;
+import com.Benkitou_Miraouy_Coders.ecommerce.exceptions.EntityAlreadyExistsException;
+import com.Benkitou_Miraouy_Coders.ecommerce.exceptions.EntityNotFoundException;
 import com.Benkitou_Miraouy_Coders.ecommerce.mappers.ImageMapper;
+import com.Benkitou_Miraouy_Coders.ecommerce.services.inter.ImageServiceInter;
 import com.Benkitou_Miraouy_Coders.ecommerce.utils.Constants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,18 +30,20 @@ public class ImageService implements ImageServiceInter {
 
     @Override
     public List<ImageDto> getImagesByQuery(Long imageId, String imageName, String imageType, String imageFilePath, Long productId) {
-        List<ImageDto> imageDtoList = imageDao.findImagesByQuery(imageId, imageName, imageType, imageFilePath, productId);
-        return Optional.ofNullable(imageDtoList)
-                .filter(list -> !list.isEmpty())
-                .orElse(Collections.emptyList());
+        return imageDao.findImagesByQuery(imageId, imageName, imageType, imageFilePath, productId);
     }
 
     @Override
     public ImageDto getImageById(Long id) {
-        List<ImageDto> imageDtoList = imageDao.findImagesByQuery(id, null, null, null, null);
-        return imageDtoList.stream()
-                .findFirst()
-                .orElseThrow(() -> new EntityNotFoundException(String.format("There is no image with the ID %d.", id)));
+
+        Optional<Image> image = imageDao.findById(id);
+
+        if (image.isPresent()) {
+            return imageMapper.modelToDto(image.get());
+
+        } else {
+            throw new EntityNotFoundException(String.format("The image with the id %d is not found.", id));
+        }
     }
 
     @Override
@@ -78,8 +79,6 @@ public class ImageService implements ImageServiceInter {
             imageDao.deleteById(id);
         }
     }
-
-
 
     @Override
     public String uploadImageToFileSystem(MultipartFile file, Long productId) throws IOException {

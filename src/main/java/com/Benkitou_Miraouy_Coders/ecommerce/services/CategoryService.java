@@ -1,17 +1,16 @@
 package com.Benkitou_Miraouy_Coders.ecommerce.services;
 
-import com.Benkitou_Miraouy_Coders.ecommerce.exceptions.EntityAlreadyExistsException;
-import com.Benkitou_Miraouy_Coders.ecommerce.exceptions.EntityNotFoundException;
-import com.Benkitou_Miraouy_Coders.ecommerce.services.inter.CategoryServiceInter;
 import com.Benkitou_Miraouy_Coders.ecommerce.dao.CategoryDao;
 import com.Benkitou_Miraouy_Coders.ecommerce.dtos.CategoryDto;
 import com.Benkitou_Miraouy_Coders.ecommerce.entities.Category;
+import com.Benkitou_Miraouy_Coders.ecommerce.exceptions.EntityAlreadyExistsException;
+import com.Benkitou_Miraouy_Coders.ecommerce.exceptions.EntityNotFoundException;
 import com.Benkitou_Miraouy_Coders.ecommerce.mappers.CategoryMapper;
+import com.Benkitou_Miraouy_Coders.ecommerce.services.inter.CategoryServiceInter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,21 +23,19 @@ public class CategoryService implements CategoryServiceInter {
 
     @Override
     public List<CategoryDto> getCategoriesByQuery(Long id, String name) {
-        List<CategoryDto> categoryDtoList = categoryDao.findAllCategoryIdsAndNames(id, name);
-        return Optional.ofNullable(categoryDtoList)
-                .filter(list -> !list.isEmpty())
-                .orElse(Collections.emptyList()); // Return an empty list if no categories found
+        return categoryDao.findAllCategoryIdsAndNames(id, name);
     }
-
-
     @Override
     public CategoryDto getCategoryById(Long id) {
-        List<CategoryDto> categoryDtoList = categoryDao.findAllCategoryIdsAndNames(id, null);
-        return categoryDtoList.stream()
-                .findFirst()
-                .orElseThrow(() -> new EntityNotFoundException(String.format("The category with the id %d is not found.", id)));
-    }
+        Optional<Category> category = categoryDao.findById(id);
 
+        if (category.isPresent()) {
+            return categoryMapper.modelToDto(category.get());
+
+        } else {
+            throw new EntityNotFoundException(String.format("The category with the id %d is not found.", id));
+        }
+    }
     @Override
     public CategoryDto addCategory(CategoryDto categoryDto) {
         if (categoryDao.existsByName(categoryDto.getName())) {
@@ -48,7 +45,6 @@ public class CategoryService implements CategoryServiceInter {
 
         return categoryMapper.modelToDto(categoryDao.save(categoryMapper.dtoToModel(categoryDto)));
     }
-
     @Override
     public CategoryDto updateCategory(Long id, CategoryDto categoryDto) {
         CategoryDto oldCategoryDto = getCategoryById(id);
@@ -56,7 +52,6 @@ public class CategoryService implements CategoryServiceInter {
         Category updatedCategory = categoryDao.save(categoryMapper.dtoToModel(categoryDto));
         return categoryMapper.modelToDto(updatedCategory);
     }
-
     @Override
     public void deleteCategoryById(Long id) {
         getCategoryById(id);
