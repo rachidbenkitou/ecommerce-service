@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 public interface ImageDao extends JpaRepository<Image, Long> {
-    @Query("SELECT NEW com.Benkitou_Miraouy_Coders.ecommerce.dtos.ImageDto(i.id, i.name,i.type, i.filePath, i.productId) " +
+    @Query("SELECT NEW com.benkitoumiraouycoders.ecommerce.dtos.ImageDto(i.id, i.name,i.type, i.filePath, i.productId) " +
             "FROM Image i " +
             "WHERE (:productId IS NULL OR i.productId = :productId)" +
             "AND  (:imageId IS NULL OR i.id = :imageId)" +
