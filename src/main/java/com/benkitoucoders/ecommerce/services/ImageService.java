@@ -1,6 +1,6 @@
 package com.benkitoucoders.ecommerce.services;
 
-import com.benkitoucoders.ecommerce.daos.ImageDao;
+import com.benkitoucoders.ecommerce.dao.ImageDao;
 import com.benkitoucoders.ecommerce.dtos.ImageDto;
 import com.benkitoucoders.ecommerce.entities.Image;
 import com.benkitoucoders.ecommerce.exceptions.EntityAlreadyExistsException;

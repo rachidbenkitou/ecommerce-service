@@ -1,4 +1,4 @@
-package com.benkitoucoders.ecommerce.daos;
+package com.benkitoucoders.ecommerce.dao;
 
 import com.benkitoucoders.ecommerce.dtos.ProductDto;
 import com.benkitoucoders.ecommerce.entities.Product;

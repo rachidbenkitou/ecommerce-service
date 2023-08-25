@@ -1,6 +1,6 @@
 package com.benkitoucoders.ecommerce.services;
 
-import com.benkitoucoders.ecommerce.daos.ProductDao;
+import com.benkitoucoders.ecommerce.dao.ProductDao;
 import com.benkitoucoders.ecommerce.dtos.ProductDto;
 import com.benkitoucoders.ecommerce.entities.Product;
 import com.benkitoucoders.ecommerce.exceptions.EntityAlreadyExistsException;

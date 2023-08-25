@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import lombok.*;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -14,12 +15,18 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode
 @Builder
-public class Category implements Serializable {
+public class GuestOrder implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String discription;
+    private LocalDateTime dateCreation;
+    private LocalDateTime dateUpdate;
+    private Long userCreation;
+    private Long userUpdate;
+    private GuestOrderStatus guestOrderStatus;
+
 
 }

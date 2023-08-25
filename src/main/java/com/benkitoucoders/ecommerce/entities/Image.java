@@ -1,10 +1,10 @@
 package com.benkitoucoders.ecommerce.entities;
 
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
