@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface ProductDao extends JpaRepository<Product, Long>, JpaSpecificationExecutor<Product> {
-    @Query(value = "select new com.benkitoucoders.ecommerce.dtos.ProductDto(" +
+    @Query(value = "select new com.Benkitou_Miraouy_Coders.ecommerce.dtos.ProductDto(" +
             " p.id,p.name, p.description, p.price, p.quantity, p.categoryId, c.name, p.dateCreated, p.dateUpdated) " +
             " FROM Product p " +
             " JOIN Category c ON p.categoryId = c.id " +
