@@ -12,14 +12,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/categories")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:58213", allowCredentials = "true")
 public class CategoryController {
 
     private final CategoryService categoryService;
 
     @GetMapping
     public ResponseEntity<List<CategoryDto>> getCategoriesByQuery(@RequestParam(name = "categoryId", required = false) Long categoryId,
-                                                                  @RequestParam(name = "categoryName", required = false) String categoryName) {
-        return ResponseEntity.ok().body(categoryService.getCategoriesByQuery(categoryId, categoryName));
+                                                                  @RequestParam(name = "categoryName", required = false) String categoryName,
+                                                                  @RequestParam(name = "categoryVisbility", required = false) String categoryVisbility
+    ) {
+        return ResponseEntity.ok().body(categoryService.getCategoriesByQuery(categoryId, categoryName, categoryVisbility));
     }
 
     @GetMapping("/{categoryId}")

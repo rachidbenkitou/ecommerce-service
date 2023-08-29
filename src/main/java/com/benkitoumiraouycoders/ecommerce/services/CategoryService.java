@@ -22,8 +22,8 @@ public class CategoryService implements CategoryServiceInter {
     private final CategoryMapper categoryMapper;
 
     @Override
-    public List<CategoryDto> getCategoriesByQuery(Long id, String name) {
-        return categoryDao.findAllCategoryIdsAndNames(id, name);
+    public List<CategoryDto> getCategoriesByQuery(Long id, String name, String visbility) {
+        return categoryDao.findAllCategoryIdsAndNames(id, name, visbility);
     }
     @Override
     public CategoryDto getCategoryById(Long id) {

@@ -11,9 +11,13 @@ public class CategoryDto {
 
     private String name;
 
-    public CategoryDto(Long id, String name) {
+    private String visbility;
+
+
+    public CategoryDto(Long id, String name, String visibility) {
         this.id = id;
         this.name = name;
+        this.visbility=visibility;
     }
 
 }

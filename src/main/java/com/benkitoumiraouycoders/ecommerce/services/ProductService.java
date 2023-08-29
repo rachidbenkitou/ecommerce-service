@@ -1,12 +1,12 @@
 package com.benkitoumiraouycoders.ecommerce.services;
 
-import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
-import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
-import com.benkitoumiraouycoders.ecommerce.services.inter.ProuctServiceInter;
 import com.benkitoumiraouycoders.ecommerce.dao.ProductDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Product;
+import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
+import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.mappers.ProductMapper;
+import com.benkitoumiraouycoders.ecommerce.services.inter.ProuctServiceInter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,8 +24,8 @@ public class ProductService implements ProuctServiceInter {
     private final ProductMapper productMapper;
 
     @Override
-    public List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, Long categoryId) {
-        List<ProductDto> productDtoList = productDao.getProductsByQuery(id, name, price, quantity, categoryId);
+    public List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visbility, Long categoryId) {
+        List<ProductDto> productDtoList = productDao.getProductsByQuery(id, name, price, quantity, categoryId, visbility);
         return Optional.ofNullable(productDtoList)
                 .filter(list -> !list.isEmpty())
                 .orElse(Collections.emptyList());
@@ -42,14 +42,6 @@ public class ProductService implements ProuctServiceInter {
         } else {
             throw new EntityNotFoundException(String.format("The product with the id %d is not found.", id));
         }
-
-/*
-        List<ProductDto> productDtoList = productDao.getProductsByQuery(id, null,null,null,null);
-        return productDtoList.stream()
-                .findFirst()
-                .orElseThrow(() -> new EntityNotFoundException(String.format("The product with the id %d is not found.", id)));
-
- */
     }
 
 

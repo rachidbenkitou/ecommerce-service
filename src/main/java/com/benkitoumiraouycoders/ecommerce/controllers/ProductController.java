@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:58213", allowCredentials = "true")
 public class ProductController {
 
     private final ProductService productService;
@@ -21,10 +22,11 @@ public class ProductController {
                                                                @RequestParam(name = "productName", required = false) String name,
                                                                @RequestParam(name = "productPrice", required = false) Double price,
                                                                @RequestParam(name = "productQuantity", required = false) Integer quantity,
+                                                               @RequestParam(name = "productVisibility", required = false) String productVisibility,
                                                                @RequestParam(name = "categoryId", required = false) Long categoryId
     ) {
 
-        return ResponseEntity.ok().body(productService.getProductsByQuery(id, name, price, quantity, categoryId));
+        return ResponseEntity.ok().body(productService.getProductsByQuery(id, name, price, quantity,productVisibility, categoryId));
     }
 
     @GetMapping("/{productId}")

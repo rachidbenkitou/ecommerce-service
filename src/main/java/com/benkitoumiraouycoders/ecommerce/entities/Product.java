@@ -30,6 +30,8 @@ public class Product implements Serializable {
 
     private Integer quantity;
 
+    private String visbility;
+
     @Column(name = "CATEGORY_ID")
     private Long categoryId;
 

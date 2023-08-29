@@ -12,11 +12,15 @@ import java.util.List;
 
 @Repository
 public interface CategoryDao extends JpaRepository<Category, Long>, JpaSpecificationExecutor<Category> {
-    @Query("SELECT NEW com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto(c.id, c.name) " +
+    @Query("SELECT NEW com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto(c.id, c.name, c.visbility) " +
             "FROM Category c " +
             "WHERE (:categoryId IS NULL OR c.id = :categoryId) " +
+            "AND (:visibility IS NULL OR c.visbility = :visibility) " +
             "AND (:categoryName IS NULL OR LOWER(c.name) LIKE LOWER(CONCAT('%', :categoryName, '%')))")
-    List<CategoryDto> findAllCategoryIdsAndNames(@Param("categoryId") Long categoryId, @Param("categoryName") String categoryName);
+    List<CategoryDto> findAllCategoryIdsAndNames(@Param("categoryId") Long categoryId,
+                                                 @Param("categoryName") String categoryName,
+                                                 @Param("visibility") String visibility
+                                                 );
 
     boolean existsByName(String categoryName);
 }

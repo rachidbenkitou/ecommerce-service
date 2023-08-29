@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProuctServiceInter {
 
-    List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, Long categoryId);
+    List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visbility, Long categoryId);
 
     ProductDto getProductById(Long id);
 

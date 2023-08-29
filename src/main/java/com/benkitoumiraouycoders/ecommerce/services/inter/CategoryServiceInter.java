@@ -5,7 +5,7 @@ import com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto;
 import java.util.List;
 
 public interface CategoryServiceInter {
-    List<CategoryDto> getCategoriesByQuery(Long id, String name);
+    List<CategoryDto> getCategoriesByQuery(Long id, String name, String visbility);
 
     CategoryDto getCategoryById(Long id);
 
