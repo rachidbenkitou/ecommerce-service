@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,10 +24,7 @@ public class ProductService implements ProuctServiceInter {
 
     @Override
     public List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visbility, Long categoryId) {
-        List<ProductDto> productDtoList = productDao.getProductsByQuery(id, name, price, quantity, categoryId, visbility);
-        return Optional.ofNullable(productDtoList)
-                .filter(list -> !list.isEmpty())
-                .orElse(Collections.emptyList());
+        return productDao.getProductsByQuery(id, name, price, quantity, categoryId, visbility);
     }
 
     @Override
@@ -48,7 +44,7 @@ public class ProductService implements ProuctServiceInter {
     @Override
     public ProductDto addProduct(ProductDto productDto) {
         if (productDao.existsByName(productDto.getName())) {
-            throw new EntityAlreadyExistsException(String.format("The product with the name %s and ID %d is already exists", productDto.getName(), productDto.getId()));
+            throw new EntityAlreadyExistsException(String.format("The product with the name %s  is already exists", productDto.getName()));
         }
         productDto.setId(null);
 
