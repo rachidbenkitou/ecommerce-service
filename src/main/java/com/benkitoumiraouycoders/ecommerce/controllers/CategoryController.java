@@ -3,10 +3,13 @@ package com.benkitoumiraouycoders.ecommerce.controllers;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto;
 import com.benkitoumiraouycoders.ecommerce.services.CategoryService;
+import com.benkitoumiraouycoders.ecommerce.services.strategy.CategoryImageUploadStrategy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -16,6 +19,7 @@ import java.util.List;
 public class CategoryController {
 
     private final CategoryService categoryService;
+    private final CategoryImageUploadStrategy categoryImageUploadStrategy;
 
     @GetMapping
     public ResponseEntity<List<CategoryDto>> getCategoriesByQuery(@RequestParam(name = "categoryId", required = false) Long categoryId,
@@ -44,6 +48,14 @@ public class CategoryController {
     public ResponseEntity<?> deleteCategoryById(@PathVariable Long categoryId) {
         categoryService.deleteCategoryById(categoryId);
         return ResponseEntity.ok().body(null);
+    }
+
+    @PostMapping("/uploadImage")
+    public ResponseEntity<?> uploadCategoryImage(
+            @RequestParam(name = "image", required = true) MultipartFile image,
+            @RequestParam(name = "categoryId", required = true) Long categoryId) throws IOException {
+        categoryImageUploadStrategy.uploadImage(image, categoryId);
+        return ResponseEntity.ok(null);
     }
 }
 

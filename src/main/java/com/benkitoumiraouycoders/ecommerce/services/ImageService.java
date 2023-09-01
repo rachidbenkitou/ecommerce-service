@@ -80,42 +80,5 @@ public class ImageService implements ImageServiceInter {
         }
     }
 
-    @Override
-    public String uploadImageToFileSystem(MultipartFile file, Long productId) throws IOException {
-        String folderPath = Constants.FOLDER_PATH + "product_" + productId + "/";
-        String filePath = folderPath + file.getOriginalFilename();
-
-        Optional<Image> existingImage = imageDao.findByFilePath(filePath);
-        existingImage.ifPresent(image -> {
-            throw new EntityAlreadyExistsException(String.format("This image with name %s already exists", file.getOriginalFilename()));
-        });
-
-        Image image = imageDao.save(
-                Image.builder()
-                        .name(file.getOriginalFilename())
-                        .type(file.getContentType())
-                        .filePath(filePath).build());
-
-        // Create the product's folder if it doesn't exist
-        Path path = Paths.get(folderPath);
-        if (!Files.exists(path)) {
-            Files.createDirectories(path);
-        }
-
-        if (image != null) {
-            file.transferTo(new File(filePath));
-            return "file uploaded successfully: " + filePath;
-        } else {
-            return "Failed to save image entity.";
-        }
-    }
-
-
-    @Override
-    public void uploadImagesToFileSystem(List<MultipartFile> images, Long productId) throws IOException {
-        for (MultipartFile image : images) {
-            uploadImageToFileSystem(image, productId);
-        }
-    }
 
 }
