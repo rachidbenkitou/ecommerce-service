@@ -28,9 +28,17 @@ public class Image implements Serializable {
     @Column(name = "PRODUCT_ID")
     private Long productId;
 
+    @Column(name = "CATEGORY_ID")
+    private Long categoryId;
+
     @ManyToOne
     @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
     private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @NotFound(action = NotFoundAction.IGNORE)
+    private Category category;
 
 }

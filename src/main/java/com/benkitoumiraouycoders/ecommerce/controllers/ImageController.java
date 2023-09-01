@@ -23,8 +23,10 @@ public class ImageController {
                                                            @RequestParam(name = "imageName", required = false) String imageName,
                                                            @RequestParam(name = "imageType", required = false) String imageType,
                                                            @RequestParam(name = "imageFilePath", required = false) String imageFilePath,
-                                                           @RequestParam(name = "productId", required = false) Long productId) {
-        return ResponseEntity.ok().body(imageService.getImagesByQuery(imageId, imageName, imageType, imageFilePath, productId));
+                                                           @RequestParam(name = "productId", required = false) Long productId,
+                                                           @RequestParam(name = "categoryId", required = false) Long categoryId
+    ) {
+        return ResponseEntity.ok().body(imageService.getImagesByQuery(imageId, imageName, imageType, imageFilePath, productId, categoryId));
     }
 
     @GetMapping("/{imageId}")

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface ImageServiceInter {
-    List<ImageDto> getImagesByQuery(Long imageId, String imageName, String imageType, String imageFilePath, Long productId);
+    List<ImageDto> getImagesByQuery(Long imageId, String imageName, String imageType, String imageFilePath, Long productId, Long categoryId);
 
     ImageDto getImageById(Long id);
 

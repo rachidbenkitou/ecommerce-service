@@ -23,21 +23,17 @@ public class ProductService implements ProuctServiceInter {
     private final ProductMapper productMapper;
 
     @Override
-    public List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visbility, Long categoryId) {
-        return productDao.getProductsByQuery(id, name, price, quantity, categoryId, visbility);
+    public List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visibility, Long categoryId) {
+        return productDao.getProductsByQuery(id, name, price, quantity, categoryId, visibility);
     }
 
     @Override
     public ProductDto getProductById(Long id) {
 
-        Optional<Product> product = productDao.findById(id);
-
-        if (product.isPresent()) {
-            return productMapper.modelToDto(product.get());
-
-        } else {
-            throw new EntityNotFoundException(String.format("The product with the id %d is not found.", id));
-        }
+        List<ProductDto> productDtoList = productDao.getProductsByQuery(id,null,null,null,null,null);
+        return productDtoList.stream()
+                .findFirst()
+                .orElseThrow(() -> new EntityNotFoundException(String.format("The product with the id %d is not found.", id)));
     }
 
 

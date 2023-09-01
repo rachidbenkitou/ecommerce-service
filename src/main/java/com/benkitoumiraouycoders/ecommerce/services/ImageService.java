@@ -29,8 +29,8 @@ public class ImageService implements ImageServiceInter {
     private final ImageMapper imageMapper;
 
     @Override
-    public List<ImageDto> getImagesByQuery(Long imageId, String imageName, String imageType, String imageFilePath, Long productId) {
-        return imageDao.findImagesByQuery(imageId, imageName, imageType, imageFilePath, productId);
+    public List<ImageDto> getImagesByQuery(Long imageId, String imageName, String imageType, String imageFilePath, Long productId, Long categoryId) {
+        return imageDao.findImagesByQuery(imageId, imageName, imageType, imageFilePath, productId, categoryId);
     }
 
     @Override
