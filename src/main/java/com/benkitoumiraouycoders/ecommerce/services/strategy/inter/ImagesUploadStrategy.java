@@ -1,4 +1,4 @@
-package com.benkitoumiraouycoders.ecommerce.services.strategy;
+package com.benkitoumiraouycoders.ecommerce.services.strategy.inter;
 
 import org.springframework.web.multipart.MultipartFile;
 

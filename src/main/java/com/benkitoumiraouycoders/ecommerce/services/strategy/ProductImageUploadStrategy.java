@@ -4,6 +4,8 @@ import com.benkitoumiraouycoders.ecommerce.dao.ImageDao;
 import com.benkitoumiraouycoders.ecommerce.entities.Image;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
 import com.benkitoumiraouycoders.ecommerce.mappers.ImageMapper;
+import com.benkitoumiraouycoders.ecommerce.services.strategy.inter.ImageUploadStrategy;
+import com.benkitoumiraouycoders.ecommerce.services.strategy.inter.ImagesUploadStrategy;
 import com.benkitoumiraouycoders.ecommerce.utils.Constants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,13 +23,13 @@ import java.util.Optional;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class ProductImageUploadStrategy implements ImageUploadStrategy, ImagesUploadStrategy{
+public class ProductImageUploadStrategy implements ImageUploadStrategy, ImagesUploadStrategy {
 
     private final ImageDao imageDao;
     private final ImageMapper imageMapper;
     @Override
     public void uploadImage(MultipartFile file, Long productId) throws IOException {
-        String folderPath = Constants.FOLDER_PATH + "products/product_" + productId + "/";
+        String folderPath = Constants.IMAGE_FOLDER_PATH + "products/product_" + productId + "/";
         String filePath = folderPath + file.getOriginalFilename();
 
         Optional<Image> existingImage = imageDao.findByFilePath(filePath);

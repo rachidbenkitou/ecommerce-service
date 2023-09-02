@@ -4,6 +4,7 @@ import com.benkitoumiraouycoders.ecommerce.dao.ImageDao;
 import com.benkitoumiraouycoders.ecommerce.entities.Image;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
 import com.benkitoumiraouycoders.ecommerce.mappers.ImageMapper;
+import com.benkitoumiraouycoders.ecommerce.services.strategy.inter.ImageUploadStrategy;
 import com.benkitoumiraouycoders.ecommerce.utils.Constants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class CategoryImageUploadStrategy implements ImageUploadStrategy {
 
     @Override
     public void uploadImage(MultipartFile file, Long categoryId) throws IOException {
-        String folderPath = Constants.FOLDER_PATH + "categories/category_" + categoryId + "/";
+        String folderPath = Constants.IMAGE_FOLDER_PATH + "categories/category_" + categoryId + "/";
         String filePath = folderPath + file.getOriginalFilename();
 
         Optional<Image> existingImage = imageDao.findByFilePath(filePath);
