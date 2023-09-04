@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9e711e69-1e7d-47b8-92b4-d43eca136a0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/CategoryImageUploadStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/CategoryImageUploadStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/ImageUploadStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/ImagesUploadStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/ProductImageUploadStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/ProductImageUploadStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/utils/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ProuctServiceInter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ProductServiceInter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,32 +47,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/E L I T E B O O K/Desktop/ecommerce-service",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "show.migrate.to.gradle.popup": "false",
-    "spring.configuration.checksum": "5b91aaddfc50841206008b4fdb61f1f1",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/E L I T E B O O K/Desktop/ecommerce-service&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;5b91aaddfc50841206008b4fdb61f1f1&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.benkitoucoders.ecommerce.entities" />
@@ -197,7 +196,11 @@
       <workItem from="1693423609320" duration="8620000" />
       <workItem from="1693491954328" duration="805000" />
       <workItem from="1693502404811" duration="3374000" />
-      <workItem from="1693611187720" duration="2543000" />
+      <workItem from="1693611187720" duration="2588000" />
+      <workItem from="1693657073188" duration="3451000" />
+      <workItem from="1693739647902" duration="623000" />
+      <workItem from="1693744364153" duration="687000" />
+      <workItem from="1693866280536" duration="2947000" />
     </task>
     <servers />
   </component>

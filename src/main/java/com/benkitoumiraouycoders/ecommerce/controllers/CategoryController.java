@@ -2,9 +2,10 @@
 package com.benkitoumiraouycoders.ecommerce.controllers;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto;
-import com.benkitoumiraouycoders.ecommerce.services.CategoryService;
-import com.benkitoumiraouycoders.ecommerce.services.strategy.CategoryImageUploadStrategy;
-import lombok.RequiredArgsConstructor;
+import com.benkitoumiraouycoders.ecommerce.services.inter.CategoryServiceInter;
+import com.benkitoumiraouycoders.ecommerce.services.strategy.inter.ImageUploadStrategy;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,12 +15,16 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/categories")
-@RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:58213", allowCredentials = "true")
 public class CategoryController {
+    private final CategoryServiceInter categoryService;
+    private final ImageUploadStrategy categoryImageUploadStrategy;
 
-    private final CategoryService categoryService;
-    private final CategoryImageUploadStrategy categoryImageUploadStrategy;
+    @Autowired
+    public CategoryController(CategoryServiceInter categoryService, @Qualifier("categoryImageUploadStrategy") ImageUploadStrategy categoryImageUploadStrategy) {
+        this.categoryService = categoryService;
+        this.categoryImageUploadStrategy = categoryImageUploadStrategy;
+    }
 
     @GetMapping
     public ResponseEntity<List<CategoryDto>> getCategoriesByQuery(@RequestParam(name = "categoryId", required = false) Long categoryId,

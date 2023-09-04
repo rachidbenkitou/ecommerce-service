@@ -4,7 +4,7 @@ import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
 
 import java.util.List;
 
-public interface ProuctServiceInter {
+public interface ProductServiceInter {
 
     List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visbility, Long categoryId);
 

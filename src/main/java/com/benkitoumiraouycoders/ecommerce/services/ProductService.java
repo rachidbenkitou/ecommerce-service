@@ -6,18 +6,17 @@ import com.benkitoumiraouycoders.ecommerce.entities.Product;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.mappers.ProductMapper;
-import com.benkitoumiraouycoders.ecommerce.services.inter.ProuctServiceInter;
+import com.benkitoumiraouycoders.ecommerce.services.inter.ProductServiceInter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class ProductService implements ProuctServiceInter {
+public class ProductService implements ProductServiceInter {
 
     private final ProductDao productDao;
     private final ProductMapper productMapper;

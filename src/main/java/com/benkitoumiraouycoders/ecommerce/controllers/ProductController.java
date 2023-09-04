@@ -1,9 +1,10 @@
 package com.benkitoumiraouycoders.ecommerce.controllers;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
-import com.benkitoumiraouycoders.ecommerce.services.ProductService;
-import com.benkitoumiraouycoders.ecommerce.services.strategy.ProductImageUploadStrategy;
-import lombok.RequiredArgsConstructor;
+import com.benkitoumiraouycoders.ecommerce.services.inter.ProductServiceInter;
+import com.benkitoumiraouycoders.ecommerce.services.strategy.inter.ImagesUploadStrategy;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,13 +14,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/products")
-@RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:58213", allowCredentials = "true")
 public class ProductController {
 
-    private final ProductService productService;
-    private final ProductImageUploadStrategy productImageUploadStrategy;
+    private final ProductServiceInter productService;
+    private final ImagesUploadStrategy productImagesStrategy;
 
+    @Autowired
+    public ProductController(ProductServiceInter productService, @Qualifier("productImageUploadStrategy") ImagesUploadStrategy productImagesStrategy) {
+        this.productService = productService;
+        this.productImagesStrategy = productImagesStrategy;
+    }
 
     @GetMapping
     public ResponseEntity<List<ProductDto>> getProductsByQuery(@RequestParam(name = "productId", required = false) Long id,
@@ -54,11 +59,11 @@ public class ProductController {
         return ResponseEntity.ok().body(null);
     }
 
-    @PostMapping("/uploadImages")
+    @PostMapping("/{productId}/uploadImages")
     public ResponseEntity<?> uploadImages(
             @RequestParam(name = "images", required = true) List<MultipartFile> images,
-            @RequestParam(name = "productId", required = true) Long productId) throws IOException {
-        productImageUploadStrategy.uploadImages(images, productId);
+            @PathVariable(name = "productId", required = true) Long productId) throws IOException {
+        productImagesStrategy.uploadImages(images, productId);
         return ResponseEntity.ok(null);
     }
 
