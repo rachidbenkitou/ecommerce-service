@@ -18,7 +18,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -80,7 +79,6 @@ public class ImageService implements ImageServiceInter {
             imageDao.deleteById(id);
         }
     }
-
     private static String removeLastSegmentFromPath(String path) {
         int lastSlashIndex = path.lastIndexOf("/");
         if (lastSlashIndex >= 0) {
@@ -91,19 +89,34 @@ public class ImageService implements ImageServiceInter {
         }
     }
 
-    private void deleteFolder(String folderPath) throws IOException {
-        Path dir = Paths.get(folderPath); //path to the directory
-        Files
-                .walk(dir) // Traverse the file tree in depth-first order
-                .sorted(Comparator.reverseOrder())
-                .forEach(path -> {
-                    try {
-                        System.out.println("Deleting: " + path);
-                        Files.delete(path);  //delete each file or directory
-                    } catch (IOException e) {
-                        e.printStackTrace();
+    private void deleteFolderAndContents(String folderPath){
+        File folder = new File(folderPath);
+        if (folder.exists()) {
+            if (folder.isDirectory()) {
+                File[] files = folder.listFiles();
+                if (files != null) {
+                    for (File file : files) {
+                        if (file.isDirectory()) {
+                            // Recursively delete subdirectories
+                            deleteFolderAndContents(file.getAbsolutePath());
+                        } else {
+                            // Delete files within the folder
+                            if (!file.delete()) {
+                                System.err.println("Failed to delete file: " + file.getAbsolutePath());
+                            }
+                        }
                     }
-                });
+                }
+                // Delete the empty folder
+                if (!folder.delete()) {
+                    System.err.println("Failed to delete folder: " + folder.getAbsolutePath());
+                }
+            } else {
+                System.err.println("Path is not a directory: " + folder.getAbsolutePath());
+            }
+        } else {
+            System.err.println("Folder does not exist: " + folder.getAbsolutePath());
+        }
     }
     @Override
     public void deleteImagesByProductId(Long productId) {
@@ -114,20 +127,10 @@ public class ImageService implements ImageServiceInter {
             ImageDto image = imageList.get(0);
             String filePath = image.getFilePath();
             String newPath = removeLastSegmentFromPath(filePath);
-            System.out.println(newPath);
-            File imageFile = new File(filePath);
-
-            if (imageFile.exists()) {
-                if (imageFile.delete()) {
-                    imageDao.deleteAllByProductId(productId);
-                } else {
-                    throw new RuntimeException("Failed to delete image file");
-                }
-            } else {
-                // If the file doesn't exist, only delete the entity from the database
-                imageDao.deleteAllByProductId(productId);
-            }
+            deleteFolderAndContents(newPath);
+            imageDao.deleteAllByProductId(productId);
         } else {
+            System.err.println("Image list is empty.");
         }
 
     }

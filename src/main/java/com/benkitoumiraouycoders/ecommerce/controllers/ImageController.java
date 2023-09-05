@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -49,7 +50,7 @@ public class ImageController {
     }
 
     @DeleteMapping("/byProduct/{productId}")
-    public ResponseEntity<?> deleteImageByProductId(@PathVariable Long productId) {
+    public ResponseEntity<?> deleteImageByProductId(@PathVariable Long productId) throws IOException {
         imageService.deleteImagesByProductId(productId);
         return ResponseEntity.ok().body(null);
     }
