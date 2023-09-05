@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e711e69-1e7d-47b8-92b4-d43eca136a0d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/ProductDao.java" afterDir="false" />
-    </list>
+    <list default="true" id="9e711e69-1e7d-47b8-92b4-d43eca136a0d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +194,7 @@
       <workItem from="1693657073188" duration="3451000" />
       <workItem from="1693739647902" duration="623000" />
       <workItem from="1693744364153" duration="687000" />
-      <workItem from="1693866280536" duration="3217000" />
+      <workItem from="1693866280536" duration="3274000" />
     </task>
     <servers />
   </component>
