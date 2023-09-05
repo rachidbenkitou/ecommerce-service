@@ -48,4 +48,10 @@ public class ImageController {
         return ResponseEntity.ok().body("The category has been deleted successfully.");
     }
 
+    @DeleteMapping("/byProduct/{productId}")
+    public ResponseEntity<?> deleteImageByProductId(@PathVariable Long productId) {
+        imageService.deleteImagesByProductId(productId);
+        return ResponseEntity.ok().body(null);
+    }
+
 }

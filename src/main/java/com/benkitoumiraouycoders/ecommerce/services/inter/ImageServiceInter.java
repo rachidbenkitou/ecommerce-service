@@ -14,5 +14,7 @@ public interface ImageServiceInter {
     ImageDto updateImage(Long id, ImageDto imageDto);
 
     void deleteImageById(Long id);
+    void deleteImagesByProductId(Long productId);
+
 
 }

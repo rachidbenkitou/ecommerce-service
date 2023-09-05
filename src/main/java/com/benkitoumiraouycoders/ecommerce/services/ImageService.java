@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -78,6 +79,57 @@ public class ImageService implements ImageServiceInter {
             // If the file doesn't exist, only delete the entity from the database
             imageDao.deleteById(id);
         }
+    }
+
+    private static String removeLastSegmentFromPath(String path) {
+        int lastSlashIndex = path.lastIndexOf("/");
+        if (lastSlashIndex >= 0) {
+            return path.substring(0, lastSlashIndex);
+        } else {
+            // Handle the case where there is no slash in the path
+            return path;
+        }
+    }
+
+    private void deleteFolder(String folderPath) throws IOException {
+        Path dir = Paths.get(folderPath); //path to the directory
+        Files
+                .walk(dir) // Traverse the file tree in depth-first order
+                .sorted(Comparator.reverseOrder())
+                .forEach(path -> {
+                    try {
+                        System.out.println("Deleting: " + path);
+                        Files.delete(path);  //delete each file or directory
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+    }
+    @Override
+    public void deleteImagesByProductId(Long productId) {
+
+        List<ImageDto> imageList = getImagesByQuery(null,null,null,null,productId, null);
+        // Check if the list is not empty before accessing the first element
+        if (!imageList.isEmpty()) {
+            ImageDto image = imageList.get(0);
+            String filePath = image.getFilePath();
+            String newPath = removeLastSegmentFromPath(filePath);
+            System.out.println(newPath);
+            File imageFile = new File(filePath);
+
+            if (imageFile.exists()) {
+                if (imageFile.delete()) {
+                    imageDao.deleteAllByProductId(productId);
+                } else {
+                    throw new RuntimeException("Failed to delete image file");
+                }
+            } else {
+                // If the file doesn't exist, only delete the entity from the database
+                imageDao.deleteAllByProductId(productId);
+            }
+        } else {
+        }
+
     }
 
 
