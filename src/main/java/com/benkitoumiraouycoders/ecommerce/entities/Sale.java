@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 @Builder
+@Entity
 public class Sale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,14 +19,21 @@ public class Sale {
     private Long id;
     private LocalDateTime dateCreation;
     private Long userCreation;
+    private LocalDateTime dateUpdate;
+    private Long userUpdate;
+    private String cni;
+    private String isPayed;
+    private String address;
+    private  String phone ;
+    private String email;
+    private SaleStatus saleStatus;
 
-   /* @Column(name = "ORDER_ID")
-    private Long orderId;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID", referencedColumnName = "ID", insertable = false, updatable = false)
+   /*  @Column(name = "status_id")
+    private Long statusId;
+    @ManyToOne
+    @JoinColumn(name = "status_id", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
-    private GuestOrder guestOrder;
-    private SaleStatus guestOrderStatus;*/
+    private SaleStatus saleStatus;*/
+
 
 }

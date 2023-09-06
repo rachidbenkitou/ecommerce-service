@@ -1,5 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.dtos;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,6 +8,8 @@ import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
+@Builder
+
 public class ProductDto {
 
     private Long id;

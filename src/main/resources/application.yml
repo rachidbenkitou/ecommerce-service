@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost/ecommerce?createDatabaseIfNotExist=true
     username: root
-    password:
+    password: miraouy
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
