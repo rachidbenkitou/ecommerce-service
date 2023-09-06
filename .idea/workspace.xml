@@ -6,19 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9e711e69-1e7d-47b8-92b4-d43eca136a0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/SaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/SaleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/ProductDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/Sale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/SaleDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/SaleDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/CategoryServiceInter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ImageServiceInter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ProuctServiceInter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/CategoryImageUploadStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/ProductImageUploadStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/inter/ImageUploadStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/inter/ImagesUploadStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -44,10 +31,13 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2SjvMBUQ9k5HIhZ55IAH0kvI0JX" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -67,7 +57,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/E L I T E B O O K/Desktop/ecommerce-service/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/E L I T E B O O K/Desktop/ecommerce-service&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -84,24 +74,15 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.benkitoumiraouycoders.ecommerce.services.inter" />
-      <recent name="com.benkitoumiraouycoders.ecommerce.entities" />
       <recent name="com.benkitoucoders.ecommerce.entities" />
       <recent name="com.benkitoucoders.ecommerce.exceptions" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\E L I T E B O O K\Desktop\ecommerce-service\src\main\java\com\benkitoumiraouycoders\ecommerce\dtos" />
-      <recent name="C:\Users\E L I T E B O O K\Desktop\ecommerce-service\src\main\java\com\benkitoumiraouycoders\ecommerce\services" />
-      <recent name="C:\Users\E L I T E B O O K\Desktop\ecommerce-service\src\main\java\com\benkitoumiraouycoders\ecommerce\Criteria" />
-      <recent name="C:\Users\E L I T E B O O K\Desktop\ecommerce-service\src\main\java\com\benkitoumiraouycoders\ecommerce\dao" />
-      <recent name="C:\Users\E L I T E B O O K\Desktop\ecommerce-service\src\main\java\com\benkitoumiraouycoders\ecommerce\mappers" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.benkitoumiraouycoders.ecommerce.controllers" />
-      <recent name="com.benkitoumiraouycoders.ecommerce.services" />
-      <recent name="com.benkitoumiraouycoders.ecommerce.services.inter" />
-      <recent name="com.benkitoumiraouycoders.ecommerce.dao" />
-      <recent name="com.benkitoumiraouycoders.ecommerce.mappers" />
+      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce\controllers" />
+      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce" />
+      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce\mappers" />
+      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce\daos" />
+      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce\dtos" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.EcommerceServiceApplication (1)">
@@ -214,26 +195,16 @@
       <workItem from="1693423609320" duration="8620000" />
       <workItem from="1693491954328" duration="805000" />
       <workItem from="1693502404811" duration="3374000" />
-      <workItem from="1693611187720" duration="2543000" />
-      <workItem from="1693828575814" duration="23264000" />
-      <workItem from="1693914882739" duration="214000" />
-      <workItem from="1693932749816" duration="614000" />
-      <workItem from="1693952266833" duration="2120000" />
+      <workItem from="1693611187720" duration="2588000" />
+      <workItem from="1693657073188" duration="3451000" />
+      <workItem from="1693739647902" duration="623000" />
+      <workItem from="1693744364153" duration="687000" />
+      <workItem from="1693866280536" duration="3274000" />
+      <workItem from="1694018571138" duration="334000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/handlers/ApplicationExceptionHandler.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
