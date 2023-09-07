@@ -79,6 +79,61 @@ public class ImageService implements ImageServiceInter {
             imageDao.deleteById(id);
         }
     }
+    private static String removeLastSegmentFromPath(String path) {
+        int lastSlashIndex = path.lastIndexOf("/");
+        if (lastSlashIndex >= 0) {
+            return path.substring(0, lastSlashIndex);
+        } else {
+            // Handle the case where there is no slash in the path
+            return path;
+        }
+    }
+
+    private void deleteFolderAndContents(String folderPath){
+        File folder = new File(folderPath);
+        if (folder.exists()) {
+            if (folder.isDirectory()) {
+                File[] files = folder.listFiles();
+                if (files != null) {
+                    for (File file : files) {
+                        if (file.isDirectory()) {
+                            // Recursively delete subdirectories
+                            deleteFolderAndContents(file.getAbsolutePath());
+                        } else {
+                            // Delete files within the folder
+                            if (!file.delete()) {
+                                System.err.println("Failed to delete file: " + file.getAbsolutePath());
+                            }
+                        }
+                    }
+                }
+                // Delete the empty folder
+                if (!folder.delete()) {
+                    System.err.println("Failed to delete folder: " + folder.getAbsolutePath());
+                }
+            } else {
+                System.err.println("Path is not a directory: " + folder.getAbsolutePath());
+            }
+        } else {
+            System.err.println("Folder does not exist: " + folder.getAbsolutePath());
+        }
+    }
+    @Override
+    public void deleteImagesByProductId(Long productId) {
+
+        List<ImageDto> imageList = getImagesByQuery(null,null,null,null,productId, null);
+        // Check if the list is not empty before accessing the first element
+        if (!imageList.isEmpty()) {
+            ImageDto image = imageList.get(0);
+            String filePath = image.getFilePath();
+            String newPath = removeLastSegmentFromPath(filePath);
+            deleteFolderAndContents(newPath);
+            imageDao.deleteAllByProductId(productId);
+        } else {
+            System.err.println("Image list is empty.");
+        }
+
+    }
 
 
 }
