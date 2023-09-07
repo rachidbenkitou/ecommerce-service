@@ -4,141 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="9e711e69-1e7d-47b8-92b4-d43eca136a0d" name="Changes" comment="" />
-=======
-    <list default="true" id="9e711e69-1e7d-47b8-92b4-d43eca136a0d" name="Changes" comment="">
+    <list default="true" id="44bac0e9-3bb6-4e0b-87c2-9ec74edd903c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
->>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Class" />
-        <option value="Interface" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectColorInfo">{
-<<<<<<< Updated upstream
-  &quot;customColor&quot;: &quot;&quot;,
-=======
->>>>>>> Stashed changes
-  &quot;associatedIndex&quot;: 7
-}</component>
-  <component name="ProjectId" id="2SjvMBUQ9k5HIhZ55IAH0kvI0JX" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2V53cRAcsk1RXIa9r0y7hEkoguK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-<<<<<<< Updated upstream
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/E L I T E B O O K/Desktop/ecommerce-service&quot;,
-=======
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Desktop/Projects/Ecommerce/ecommerce-service&quot;,
->>>>>>> Stashed changes
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-<<<<<<< Updated upstream
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-=======
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
->>>>>>> Stashed changes
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;5b91aaddfc50841206008b4fdb61f1f1&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.benkitoucoders.ecommerce.entities" />
-      <recent name="com.benkitoucoders.ecommerce.exceptions" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce\controllers" />
-      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce" />
-      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce\mappers" />
-      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce\daos" />
-      <recent name="C:\Users\Rachid Benkitou\Desktop\MyEcommerce\ecommerce-service\src\main\java\com\benkitoucoders\ecommerce\dtos" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.com.benkitoumiraouycoders.ecommerce.EcommerceServiceApplication">
-    <configuration name="EcommerceServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.benkitoucoders.ecommerce.EcommerceServiceApplication" />
-      <module name="ecommerce-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.benkitoucoders.ecommerce.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="com.benkitoumiraouycoders.ecommerce.EcommerceServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.benkitoumiraouycoders.ecommerce.EcommerceServiceApplication" />
-      <module name="ecommerce-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.benkitoumiraouycoders.ecommerce.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EcommerceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="11" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <module name="ecommerce" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.benkitoucoders.ecommerce.EcommerceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EcommerceServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="EcommerceServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="ecommerce-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.benkitoumiraouycoders.ecommerce.EcommerceServiceApplication" />
       <extension name="coverage">
@@ -151,91 +62,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EcommerceServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="ecommerce-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.benkitoucoders.ecommerce.EcommerceServiceApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.benkitoucoders.ecommerce.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.com.benkitoumiraouycoders.ecommerce.EcommerceServiceApplication" />
-        <item itemvalue="Application.EcommerceServiceApplication" />
+        <item itemvalue="Spring Boot.EcommerceServiceApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9e711e69-1e7d-47b8-92b4-d43eca136a0d" name="Changes" comment="" />
-      <created>1689672759545</created>
+      <changelist id="44bac0e9-3bb6-4e0b-87c2-9ec74edd903c" name="Changes" comment="" />
+      <created>1694110916421</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1689672759545</updated>
-      <workItem from="1689672762178" duration="1292000" />
-      <workItem from="1689786817401" duration="9833000" />
-      <workItem from="1689869824038" duration="8356000" />
-      <workItem from="1690046039151" duration="4522000" />
-      <workItem from="1690109423969" duration="22770000" />
-      <workItem from="1690156293565" duration="12833000" />
-      <workItem from="1690283527631" duration="48000" />
-      <workItem from="1690489858288" duration="4759000" />
-      <workItem from="1690558215051" duration="82000" />
-      <workItem from="1690625017331" duration="2000" />
-      <workItem from="1690718993280" duration="31000" />
-      <workItem from="1690836121503" duration="4477000" />
-      <workItem from="1690992584422" duration="42000" />
-      <workItem from="1690993274210" duration="591000" />
-      <workItem from="1691013964330" duration="196000" />
-      <workItem from="1691073881575" duration="80000" />
-      <workItem from="1692174370998" duration="1006000" />
-      <workItem from="1692183300737" duration="60000" />
-      <workItem from="1692295449450" duration="26000" />
-      <workItem from="1692353485130" duration="358000" />
-      <workItem from="1692378263866" duration="539000" />
-      <workItem from="1692399773006" duration="518000" />
-      <workItem from="1692539330108" duration="167000" />
-      <workItem from="1692540126626" duration="1029000" />
-      <workItem from="1692654838071" duration="1629000" />
-      <workItem from="1692727415303" duration="5611000" />
-      <workItem from="1692734120159" duration="452000" />
-      <workItem from="1692738587888" duration="4375000" />
-      <workItem from="1692830328098" duration="1399000" />
-      <workItem from="1692831823615" duration="1654000" />
-      <workItem from="1692865452073" duration="781000" />
-      <workItem from="1692866614799" duration="474000" />
-      <workItem from="1692875021076" duration="596000" />
-      <workItem from="1692884008090" duration="6379000" />
-      <workItem from="1692952004789" duration="2674000" />
-      <workItem from="1692958472178" duration="453000" />
-      <workItem from="1692981071193" duration="3290000" />
-      <workItem from="1693045765718" duration="37000" />
-      <workItem from="1693072945817" duration="27000" />
-      <workItem from="1693222432130" duration="120000" />
-      <workItem from="1693232635005" duration="975000" />
-      <workItem from="1693298663281" duration="4967000" />
-      <workItem from="1693407512195" duration="84000" />
-      <workItem from="1693423609320" duration="8620000" />
-      <workItem from="1693491954328" duration="805000" />
-      <workItem from="1693502404811" duration="3374000" />
-<<<<<<< Updated upstream
-      <workItem from="1693611187720" duration="2588000" />
-      <workItem from="1693657073188" duration="3451000" />
-      <workItem from="1693739647902" duration="623000" />
-      <workItem from="1693744364153" duration="687000" />
-      <workItem from="1693866280536" duration="3274000" />
-      <workItem from="1694018571138" duration="334000" />
-=======
-      <workItem from="1693611187720" duration="2543000" />
-      <workItem from="1693942758852" duration="803000" />
->>>>>>> Stashed changes
+      <updated>1694110916421</updated>
+      <workItem from="1694110919465" duration="1258000" />
+      <workItem from="1694112197418" duration="57000" />
     </task>
     <servers />
   </component>

@@ -3,7 +3,9 @@ package com.benkitoumiraouycoders.ecommerce.controllers;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto;
 import com.benkitoumiraouycoders.ecommerce.services.CategoryService;
+import com.benkitoumiraouycoders.ecommerce.services.inter.CategoryServiceInter;
 import com.benkitoumiraouycoders.ecommerce.services.strategy.CategoryImageUploadStrategy;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +16,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/categories")
-@RequiredArgsConstructor
+@AllArgsConstructor
 @CrossOrigin(origins = "http://localhost:58213", allowCredentials = "true")
 public class CategoryController {
 
-    private final CategoryService categoryService;
-    private final CategoryImageUploadStrategy categoryImageUploadStrategy;
+    private   CategoryServiceInter categoryService;
+    private  CategoryImageUploadStrategy categoryImageUploadStrategy;
 
     @GetMapping
     public ResponseEntity<List<CategoryDto>> getCategoriesByQuery(@RequestParam(name = "categoryId", required = false) Long categoryId,

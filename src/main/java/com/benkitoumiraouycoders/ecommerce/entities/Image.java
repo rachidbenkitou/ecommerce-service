@@ -11,7 +11,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@EqualsAndHashCode
 @Builder
 public class Image implements Serializable {
 
