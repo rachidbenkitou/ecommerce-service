@@ -4,9 +4,9 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
   datasource:
-    url: jdbc:mysql://localhost/ecommerce?createDatabaseIfNotExist=true
-    username: root
-    password:
+    url: jdbc:mysql://ecommerce.cvgjytfrsxst.eu-west-1.rds.amazonaws.com:3306/ecommerce?createDatabaseIfNotExist=true
+    username: ecommerce
+    password: ecommerce
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
