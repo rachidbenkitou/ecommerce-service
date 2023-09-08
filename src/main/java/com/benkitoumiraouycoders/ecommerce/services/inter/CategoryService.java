@@ -1,10 +1,11 @@
 package com.benkitoumiraouycoders.ecommerce.services.inter;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto;
+import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
 
 import java.util.List;
 
-public interface CategoryServiceInter {
+public interface CategoryService {
     List<CategoryDto> getCategoriesByQuery(Long id, String name, String visbility);
 
     CategoryDto getCategoryById(Long id);
@@ -13,6 +14,6 @@ public interface CategoryServiceInter {
 
     CategoryDto updateCategory(Long id, CategoryDto categoryDto);
 
-    void deleteCategoryById(Long id);
+    ResponseDto deleteCategoryById(Long id);
 
 }

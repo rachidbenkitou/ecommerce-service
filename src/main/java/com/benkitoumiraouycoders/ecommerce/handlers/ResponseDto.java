@@ -2,8 +2,10 @@ package com.benkitoumiraouycoders.ecommerce.handlers;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import lombok.Builder;
 
 @JsonInclude(Include.NON_NULL)
+@Builder
 public class ResponseDto {
     private int errorCode;
     private String message;

@@ -1,7 +1,7 @@
 package com.benkitoumiraouycoders.ecommerce.controllers;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.ImageDto;
-import com.benkitoumiraouycoders.ecommerce.services.inter.ImageServiceInter;
+import com.benkitoumiraouycoders.ecommerce.services.inter.ImageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:58213", allowCredentials = "true")
 public class ImageController {
 
-    private final ImageServiceInter imageService;
+    private final ImageService imageService;
 
     @GetMapping
     public ResponseEntity<List<ImageDto>> getImagesByQuery(@RequestParam(name = "imageId", required = false) Long imageId,
@@ -44,15 +44,18 @@ public class ImageController {
     }
 
     @DeleteMapping("/{imageId}")
-    public ResponseEntity<String> deleteImageById(@PathVariable Long imageId) {
-        imageService.deleteImageById(imageId);
-        return ResponseEntity.ok().body("The category has been deleted successfully.");
+    public ResponseEntity<?> deleteImageById(@PathVariable Long imageId) {
+        return ResponseEntity.ok().body(imageService.deleteImageById(imageId));
     }
 
     @DeleteMapping("/byProduct/{productId}")
     public ResponseEntity<?> deleteImageByProductId(@PathVariable Long productId) throws IOException {
-        imageService.deleteImagesByProductId(productId);
-        return ResponseEntity.ok().body(null);
+        return ResponseEntity.ok().body(imageService.deleteImagesByProductId(productId));
+    }
+
+    @DeleteMapping("/byCategory/{categoryId}")
+    public ResponseEntity<?> deleteImageByCategoryId(@PathVariable Long categoryId) throws IOException {
+        return ResponseEntity.ok().body(imageService.deleteImageByCategoryId(categoryId));
     }
 
 }

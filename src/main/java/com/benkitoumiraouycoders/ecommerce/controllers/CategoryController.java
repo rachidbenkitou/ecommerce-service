@@ -2,11 +2,9 @@
 package com.benkitoumiraouycoders.ecommerce.controllers;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto;
-import com.benkitoumiraouycoders.ecommerce.services.CategoryService;
-import com.benkitoumiraouycoders.ecommerce.services.inter.CategoryServiceInter;
+import com.benkitoumiraouycoders.ecommerce.services.inter.CategoryService;
 import com.benkitoumiraouycoders.ecommerce.services.strategy.CategoryImageUploadStrategy;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,7 +18,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:58213", allowCredentials = "true")
 public class CategoryController {
 
-    private   CategoryServiceInter categoryService;
+    private CategoryService categoryService;
     private  CategoryImageUploadStrategy categoryImageUploadStrategy;
 
     @GetMapping
@@ -48,8 +46,8 @@ public class CategoryController {
 
     @DeleteMapping("/{categoryId}")
     public ResponseEntity<?> deleteCategoryById(@PathVariable Long categoryId) {
-        categoryService.deleteCategoryById(categoryId);
-        return ResponseEntity.ok().body(null);
+
+        return ResponseEntity.ok().body(categoryService.deleteCategoryById(categoryId));
     }
 
     @PostMapping("/uploadImage")

@@ -35,4 +35,6 @@ public interface ImageDao extends JpaRepository<Image, Long> {
 
     void deleteAllByProductId(Long productId);
 
+    void deleteImageByCategoryId(Long categoryId);
+
 }

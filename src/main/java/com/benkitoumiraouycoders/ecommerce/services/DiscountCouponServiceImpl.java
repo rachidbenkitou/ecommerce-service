@@ -22,7 +22,7 @@ public class DiscountCouponServiceImpl implements DiscountCoupanService {
     @Autowired
     private DiscountCouponMapper   discountCouponMapper;
     @Autowired
-    private ProductService productService;
+    private ProductServiceImpl productService;
 
     public List<DiscountCouponDto> findDiscountCouponsByCriteria(DiscountCouponCriteria DiscountCouponCriteria) throws EntityNotFoundException  {
     return discountCouponRepository.findByQuery(

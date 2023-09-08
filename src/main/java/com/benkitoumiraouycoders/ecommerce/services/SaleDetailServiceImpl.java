@@ -21,7 +21,7 @@ public class SaleDetailServiceImpl implements SaleDetailsService {
     @Autowired
     private SaleDetailsMapper saleDetailsMapper;
     @Autowired
-    private ProductService productService;
+    private ProductServiceImpl productService;
 
     public List<SaleDetailsDto> findsaleDetailssByCriteria(SaleDetailsCriteria saleDetailsCriteria) throws EntityNotFoundException  {
     return saleDetailsRepository.getsaleDetailsByQuery(saleDetailsCriteria.getId());

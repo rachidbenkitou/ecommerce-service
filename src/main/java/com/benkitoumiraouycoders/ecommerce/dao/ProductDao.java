@@ -15,7 +15,7 @@ public interface ProductDao extends JpaRepository<Product, Long>, JpaSpecificati
     @Query(value = "select new com.benkitoumiraouycoders.ecommerce.dtos.ProductDto(" +
             " p.id,p.name, p.description, p.price, p.comparePrice ,p.quantity, p.visibility, p.categoryId, c.name, p.dateCreated, p.dateUpdated) " +
             " FROM Product p " +
-            " JOIN Category c ON p.categoryId = c.id " +
+            " LEFT JOIN Category c ON p.categoryId = c.id " +
             " WHERE (:id IS NULL OR p.id = :id) " +
             "AND (:name IS NULL OR LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%')))" +
             " AND (:price IS NULL OR p.price = :price) " +

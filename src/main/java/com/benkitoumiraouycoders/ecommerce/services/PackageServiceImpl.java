@@ -28,7 +28,7 @@ public class PackageServiceImpl implements PackageService {
     @Autowired
     private PackageProductService packageProductService;
     @Autowired
-    private ProductService productService;
+    private ProductServiceImpl productService;
     public List<PackageDto> findPackagesByCriteria(PackageCriteria packageCriteria)  {
         List<PackageDto> packageDtosList=packageRepository.getAllPackageByQuery(packageCriteria.getId(),packageCriteria.getName(),packageCriteria.getActive());
         PackageProductCriteria packageProductCriteria=new PackageProductCriteria();

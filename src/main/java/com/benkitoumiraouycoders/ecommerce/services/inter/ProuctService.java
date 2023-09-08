@@ -1,10 +1,11 @@
 package com.benkitoumiraouycoders.ecommerce.services.inter;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
+import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
 
 import java.util.List;
 
-public interface ProuctServiceInter {
+public interface ProuctService {
 
     List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visbility, Long categoryId);
 
@@ -14,5 +15,5 @@ public interface ProuctServiceInter {
 
     ProductDto updateProduct(Long id, ProductDto productDto);
 
-    void deleteProductById(Long id);
+    ResponseDto deleteProductById(Long id);
 }

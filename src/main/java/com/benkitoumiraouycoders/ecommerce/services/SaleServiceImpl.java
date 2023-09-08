@@ -2,11 +2,9 @@ package com.benkitoumiraouycoders.ecommerce.services;
 import com.benkitoumiraouycoders.ecommerce.Criteria.SaleCriteria;
 import com.benkitoumiraouycoders.ecommerce.dao.SaleRepository;
 import com.benkitoumiraouycoders.ecommerce.dtos.SaleDto;
-import com.benkitoumiraouycoders.ecommerce.entities.Sale;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.SaleMapper;
-import com.benkitoumiraouycoders.ecommerce.services.inter.DiscountCoupanService;
 import com.benkitoumiraouycoders.ecommerce.services.inter.SaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +21,7 @@ public class SaleServiceImpl implements SaleService {
     @Autowired
     private SaleMapper saleMapper;
     @Autowired
-    private ProductService productService;
+    private ProductServiceImpl productService;
 
     public List<SaleDto> findsalesByCriteria(SaleCriteria saleCriteria) throws EntityNotFoundException  {
     return saleRepository.getSaleByQuery(saleCriteria.getId());

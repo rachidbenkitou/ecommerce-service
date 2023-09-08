@@ -5,8 +5,8 @@ import com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Category;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
+import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.CategoryMapper;
-import com.benkitoumiraouycoders.ecommerce.services.inter.CategoryServiceInter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +17,7 @@ import java.util.Optional;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class CategoryService implements CategoryServiceInter {
+public class CategoryServiceImpl implements com.benkitoumiraouycoders.ecommerce.services.inter.CategoryService {
     private final CategoryDao categoryDao;
     private final CategoryMapper categoryMapper;
 
@@ -53,9 +53,12 @@ public class CategoryService implements CategoryServiceInter {
         return categoryMapper.modelToDto(updatedCategory);
     }
     @Override
-    public void deleteCategoryById(Long id) {
+    public ResponseDto deleteCategoryById(Long id) {
         getCategoryById(id);
         categoryDao.deleteById(id);
+        return ResponseDto.builder()
+                .message("Category successfully deleted.")
+                .build();
     }
 
 }
