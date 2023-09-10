@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44bac0e9-3bb6-4e0b-87c2-9ec74edd903c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/config/StorageConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/StorageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/StorageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +39,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Desktop/Projects/1-Ecommerce/ecommerce-service/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -48,6 +53,13 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\Desktop\Projects\1-Ecommerce\ecommerce-service\src\main\java\com\benkitoumiraouycoders\ecommerce\controllers" />
+      <recent name="C:\Users\PC\Desktop\Projects\1-Ecommerce\ecommerce-service\src\main\java\com\benkitoumiraouycoders\ecommerce\services" />
+      <recent name="C:\Users\PC\Desktop\Projects\1-Ecommerce\ecommerce-service\src\main\java\com\benkitoumiraouycoders\ecommerce" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="EcommerceServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -80,7 +92,9 @@
       <workItem from="1694110919465" duration="1258000" />
       <workItem from="1694112197418" duration="4751000" />
       <workItem from="1694135006071" duration="4240000" />
-      <workItem from="1694196131324" duration="177000" />
+      <workItem from="1694196131324" duration="1011000" />
+      <workItem from="1694208719342" duration="2873000" />
+      <workItem from="1694376676165" duration="526000" />
     </task>
     <servers />
   </component>
