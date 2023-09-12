@@ -2,7 +2,6 @@ package com.benkitoumiraouycoders.ecommerce.controllers;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
 import com.benkitoumiraouycoders.ecommerce.services.ProductServiceImpl;
-import com.benkitoumiraouycoders.ecommerce.services.strategy.ProductImageUploadStrategy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +17,6 @@ import java.util.List;
 public class ProductController {
 
     private final ProductServiceImpl productService;
-    private final ProductImageUploadStrategy productImageUploadStrategy;
 
 
     @GetMapping
@@ -52,14 +50,6 @@ public class ProductController {
     public ResponseEntity<?> deleteProductById(@PathVariable Long productId) {
 
         return ResponseEntity.ok().body(productService.deleteProductById(productId));
-    }
-
-    @PostMapping("/{productId}/uploadImages")
-    public ResponseEntity<?> uploadImages(
-            @RequestParam(name = "images", required = true) List<MultipartFile> images,
-            @PathVariable(name = "productId", required = true) Long productId) throws IOException {
-        productImageUploadStrategy.uploadImages(images, productId);
-        return ResponseEntity.ok(null);
     }
 
 }

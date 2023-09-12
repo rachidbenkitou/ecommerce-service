@@ -5,6 +5,7 @@ import com.benkitoumiraouycoders.ecommerce.services.inter.ImageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -58,4 +59,19 @@ public class ImageController {
         return ResponseEntity.ok().body(imageService.deleteImageByCategoryId(categoryId));
     }
 
+    @PostMapping("/{productId}/uploadImages")
+    public ResponseEntity<?> uploadImages(
+            @RequestParam(name = "images", required = true) List<MultipartFile> images,
+            @PathVariable(name = "productId", required = true) Long productId) throws IOException {
+        imageService.uploadProductImages(images, productId);
+        return ResponseEntity.ok(null);
+    }
+
+    @PostMapping("/uploadImage")
+    public ResponseEntity<?> uploadCategoryImage(
+            @RequestParam(name = "image", required = true) MultipartFile image,
+            @RequestParam(name = "categoryId", required = true) Long categoryId) throws IOException {
+        imageService.uploadCategoryImage(image, categoryId);
+        return ResponseEntity.ok(null);
+    }
 }

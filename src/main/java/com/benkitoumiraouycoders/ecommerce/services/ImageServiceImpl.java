@@ -3,29 +3,121 @@ package com.benkitoumiraouycoders.ecommerce.services;
 import com.benkitoumiraouycoders.ecommerce.dao.ImageDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.ImageDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Image;
+import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.ImageMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
+@Slf4j
 public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.services.inter.ImageService {
     private final ImageDao imageDao;
     private final ImageMapper imageMapper;
+    @Value("${application.bucket.name}")
+    private String bucketName;
+
+    @Autowired
+    private AmazonS3 s3Client;
 
     @Override
     public List<ImageDto> getImagesByQuery(Long imageId, String imageName, String imageType, String imageFilePath, Long productId, Long categoryId) {
         return imageDao.findImagesByQuery(imageId, imageName, imageType, imageFilePath, productId, categoryId);
     }
 
+    @Override
+    public void uploadCategoryImage(MultipartFile file, Long categoryId) throws IOException {
+
+        String folderName = "categories/category-" + categoryId;
+        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+        String filePath=folderName+"/"+fileName;
+
+        Optional<Image> existingImage = imageDao.findByFilePath(filePath);
+        existingImage.ifPresent(image -> {
+            throw new EntityAlreadyExistsException(String.format("This image with path %s already exists", filePath));
+        });
+
+        imageDao.save(
+                Image.builder()
+                        .name(file.getOriginalFilename())
+                        .productId(null)
+                        .categoryId(categoryId)
+                        .type(file.getContentType())
+                        .filePath(filePath).build());
+
+        // Check if the products folder exists, and create it if not
+        if (!s3Client.doesObjectExist(bucketName, folderName)) {
+            s3Client.putObject(bucketName, folderName + "/", "");
+        }
+
+        // Upload the file to the specified folder
+        String key = folderName + "/" + fileName;
+        s3Client.putObject(new PutObjectRequest(bucketName, key, convertMultiPartFileToFile(file)));
+    }
+
+    @Override
+    public void uploadProductImage(MultipartFile file, Long productId) throws IOException {
+        String folderName = "products/product-" + productId;
+        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+
+        String filePath = folderName +"/"+ fileName;
+
+        Optional<Image> existingImage = imageDao.findByFilePath(filePath);
+        existingImage.ifPresent(image -> {
+            throw new EntityAlreadyExistsException(String.format("This image with path %s already exists", fileName));
+        });
+
+        imageDao.save(
+                Image.builder()
+                        .name(file.getOriginalFilename())
+                        .productId(productId)
+                        .categoryId(null)
+                        .type(file.getContentType())
+                        .filePath(filePath).build());
+
+        // Check if the specific folder exists, and create it if not
+        if (!s3Client.doesObjectExist(bucketName, folderName)) {
+            s3Client.putObject(bucketName, folderName + "/", ""); // Note the trailing '/'
+        }
+
+        // Upload the file to the specific folder
+        String key = folderName + "/" + fileName;
+        s3Client.putObject(new PutObjectRequest(bucketName, key, convertMultiPartFileToFile(file)));
+    }
+
+    @Override
+    public void uploadProductImages(List<MultipartFile> images, Long productId) throws IOException {
+        for (MultipartFile image : images) {
+            uploadProductImage(image, productId);
+        }
+    }
+
+    private File convertMultiPartFileToFile(MultipartFile file) {
+        File convertedFile = new File(file.getOriginalFilename());
+        try (FileOutputStream fos = new FileOutputStream(convertedFile)) {
+            fos.write(file.getBytes());
+        } catch (IOException e) {
+            log.error("Error converting multipartFile to file", e);
+        }
+        return convertedFile;
+    }
     @Override
     public ImageDto getImageById(Long id) {
 
@@ -87,6 +179,9 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
         }
     }
 
+
+
+/*
     private void deleteFolderAndContents(String folderPath) {
         File folder = new File(folderPath);
         if (folder.exists()) {
@@ -115,27 +210,55 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
         } else {
             System.err.println("Folder does not exist: " + folder.getAbsolutePath());
         }
-    }
+    }*/
 
+
+    private ResponseDto deleteImagesFromS3(String basePath) {
+        try {
+            // List objects in the specified path
+            ObjectListing objectListing = s3Client.listObjects(bucketName, basePath);
+
+            // Iterate through objects and delete them
+            for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
+                String key = objectSummary.getKey();
+                s3Client.deleteObject(bucketName, key);
+            }
+
+            // Delete the folder itself if it's empty
+            if (objectListing.getObjectSummaries().isEmpty()) {
+                s3Client.deleteObject(bucketName, basePath);
+            }
+
+            return ResponseDto.builder()
+                    .message("Images successfully deleted.")
+                    .build();
+        } catch (AmazonS3Exception e) {
+            // Handle exceptions here (e.g., object not found)
+            return ResponseDto.builder()
+                    .message("Error deleting images: " + e.getMessage())
+                    .build();
+        }
+    }
     @Override
     public ResponseDto deleteImagesByProductId(Long productId) {
         List<ImageDto> imageList = getImagesByQuery(null, null, null, null, productId, null);
-        return deleteImagesFromSystem(imageList, productId, "product");
+        return deleteImagesFromBDAndAws(imageList, productId, "product");
     }
 
     @Override
     public ResponseDto deleteImageByCategoryId(Long categoryId) {
         List<ImageDto> imageList = getImagesByQuery(null, null, null, null, null, categoryId);
-        return deleteImagesFromSystem(imageList, categoryId, "category");
+        return deleteImagesFromBDAndAws(imageList, categoryId, "category");
     }
 
-    private ResponseDto deleteImagesFromSystem(List<ImageDto> imageList, Long elementId, String elementNme) {
+    private ResponseDto deleteImagesFromBDAndAws(List<ImageDto> imageList, Long elementId, String elementNme) {
         // Check if the list is not empty before accessing the first element
         if (!imageList.isEmpty()) {
             ImageDto image = imageList.get(0);
             String filePath = image.getFilePath();
             String newPath = removeLastSegmentFromPath(filePath);
-            deleteFolderAndContents(newPath);
+            //deleteFolderAndContents(newPath);
+            deleteImagesFromS3(newPath);
             if (elementNme.equals("category")) {
                 imageDao.deleteImageByCategoryId(elementId);
             } else if (elementNme.equals("product")) {
