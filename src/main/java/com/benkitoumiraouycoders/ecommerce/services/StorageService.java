@@ -72,7 +72,7 @@ public class StorageService {
         return convertedFile;
     }
 
-    public URL getProductImages(Long productId) {
+    public String getProductImages(Long productId) {
         // Create a request to generate a pre-signed URL for the S3 object
         GeneratePresignedUrlRequest generatePresignedUrlRequest =
                 new GeneratePresignedUrlRequest(bucketName, "products/product-16/1694475789238_image_300x400.jpg");
@@ -80,6 +80,6 @@ public class StorageService {
         // Generate the pre-signed URL without setting an expiration
         URL presignedUrl = s3Client.generatePresignedUrl(generatePresignedUrlRequest);
 
-        return presignedUrl;
+        return presignedUrl.toString();
     }
 }

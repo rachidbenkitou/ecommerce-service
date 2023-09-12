@@ -5,6 +5,7 @@ import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 public interface ImageService {
@@ -28,4 +29,5 @@ public interface ImageService {
     ResponseDto deleteImagesByProductId(Long productId);
 
     ResponseDto deleteImageByCategoryId(Long categoryId);
+    String getImagesFromAws(String imagePath);
 }

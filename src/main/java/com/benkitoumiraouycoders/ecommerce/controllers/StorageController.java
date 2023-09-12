@@ -1,13 +1,8 @@
 package com.benkitoumiraouycoders.ecommerce.controllers;
 
 
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.ListObjectsV2Request;
-import com.amazonaws.services.s3.model.ListObjectsV2Result;
-import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.benkitoumiraouycoders.ecommerce.services.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping("/file")
@@ -49,7 +42,7 @@ public class StorageController {
     }
 
     @GetMapping("/{productId}/images")
-    public URL getProductImages(@PathVariable Long productId) {
+    public String getProductImages(@PathVariable Long productId) {
         return service.getProductImages(productId);
     }
 

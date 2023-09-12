@@ -1,5 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.dtos;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,9 +8,9 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Data
-@NoArgsConstructor
 @Builder
-
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductDto {
 
     private Long id;
@@ -34,17 +35,25 @@ public class ProductDto {
 
     private LocalDate dateUpdated;
 
-    public ProductDto(Long id, String name, String description, Double price, Double comparePrice, Integer quantity, String visibility, Long categoryId, String categoryName, LocalDate dateCreated, LocalDate dateUpdated) {
+    private String productImagePath;
+
+    private String productPrincipalImageUrl;
+
+    public ProductDto(Long id, String name, String description, Double price
+            , Double comparePrice, Integer quantity, String visibility, Long categoryId
+            , String categoryName, LocalDate dateCreated, LocalDate dateUpdated
+            , String productImagePath) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.comparePrice = comparePrice;
         this.quantity = quantity;
-        this.visibility=visibility;
+        this.visibility = visibility;
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
+        this.productImagePath = productImagePath;
     }
 }

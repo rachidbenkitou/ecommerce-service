@@ -1,12 +1,14 @@
 package com.benkitoumiraouycoders.ecommerce.services;
 
 import com.benkitoumiraouycoders.ecommerce.dao.ProductDao;
+import com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto;
 import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Product;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.ProductMapper;
+import com.benkitoumiraouycoders.ecommerce.services.inter.ImageService;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ProuctService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,10 +23,15 @@ public class ProductServiceImpl implements ProuctService {
 
     private final ProductDao productDao;
     private final ProductMapper productMapper;
+    private final ImageService imageService;
 
     @Override
     public List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visibility, Long categoryId) {
-        return productDao.getProductsByQuery(id, name, price, quantity, categoryId, visibility);
+        List<ProductDto> productDtoList=productDao.getProductsByQuery(id, name, price, quantity, categoryId, visibility);
+        for(ProductDto productDto : productDtoList){
+            productDto.setProductPrincipalImageUrl(imageService.getImagesFromAws(productDto.getProductImagePath()));
+        }
+        return productDtoList;
     }
 
     @Override

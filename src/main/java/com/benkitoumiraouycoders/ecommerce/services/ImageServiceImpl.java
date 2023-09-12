@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 import java.util.Optional;
 
@@ -179,40 +180,6 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
         }
     }
 
-
-
-/*
-    private void deleteFolderAndContents(String folderPath) {
-        File folder = new File(folderPath);
-        if (folder.exists()) {
-            if (folder.isDirectory()) {
-                File[] files = folder.listFiles();
-                if (files != null) {
-                    for (File file : files) {
-                        if (file.isDirectory()) {
-                            // Recursively delete subdirectories
-                            deleteFolderAndContents(file.getAbsolutePath());
-                        } else {
-                            // Delete files within the folder
-                            if (!file.delete()) {
-                                System.err.println("Failed to delete file: " + file.getAbsolutePath());
-                            }
-                        }
-                    }
-                }
-                // Delete the empty folder
-                if (!folder.delete()) {
-                    System.err.println("Failed to delete folder: " + folder.getAbsolutePath());
-                }
-            } else {
-                System.err.println("Path is not a directory: " + folder.getAbsolutePath());
-            }
-        } else {
-            System.err.println("Folder does not exist: " + folder.getAbsolutePath());
-        }
-    }*/
-
-
     private ResponseDto deleteImagesFromS3(String basePath) {
         try {
             // List objects in the specified path
@@ -268,5 +235,17 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
         return ResponseDto.builder()
                 .message("Images successfully deleted.")
                 .build();
+    }
+
+    @Override
+    public String getImagesFromAws(String imagePath) {
+        // Create a request to generate a pre-signed URL for the S3 object
+        GeneratePresignedUrlRequest generatePresignedUrlRequest =
+                new GeneratePresignedUrlRequest(bucketName, imagePath);
+
+        // Generate the pre-signed URL without setting an expiration
+        URL presignedUrl = s3Client.generatePresignedUrl(generatePresignedUrlRequest);
+
+        return presignedUrl.toString();
     }
 }

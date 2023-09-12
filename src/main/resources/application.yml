@@ -14,8 +14,8 @@ application:
 spring:
   servlet:
     multipart:
-      max-file-size: 10MB
-      max-request-size: 10MB
+      max-file-size: 100MB
+      max-request-size: 100MB
   datasource:
     url: jdbc:mysql://ecommerce.cvgjytfrsxst.eu-west-1.rds.amazonaws.com:3306/ecommerce?createDatabaseIfNotExist=true
     username: ecommerce

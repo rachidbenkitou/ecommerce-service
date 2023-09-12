@@ -34,13 +34,6 @@ public class ImageController {
     public ResponseEntity<ImageDto> getImageById(@PathVariable Long imageId) {
         return ResponseEntity.ok().body(imageService.getImageById(imageId));
     }
-
-    private final StorageService storageService;
-    @GetMapping("/getProductImages/{productId}")
-    public ResponseEntity<String> getImagesByProductId(@PathVariable Long productId) {
-        return ResponseEntity.ok().body(storageService.getProductImages(productId).toString());
-    }
-
     @PostMapping
     public ResponseEntity<ImageDto> addImage(@RequestBody ImageDto imageDto) {
         return ResponseEntity.ok().body(imageService.addImage(imageDto));
@@ -70,6 +63,7 @@ public class ImageController {
     public ResponseEntity<?> uploadImages(
             @RequestParam(name = "images", required = true) List<MultipartFile> images,
             @PathVariable(name = "productId", required = true) Long productId) throws IOException {
+
         imageService.uploadProductImages(images, productId);
         return ResponseEntity.ok(null);
     }
