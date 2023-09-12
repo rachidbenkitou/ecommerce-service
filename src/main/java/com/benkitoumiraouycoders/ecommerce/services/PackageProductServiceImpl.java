@@ -1,6 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.services;
 
-import com.benkitoumiraouycoders.ecommerce.Criteria.PackageProductCriteria;
+import com.benkitoumiraouycoders.ecommerce.criteria.PackageProductCriteria;
 import com.benkitoumiraouycoders.ecommerce.dao.PackageProductRepository;
 import com.benkitoumiraouycoders.ecommerce.dtos.PackageProductDto;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;

@@ -1,7 +1,7 @@
 package com.benkitoumiraouycoders.ecommerce.services;
 
-import com.benkitoumiraouycoders.ecommerce.Criteria.PackageCriteria;
-import com.benkitoumiraouycoders.ecommerce.Criteria.PackageProductCriteria;
+import com.benkitoumiraouycoders.ecommerce.criteria.PackageCriteria;
+import com.benkitoumiraouycoders.ecommerce.criteria.PackageProductCriteria;
 import com.benkitoumiraouycoders.ecommerce.dao.PackageRepository;
 import com.benkitoumiraouycoders.ecommerce.dtos.PackageDto;
 import com.benkitoumiraouycoders.ecommerce.dtos.PackageProductDto;

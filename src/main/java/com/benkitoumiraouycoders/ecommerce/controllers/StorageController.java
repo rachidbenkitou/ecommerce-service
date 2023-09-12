@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class StorageController {
     }
 
     @GetMapping("/{productId}/images")
-    public List<String> getProductImages(@PathVariable Long productId) {
+    public URL getProductImages(@PathVariable Long productId) {
         return service.getProductImages(productId);
     }
 

@@ -1,7 +1,6 @@
-package com.benkitoumiraouycoders.ecommerce.Criteria;
+package com.benkitoumiraouycoders.ecommerce.criteria;
 
 
-import com.benkitoumiraouycoders.ecommerce.entities.Package;
 import lombok.Data;
 
 import java.io.Serializable;

@@ -1,6 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.services.inter;
 
-import com.benkitoumiraouycoders.ecommerce.Criteria.DiscountCouponCriteria;
+import com.benkitoumiraouycoders.ecommerce.criteria.DiscountCouponCriteria;
 import com.benkitoumiraouycoders.ecommerce.dtos.DiscountCouponDto;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;

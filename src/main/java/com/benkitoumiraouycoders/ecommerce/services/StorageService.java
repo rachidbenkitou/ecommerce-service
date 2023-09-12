@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,22 +72,14 @@ public class StorageService {
         return convertedFile;
     }
 
-    public List<String> getProductImages(Long productId) {
-        String folderName = "products/product-" + productId;
+    public URL getProductImages(Long productId) {
+        // Create a request to generate a pre-signed URL for the S3 object
+        GeneratePresignedUrlRequest generatePresignedUrlRequest =
+                new GeneratePresignedUrlRequest(bucketName, "products/product-16/1694475789238_image_300x400.jpg");
 
-        // List objects in the specified folder
-        ListObjectsV2Request listObjectsRequest = new ListObjectsV2Request()
-                .withBucketName(bucketName)
-                .withPrefix(folderName + "/");
-        ListObjectsV2Result objectListing = s3Client.listObjectsV2(listObjectsRequest);
+        // Generate the pre-signed URL without setting an expiration
+        URL presignedUrl = s3Client.generatePresignedUrl(generatePresignedUrlRequest);
 
-        List<String> imageUrls = new ArrayList<>();
-
-        // Extract image URLs
-        for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
-            imageUrls.add(s3Client.getUrl(bucketName, objectSummary.getKey()).toString());
-        }
-
-        return imageUrls;
+        return presignedUrl;
     }
 }

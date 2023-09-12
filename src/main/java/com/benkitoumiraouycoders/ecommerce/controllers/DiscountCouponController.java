@@ -1,11 +1,10 @@
 package com.benkitoumiraouycoders.ecommerce.controllers;
 
-import com.benkitoumiraouycoders.ecommerce.Criteria.DiscountCouponCriteria;
+import com.benkitoumiraouycoders.ecommerce.criteria.DiscountCouponCriteria;
 import com.benkitoumiraouycoders.ecommerce.dtos.DiscountCouponDto;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.services.inter.DiscountCoupanService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 @RestController

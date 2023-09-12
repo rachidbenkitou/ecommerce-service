@@ -1,9 +1,5 @@
-package com.benkitoumiraouycoders.ecommerce.Criteria;
+package com.benkitoumiraouycoders.ecommerce.criteria;
 
-import com.benkitoumiraouycoders.ecommerce.dtos.PackageDto;
-import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
-import com.benkitoumiraouycoders.ecommerce.entities.Package;
-import com.benkitoumiraouycoders.ecommerce.entities.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

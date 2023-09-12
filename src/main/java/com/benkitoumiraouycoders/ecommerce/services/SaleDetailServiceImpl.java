@@ -1,5 +1,5 @@
 package com.benkitoumiraouycoders.ecommerce.services;
-import com.benkitoumiraouycoders.ecommerce.Criteria.SaleDetailsCriteria;
+import com.benkitoumiraouycoders.ecommerce.criteria.SaleDetailsCriteria;
 import com.benkitoumiraouycoders.ecommerce.dao.SaleDetailsRepository;
 import com.benkitoumiraouycoders.ecommerce.dtos.SaleDetailsDto;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;

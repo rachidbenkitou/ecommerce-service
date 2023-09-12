@@ -1,6 +1,7 @@
 package com.benkitoumiraouycoders.ecommerce.controllers;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.ImageDto;
+import com.benkitoumiraouycoders.ecommerce.services.StorageService;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ImageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,12 @@ public class ImageController {
     @GetMapping("/{imageId}")
     public ResponseEntity<ImageDto> getImageById(@PathVariable Long imageId) {
         return ResponseEntity.ok().body(imageService.getImageById(imageId));
+    }
+
+    private final StorageService storageService;
+    @GetMapping("/getProductImages/{productId}")
+    public ResponseEntity<String> getImagesByProductId(@PathVariable Long productId) {
+        return ResponseEntity.ok().body(storageService.getProductImages(productId).toString());
     }
 
     @PostMapping
