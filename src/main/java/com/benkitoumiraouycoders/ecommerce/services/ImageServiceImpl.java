@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -238,7 +239,7 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
     }
 
     @Override
-    public String getImagesFromAws(String imagePath) {
+    public String getImagesUrlsFromAws(String imagePath) {
         // Create a request to generate a pre-signed URL for the S3 object
         GeneratePresignedUrlRequest generatePresignedUrlRequest =
                 new GeneratePresignedUrlRequest(bucketName, imagePath);
@@ -247,5 +248,37 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
         URL presignedUrl = s3Client.generatePresignedUrl(generatePresignedUrlRequest);
 
         return presignedUrl.toString();
+    }
+
+    @Override
+    public List<String> getImagesFromAwsInFolder(String folderPath) {
+        List<String> imageUrls = new ArrayList<>();
+        //folderPath = "products/product-25"; // You can remove this line if you want to use the folderPath parameter
+
+        // Ensure folderPath ends with "/"
+        if(folderPath!=null)
+        {
+            if (!folderPath.endsWith("/")) {
+                folderPath += "/";
+            }
+        }
+        ListObjectsRequest listObjectsRequest = new ListObjectsRequest()
+                .withBucketName(bucketName)
+                .withPrefix(folderPath); // List objects with the given prefix (folderPath)
+
+        ObjectListing objectListing;
+        do {
+            objectListing = s3Client.listObjects(listObjectsRequest);
+            for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
+                // Generate the pre-signed URL for each object and add it to the list of image URLs
+                String key = objectSummary.getKey();
+                String  url = getImagesUrlsFromAws(key);
+                imageUrls.add(url);
+            }
+            listObjectsRequest.setMarker(objectListing.getNextMarker());
+        } while (objectListing.isTruncated());
+
+        // Now you have a list of image URLs in the specified folder
+        return imageUrls;
     }
 }

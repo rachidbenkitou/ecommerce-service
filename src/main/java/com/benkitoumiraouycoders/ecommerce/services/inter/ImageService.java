@@ -29,5 +29,7 @@ public interface ImageService {
     ResponseDto deleteImagesByProductId(Long productId);
 
     ResponseDto deleteImageByCategoryId(Long categoryId);
-    String getImagesFromAws(String imagePath);
+    String getImagesUrlsFromAws(String imagePath);
+
+    List<String> getImagesFromAwsInFolder(String folderPath);
 }

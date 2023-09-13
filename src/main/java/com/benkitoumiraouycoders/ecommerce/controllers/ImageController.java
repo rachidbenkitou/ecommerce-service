@@ -75,4 +75,10 @@ public class ImageController {
         imageService.uploadCategoryImage(image, categoryId);
         return ResponseEntity.ok(null);
     }
+
+    @GetMapping("/getImages")
+    public List<String> getImagesFromAwsInFolder(@RequestParam(name = "folderPath", required = false) String folderPath) throws IOException {
+        folderPath = folderPath.replace('_', '/');
+        return imageService.getImagesFromAwsInFolder(folderPath);
+    }
 }

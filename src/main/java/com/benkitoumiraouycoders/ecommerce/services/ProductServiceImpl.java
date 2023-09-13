@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProuctService {
     public List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visibility, Long categoryId) {
         List<ProductDto> productDtoList=productDao.getProductsByQuery(id, name, price, quantity, categoryId, visibility);
         for(ProductDto productDto : productDtoList){
-            productDto.setProductPrincipalImageUrl(imageService.getImagesFromAws(productDto.getProductImagePath()));
+            productDto.setProductPrincipalImageUrl(imageService.getImagesUrlsFromAws(productDto.getProductImagePath()));
         }
         return productDtoList;
     }

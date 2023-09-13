@@ -31,7 +31,7 @@ public class CategoryServiceImpl implements com.benkitoumiraouycoders.ecommerce.
     public List<CategoryDto> getCategoriesByQuery(Long id, String name, String visbility) {
         List<CategoryDto> categoryDtoList=categoryDao.findAllCategoryIdsAndNames(id, name, visbility);
         for(CategoryDto categoryDto : categoryDtoList){
-            categoryDto.setCategoryImageUrl(imageService.getImagesFromAws(categoryDto.getCategoryImagePath()));
+            categoryDto.setCategoryImageUrl(imageService.getImagesUrlsFromAws(categoryDto.getCategoryImagePath()));
         }
         return categoryDtoList;
     }
