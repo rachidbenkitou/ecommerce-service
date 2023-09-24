@@ -6,13 +6,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class Client {
+public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
@@ -21,6 +22,8 @@ public class Client {
     private String firstName;
     private String lastName;
     private String address;
+    private String email;
+    private String phoneNumber;
     @Column(name = "STATUS_ID")
     private Long statusId;
 

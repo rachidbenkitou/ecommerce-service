@@ -1,7 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.services;
 
 import com.benkitoumiraouycoders.ecommerce.dao.ProductDao;
-import com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto;
 import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Product;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
@@ -27,8 +26,8 @@ public class ProductServiceImpl implements ProuctService {
 
     @Override
     public List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visibility, Long categoryId) {
-        List<ProductDto> productDtoList=productDao.getProductsByQuery(id, name, price, quantity, categoryId, visibility);
-        for(ProductDto productDto : productDtoList){
+        List<ProductDto> productDtoList = productDao.getProductsByQuery(id, name, price, quantity, categoryId, visibility);
+        for (ProductDto productDto : productDtoList) {
             productDto.setProductPrincipalImageUrl(imageService.getImagesUrlsFromAws(productDto.getProductImagePath()));
         }
         return productDtoList;
@@ -36,8 +35,7 @@ public class ProductServiceImpl implements ProuctService {
 
     @Override
     public ProductDto getProductById(Long id) {
-
-        List<ProductDto> productDtoList = productDao.getProductsByQuery(id,null,null,null,null,null);
+        List<ProductDto> productDtoList = productDao.getProductsByQuery(id, null, null, null, null, null);
         return productDtoList.stream()
                 .findFirst()
                 .orElseThrow(() -> new EntityNotFoundException(String.format("The product with the id %d is not found.", id)));

@@ -1,5 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.entities;
 
+import com.benkitoumiraouycoders.ecommerce.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 @Builder
-public class GuestOrder implements Serializable {
+public class ClientOrder implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +24,7 @@ public class GuestOrder implements Serializable {
     private LocalDateTime dateUpdate;
     private Long userCreation;
     private Long userUpdate;
-    private GuestOrderStatus guestOrderStatus;
+    private OrderStatus orderStatus;
 
 
 }
