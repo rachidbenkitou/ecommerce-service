@@ -1,10 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.dtos;
 
 import com.benkitoumiraouycoders.ecommerce.entities.SaleStatus;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,31 +16,25 @@ public class SaleDto {
 
     private Long id;
     private LocalDateTime dateCreation;
-    private Long userCreation;
     private LocalDateTime dateUpdate;
-    private Long userUpdate;
-    private String cni;
     private String address;
-    private  String phone ;
+    private String phone;
     private String email;
-    private String isPayed;
+    private Double totalPrice;
     private SaleStatus saleStatus;
-    public SaleDto(Long id, LocalDateTime dateCreation, Long userUpdate, LocalDateTime dateUpdate, Long userCreation,
-                   String address, String cni, String email, String phone, SaleStatus saleStatus, String isPayed) {
+
+    public SaleDto(Long id, String address, String email, String phone, Double totalPrice, SaleStatus saleStatus,
+                   LocalDateTime dateCreation, LocalDateTime dateUpdate
+    ) {
         this.id = id;
         this.dateCreation = dateCreation;
-        this.userUpdate = userUpdate;
         this.dateUpdate = dateUpdate;
-        this.userCreation = userCreation;
         this.address = address;
-        this.cni = cni;
         this.email = email;
         this.phone = phone;
         this.saleStatus = saleStatus;
-        this.isPayed = isPayed;
+        this.totalPrice = totalPrice;
     }
-
-
 
 
 }

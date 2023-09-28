@@ -27,11 +27,8 @@ public class SaleDetails {
     private Long packageQuantity;
     @Column(name = "product_quantity")
     private Long productQuantity;
-
     private LocalDateTime dateCreation;
-    private Long userCreation;
     private LocalDateTime dateUpdate;
-    private Long userUpdate;
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)

@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/sale")
+@RequestMapping("/sales")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:58213", allowCredentials = "true")
 public class SaleController {
@@ -17,7 +17,7 @@ public class SaleController {
     private final SaleService saleService;
     
     @GetMapping
-    public ResponseEntity<?> findsalesByCriteria(
+    public ResponseEntity<?> findSalesByCriteria(
             @RequestParam(name = "isPayed", required = false) String isPayed,
             @RequestParam(name = "id", required = false) Long id
     ) throws EntityNotFoundException {
@@ -29,22 +29,22 @@ public class SaleController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<?> findsalesById(@PathVariable Long id) throws EntityNotFoundException {
+    public ResponseEntity<?> findSalesById(@PathVariable Long id) throws EntityNotFoundException {
         return ResponseEntity.ok( saleService.findsalesById(id));
     }
 
     @PostMapping
-    public ResponseEntity<?> persistsales(@RequestBody SaleDto salesDto) throws EntityNotFoundException {
+    public ResponseEntity<?> persistSales(@RequestBody SaleDto salesDto) throws EntityNotFoundException {
         return ResponseEntity.ok(    saleService.persistsales(salesDto));
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<?> updatesales(@PathVariable Long id, @RequestBody SaleDto salesDto) throws EntityNotFoundException {
+    public ResponseEntity<?> updateSales(@PathVariable Long id, @RequestBody SaleDto salesDto) throws EntityNotFoundException {
         return ResponseEntity.ok(saleService.updatesales(id, salesDto));
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<?> deletesalesById(@PathVariable Long id) throws EntityNotFoundException {
+    public ResponseEntity<?> deleteSalesById(@PathVariable Long id) throws EntityNotFoundException {
         return ResponseEntity.ok(    saleService.deletesalesById(id));
     }
 }

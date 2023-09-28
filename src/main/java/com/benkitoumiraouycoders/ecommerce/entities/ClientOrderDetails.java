@@ -3,8 +3,8 @@ package com.benkitoumiraouycoders.ecommerce.entities;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 @NoArgsConstructor
@@ -13,10 +13,18 @@ public class ClientOrderDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long guestOrderId;
+    private Long clientOrderId;
     private Long productId;
-    private LocalDateTime dateCreation;
-    private Long userCreation;
+    private Double price;
+    private Integer quantity;
 
-    
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @NotFound(action = NotFoundAction.IGNORE)
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "CLIENT_ORDER_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @NotFound(action = NotFoundAction.IGNORE)
+    private ClientOrder clientOrder;
 }

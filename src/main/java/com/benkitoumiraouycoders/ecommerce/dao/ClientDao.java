@@ -1,6 +1,5 @@
 package com.benkitoumiraouycoders.ecommerce.dao;
 
-import com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto;
 import com.benkitoumiraouycoders.ecommerce.dtos.ClientDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Client;
 import org.springframework.data.jpa.repository.JpaRepository;

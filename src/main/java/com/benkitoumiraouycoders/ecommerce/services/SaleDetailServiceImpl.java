@@ -1,6 +1,7 @@
 package com.benkitoumiraouycoders.ecommerce.services;
+
 import com.benkitoumiraouycoders.ecommerce.criteria.SaleDetailsCriteria;
-import com.benkitoumiraouycoders.ecommerce.dao.SaleDetailsRepository;
+import com.benkitoumiraouycoders.ecommerce.dao.SaleDetailsDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.SaleDetailsDto;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
@@ -16,48 +17,47 @@ import java.util.List;
 public class SaleDetailServiceImpl implements SaleDetailsService {
 
     @Autowired
-    private SaleDetailsRepository saleDetailsRepository;
+    private SaleDetailsDao saleDetailsDao;
 
     @Autowired
     private SaleDetailsMapper saleDetailsMapper;
     @Autowired
     private ProductServiceImpl productService;
 
-    public List<SaleDetailsDto> findsaleDetailssByCriteria(SaleDetailsCriteria saleDetailsCriteria) throws EntityNotFoundException  {
-    return saleDetailsRepository.getsaleDetailsByQuery(saleDetailsCriteria.getId());
+    @Override
+    public List<SaleDetailsDto> findSaleDetailsByCriteria(SaleDetailsCriteria saleDetailsCriteria) throws EntityNotFoundException {
+        return saleDetailsDao.getsaleDetailsByQuery(saleDetailsCriteria.getId());
     }
-
-    public SaleDetailsDto findsaleDetailssById(Long id) throws EntityNotFoundException
-    {
+    @Override
+    public SaleDetailsDto findSaleDetailsById(Long id) throws EntityNotFoundException {
         SaleDetailsCriteria saleDetailsCriteria = new SaleDetailsCriteria();
         saleDetailsCriteria.setId(id);
-        List<SaleDetailsDto> saleDetailsDtoList = findsaleDetailssByCriteria(saleDetailsCriteria);
+        List<SaleDetailsDto> saleDetailsDtoList = findSaleDetailsByCriteria(saleDetailsCriteria);
         if (saleDetailsDtoList != null && !saleDetailsDtoList.isEmpty()) {
             return saleDetailsDtoList.get(0);
         } else {
-            throw new EntityNotFoundException("The details of sale with the id "+id+ "  is not found.");
+            throw new EntityNotFoundException("The details of sale with the id " + id + "  is not found.");
         }
     }
-
-
-    public SaleDetailsDto persistsaleDetailss(SaleDetailsDto saleDetailsDto) throws EntityNotFoundException {
-        return  saleDetailsMapper.modelToDto(saleDetailsRepository.save(saleDetailsMapper.dtoToModel(saleDetailsDto)));
+    @Override
+    public SaleDetailsDto persistSaleDetails(SaleDetailsDto saleDetailsDto) throws EntityNotFoundException {
+        return saleDetailsMapper.modelToDto(saleDetailsDao.save(saleDetailsMapper.dtoToModel(saleDetailsDto)));
     }
-
-    public SaleDetailsDto updatesaleDetailss(Long id, SaleDetailsDto saleDetailsDto) throws EntityNotFoundException  {
-        SaleDetailsDto saleDetailsDto1 = findsaleDetailssById(id);
+    @Override
+    public SaleDetailsDto updatesaleDetails(Long id, SaleDetailsDto saleDetailsDto) throws EntityNotFoundException {
+        SaleDetailsDto saleDetailsDto1 = findSaleDetailsById(id);
         saleDetailsDto1.setId(id);
         saleDetailsDto1.setDateUpdate(LocalDateTime.now());
-        return saleDetailsMapper.modelToDto(saleDetailsRepository.save(saleDetailsMapper.dtoToModel(saleDetailsDto1)));
+        return saleDetailsMapper.modelToDto(saleDetailsDao.save(saleDetailsMapper.dtoToModel(saleDetailsDto1)));
     }
-
-    public ResponseDto deletesaleDetailssById(Long id) throws EntityNotFoundException {
+    @Override
+    public ResponseDto deleteSaleDetailsById(Long id) throws EntityNotFoundException {
         ResponseDto responseDto = new ResponseDto();
-        SaleDetailsDto saleDetailsDto = findsaleDetailssById(id);
+        SaleDetailsDto saleDetailsDto = findSaleDetailsById(id);
         // dans la supprission de vente si la vente est payer c'est bon si la vente est annuler il faut augmenter la quantite de produit 
         //mais je prefere de metre des api pour l'annulation des produit 
-        saleDetailsRepository.deleteById(id);
-        responseDto.setMessage("Detail du vente bien supprimé");
+        saleDetailsDao.deleteById(id);
+        responseDto.setMessage("SaleDetails is deleted succesfully!");
         return responseDto;
     }
 

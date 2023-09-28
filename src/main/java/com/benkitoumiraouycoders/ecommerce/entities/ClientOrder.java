@@ -2,7 +2,12 @@ package com.benkitoumiraouycoders.ecommerce.entities;
 
 import com.benkitoumiraouycoders.ecommerce.enums.OrderStatus;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -18,13 +23,14 @@ public class ClientOrder implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
-
-    private String discription;
+    private String description;
     private LocalDateTime dateCreation;
     private LocalDateTime dateUpdate;
-    private Long userCreation;
-    private Long userUpdate;
     private OrderStatus orderStatus;
-
-
+    private Double totalPrice;
+    private Long clientId;
+    @ManyToOne
+    @JoinColumn(name = "Client_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @NotFound(action = NotFoundAction.IGNORE)
+    private Client client;
 }
