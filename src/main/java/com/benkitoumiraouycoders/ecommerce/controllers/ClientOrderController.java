@@ -23,7 +23,7 @@ public class ClientOrderController {
                                                                        @RequestParam(name = "clientId", required = false) Long clientId,
                                                                        @RequestParam(name = "dateCreation", required = false) LocalDateTime dateCreation,
                                                                        @RequestParam(name = "dateUpdate", required = false) LocalDateTime dateUpdate,
-                                                                       @RequestParam(name = "orderStatus", required = false) OrderStatus orderStatus
+                                                                       @RequestParam(name = "orderStatus", required = false) String orderStatus
     ) {
         return ResponseEntity.ok().body(clientOrderService.getClientOrdersByQuery(orderId, clientId, orderStatus, dateCreation,
                 dateUpdate));

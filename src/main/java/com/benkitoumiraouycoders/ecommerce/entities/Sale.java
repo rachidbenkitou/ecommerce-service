@@ -21,6 +21,7 @@ public class Sale {
     private String address;
     private String phone;
     private String email;
+    @Enumerated(EnumType.STRING)
     private SaleStatus saleStatus;
     private LocalDateTime dateCreation;
     private LocalDateTime dateUpdate;

@@ -1,13 +1,14 @@
 package com.benkitoumiraouycoders.ecommerce.entities;
 
 import jakarta.persistence.*;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,7 +29,6 @@ public class Client implements Serializable {
     private Long statusId;
 
     private LocalDateTime dateCreation;
-    private Long userCreation;
     @ManyToOne
     @JoinColumn(name = "STATUS_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     private ClientStatus clientStatus;

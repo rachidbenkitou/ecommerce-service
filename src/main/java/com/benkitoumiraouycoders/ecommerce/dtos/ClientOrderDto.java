@@ -1,6 +1,5 @@
 package com.benkitoumiraouycoders.ecommerce.dtos;
 
-import com.benkitoumiraouycoders.ecommerce.enums.OrderStatus;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +13,8 @@ public class ClientOrderDto implements Serializable {
     private String description;
     private LocalDateTime dateCreation;
     private LocalDateTime dateUpdate;
-    private OrderStatus orderStatus;
+    //private OrderStatus orderStatus;
+    private String orderStatus;
     private Double totalPrice;
     private Long clientId;
     private String clientFirstName;
@@ -22,7 +22,7 @@ public class ClientOrderDto implements Serializable {
     private String clientEmail;
     private String clientPhoneNumber;
 
-    public ClientOrderDto(Long id, Double totalPrice, OrderStatus orderStatus, Long clientId, String clientFirstName, String clientLastName,
+    public ClientOrderDto(Long id, Double totalPrice, String orderStatus, Long clientId, String clientFirstName, String clientLastName,
                           String clientEmail, String clientPhoneNumber, String description,
                           LocalDateTime dateCreation, LocalDateTime dateUpdate) {
 

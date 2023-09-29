@@ -24,7 +24,7 @@ public class ClientOrderServiceImpl implements ClientOrderService {
     private final ClientOrderMapper clientOrderMapper;
 
     @Override
-    public List<ClientOrderDto> getClientOrdersByQuery(Long orderId, Long clientId, OrderStatus orderStatus, LocalDateTime dateCreation, LocalDateTime dateUpdate) {
+    public List<ClientOrderDto> getClientOrdersByQuery(Long orderId, Long clientId, String orderStatus, LocalDateTime dateCreation, LocalDateTime dateUpdate) {
         return clientOrderDao.findAllClientOrders(orderId, clientId, dateCreation, dateUpdate, orderStatus);
     }
 

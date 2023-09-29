@@ -26,6 +26,6 @@ public interface ClientOrderDao extends JpaRepository<ClientOrder, Long>, JpaSpe
             @Param("clientId") Long clientId,
             @Param("dateCreation") LocalDateTime dateCreation,
             @Param("dateUpdate") LocalDateTime dateUpdate,
-            @Param("orderStatus") OrderStatus orderStatus
+            @Param("orderStatus") String orderStatus
     );
 }

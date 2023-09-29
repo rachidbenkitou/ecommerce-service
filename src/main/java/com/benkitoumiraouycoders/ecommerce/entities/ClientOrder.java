@@ -1,6 +1,5 @@
 package com.benkitoumiraouycoders.ecommerce.entities;
 
-import com.benkitoumiraouycoders.ecommerce.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,7 +29,9 @@ public class ClientOrder implements Serializable {
 
     private LocalDateTime dateUpdate;
 
-    private OrderStatus orderStatus;
+    //@Enumerated(EnumType.STRING)
+    //private OrderStatus orderStatus;
+    private String orderStatus;
 
     private Double totalPrice;
 

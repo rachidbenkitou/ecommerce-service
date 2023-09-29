@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface ClientOrderService {
-    List<ClientOrderDto> getClientOrdersByQuery(Long orderId, Long clientId, OrderStatus orderStatus, LocalDateTime dateCreation, LocalDateTime dateUpdate);
+    List<ClientOrderDto> getClientOrdersByQuery(Long orderId, Long clientId, String orderStatus, LocalDateTime dateCreation, LocalDateTime dateUpdate);
 
     ClientOrderDto getClientOrderById(Long id);
 
