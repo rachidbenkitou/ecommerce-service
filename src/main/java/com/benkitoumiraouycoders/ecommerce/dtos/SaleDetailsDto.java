@@ -26,22 +26,15 @@ public class SaleDetailsDto {
     private Long packageQuantity;
     private Long productQuantity;
     private LocalDateTime dateCreation;
-    private Long userCreation;
     private LocalDateTime dateUpdate;
-    private Long userUpdate;
-    private ProductDto productDto;
     private SaleDto saleDto;
-    private PackageDto pPackageDto;
-    public SaleDetailsDto(Long id, LocalDateTime dateCreation, Long userUpdate, LocalDateTime dateUpdate, Long userCreation,
-                          Long packageId, Long productId, Long packageQuantity, Long productQuantity, Long saleId) {
+    private PackageDto packageDto;
+    public SaleDetailsDto(Long id,
+                          Long productId, Long productQuantity, Long saleId, LocalDateTime dateCreation, LocalDateTime dateUpdate) {
         this.id = id;
         this.dateCreation = dateCreation;
-        this.userUpdate = userUpdate;
         this.dateUpdate = dateUpdate;
-        this.userCreation = userCreation;
-        this.packageId = packageId;
         this.productId = productId;
-        this.packageQuantity = packageQuantity;
         this.productQuantity = productQuantity;
         this.saleId = saleId;
     }

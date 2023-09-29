@@ -26,7 +26,7 @@ public class SaleDetailServiceImpl implements SaleDetailsService {
 
     @Override
     public List<SaleDetailsDto> findSaleDetailsByCriteria(SaleDetailsCriteria saleDetailsCriteria) throws EntityNotFoundException {
-        return saleDetailsDao.getsaleDetailsByQuery(saleDetailsCriteria.getId());
+        return saleDetailsDao.getSaleDetailsByQuery(saleDetailsCriteria.getId());
     }
     @Override
     public SaleDetailsDto findSaleDetailsById(Long id) throws EntityNotFoundException {

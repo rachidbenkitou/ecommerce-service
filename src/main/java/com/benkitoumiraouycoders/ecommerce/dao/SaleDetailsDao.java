@@ -14,12 +14,11 @@ import java.util.List;
 @Repository
 public interface SaleDetailsDao extends JpaRepository<SaleDetails, Long>, JpaSpecificationExecutor<SaleDetails> {
     @Query(value = "select new com.benkitoumiraouycoders.ecommerce.dtos.SaleDetailsDto(" +
-            " saleDetails.id,saleDetails.dateCreation, saleDetails.userUpdate, saleDetails.dateUpdate, saleDetails.userCreation" +
-            " ,saleDetails.packageId, saleDetails.productId, saleDetails.packageQuantity,saleDetails.productQuantity, saleDetails.saleId) " +
+            " saleDetails.id, saleDetails.productId, saleDetails.productQuantity, saleDetails.saleId, " +
+            "saleDetails.dateCreation, saleDetails.dateUpdate)" +
             " FROM SaleDetails saleDetails " +
             " WHERE (:id IS NULL OR saleDetails.id = :id) ")
-
-    List<SaleDetailsDto> getsaleDetailsByQuery(
+    List<SaleDetailsDto> getSaleDetailsByQuery(
             @Param("id") Long id
     );
 }

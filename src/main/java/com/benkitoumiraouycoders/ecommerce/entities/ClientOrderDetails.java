@@ -13,7 +13,11 @@ public class ClientOrderDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "CLIENT_ORDER_ID")
     private Long clientOrderId;
+
+    @Column(name = "PRODUCT_ID")
     private Long productId;
     private Double price;
     private Integer quantity;

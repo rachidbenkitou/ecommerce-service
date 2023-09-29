@@ -23,14 +23,22 @@ public class ClientOrder implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
+
     private String description;
+
     private LocalDateTime dateCreation;
+
     private LocalDateTime dateUpdate;
+
     private OrderStatus orderStatus;
+
     private Double totalPrice;
+
+    @Column(name = "CLIENT_ID")
     private Long clientId;
+
     @ManyToOne
-    @JoinColumn(name = "Client_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @JoinColumn(name = "CLIENT_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
     private Client client;
 }
