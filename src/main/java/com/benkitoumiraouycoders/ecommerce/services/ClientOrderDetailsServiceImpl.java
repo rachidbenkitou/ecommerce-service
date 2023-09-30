@@ -20,8 +20,8 @@ public class ClientOrderDetailsServiceImpl implements ClientOrderDetailsService 
     private final ClientOrderDetailsMapper clientOrderDetailsMapper;
 
     @Override
-    public List<ClientOrderDetailsDto> getClientOrderDetailsByQuery() {
-        return clientOrderDetailsDao.findAllClientOrderDetails();
+    public List<ClientOrderDetailsDto> getClientOrderDetailsByQuery(Long orderId) {
+        return clientOrderDetailsDao.findAllClientOrderDetails(orderId);
     }
 
     @Override

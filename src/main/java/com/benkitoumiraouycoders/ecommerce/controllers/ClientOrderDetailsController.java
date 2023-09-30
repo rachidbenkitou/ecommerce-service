@@ -17,8 +17,8 @@ public class ClientOrderDetailsController {
     private ClientOrderDetailsService clientOrderDetailsService;
 
     @GetMapping
-    public ResponseEntity<List<ClientOrderDetailsDto>> getClientOrderDetailsByQuery() {
-        return ResponseEntity.ok().body(clientOrderDetailsService.getClientOrderDetailsByQuery());
+    public ResponseEntity<List<ClientOrderDetailsDto>> getClientOrderDetailsByQuery(@RequestParam(name = "orderId", required = false) Long orderId) {
+        return ResponseEntity.ok().body(clientOrderDetailsService.getClientOrderDetailsByQuery(orderId));
     }
 
     @PostMapping

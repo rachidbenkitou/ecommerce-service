@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface ClientOrderDetailsService {
-    List<ClientOrderDetailsDto> getClientOrderDetailsByQuery();
+    List<ClientOrderDetailsDto> getClientOrderDetailsByQuery(Long orderId);
 
     ClientOrderDetailsDto addClientOrderDetails(ClientOrderDetailsDto clientOrderDetailsDto) throws IOException;
 
