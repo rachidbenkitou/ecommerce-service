@@ -1,6 +1,5 @@
 package com.benkitoumiraouycoders.ecommerce.dtos;
 
-import com.benkitoumiraouycoders.ecommerce.entities.SaleStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,10 +20,13 @@ public class SaleDto {
     private String phone;
     private String email;
     private Double totalPrice;
-    private SaleStatus saleStatus;
+    private Long saleStatusId;
+    private String saleStatusName;
+    private String saleStatusColor;
 
-    public SaleDto(Long id, String address, String email, String phone, Double totalPrice, SaleStatus saleStatus,
-                   LocalDateTime dateCreation, LocalDateTime dateUpdate
+    public SaleDto(Long id, String address, String email, String phone, Double totalPrice, String saleStatus,
+                   LocalDateTime dateCreation, LocalDateTime dateUpdate, Long saleStatusId,
+                   String saleStatusName, String saleStatusColor
     ) {
         this.id = id;
         this.dateCreation = dateCreation;
@@ -32,8 +34,10 @@ public class SaleDto {
         this.address = address;
         this.email = email;
         this.phone = phone;
-        this.saleStatus = saleStatus;
         this.totalPrice = totalPrice;
+        this.saleStatusId = saleStatusId;
+        this.saleStatusName = saleStatusName;
+        this.saleStatusColor = saleStatusColor;
     }
 
 

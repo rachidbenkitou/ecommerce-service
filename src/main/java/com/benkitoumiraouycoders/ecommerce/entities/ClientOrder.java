@@ -29,17 +29,21 @@ public class ClientOrder implements Serializable {
 
     private LocalDateTime dateUpdate;
 
-    //@Enumerated(EnumType.STRING)
-    //private OrderStatus orderStatus;
-    private String orderStatus;
-
     private Double totalPrice;
 
     @Column(name = "CLIENT_ID")
     private Long clientId;
 
+    @Column(name = "ORDER_STATUS_ID")
+    private Long clientOrderStatusId;
+
     @ManyToOne
     @JoinColumn(name = "CLIENT_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
     private Client client;
+
+    @ManyToOne
+    @JoinColumn(name = "ORDER_STATUS_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @NotFound(action = NotFoundAction.IGNORE)
+    private OrderStatus orderStatus;
 }

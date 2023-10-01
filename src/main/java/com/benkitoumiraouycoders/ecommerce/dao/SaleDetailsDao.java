@@ -17,8 +17,10 @@ public interface SaleDetailsDao extends JpaRepository<SaleDetails, Long>, JpaSpe
             " saleDetails.id, saleDetails.productId, saleDetails.productQuantity, saleDetails.saleId, " +
             "saleDetails.dateCreation, saleDetails.dateUpdate)" +
             " FROM SaleDetails saleDetails " +
-            " WHERE (:id IS NULL OR saleDetails.id = :id) ")
+            " WHERE (:id IS NULL OR saleDetails.id = :id)" +
+            "AND (:saleId IS NULL OR saleDetails.saleId = :saleId) ")
     List<SaleDetailsDto> getSaleDetailsByQuery(
-            @Param("id") Long id
+            @Param("id") Long id,
+            @Param("saleId") Long saleId
     );
 }

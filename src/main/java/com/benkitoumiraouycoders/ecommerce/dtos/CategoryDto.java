@@ -1,8 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.dtos;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
 
@@ -10,7 +8,9 @@ import java.io.Serializable;
 //@NoArgsConstructor
 public class CategoryDto implements Serializable {
 
-    CategoryDto(){}
+    CategoryDto() {
+    }
+
     private Long id;
 
     private String name;

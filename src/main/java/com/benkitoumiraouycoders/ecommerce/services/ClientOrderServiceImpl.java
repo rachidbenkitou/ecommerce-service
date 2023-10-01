@@ -3,7 +3,6 @@ package com.benkitoumiraouycoders.ecommerce.services;
 import com.benkitoumiraouycoders.ecommerce.dao.ClientOrderDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.ClientOrderDto;
 import com.benkitoumiraouycoders.ecommerce.entities.ClientOrder;
-import com.benkitoumiraouycoders.ecommerce.enums.OrderStatus;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.ClientOrderMapper;
@@ -24,8 +23,8 @@ public class ClientOrderServiceImpl implements ClientOrderService {
     private final ClientOrderMapper clientOrderMapper;
 
     @Override
-    public List<ClientOrderDto> getClientOrdersByQuery(Long orderId, Long clientId, String orderStatus, LocalDateTime dateCreation, LocalDateTime dateUpdate) {
-        return clientOrderDao.findAllClientOrders(orderId, clientId, dateCreation, dateUpdate, orderStatus);
+    public List<ClientOrderDto> getClientOrdersByQuery(Long orderId, Long clientId, Long orderStatusId, LocalDateTime dateCreation, LocalDateTime dateUpdate) {
+        return clientOrderDao.findAllClientOrders(orderId, clientId, dateCreation, dateUpdate, orderStatusId);
     }
 
     @Override

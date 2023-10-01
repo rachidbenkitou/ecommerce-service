@@ -26,8 +26,9 @@ public class SaleDetailServiceImpl implements SaleDetailsService {
 
     @Override
     public List<SaleDetailsDto> findSaleDetailsByCriteria(SaleDetailsCriteria saleDetailsCriteria) throws EntityNotFoundException {
-        return saleDetailsDao.getSaleDetailsByQuery(saleDetailsCriteria.getId());
+        return saleDetailsDao.getSaleDetailsByQuery(saleDetailsCriteria.getId(), saleDetailsCriteria.getSaleId());
     }
+
     @Override
     public SaleDetailsDto findSaleDetailsById(Long id) throws EntityNotFoundException {
         SaleDetailsCriteria saleDetailsCriteria = new SaleDetailsCriteria();
@@ -39,10 +40,12 @@ public class SaleDetailServiceImpl implements SaleDetailsService {
             throw new EntityNotFoundException("The details of sale with the id " + id + "  is not found.");
         }
     }
+
     @Override
     public SaleDetailsDto persistSaleDetails(SaleDetailsDto saleDetailsDto) throws EntityNotFoundException {
         return saleDetailsMapper.modelToDto(saleDetailsDao.save(saleDetailsMapper.dtoToModel(saleDetailsDto)));
     }
+
     @Override
     public SaleDetailsDto updatesaleDetails(Long id, SaleDetailsDto saleDetailsDto) throws EntityNotFoundException {
         SaleDetailsDto saleDetailsDto1 = findSaleDetailsById(id);
@@ -50,6 +53,7 @@ public class SaleDetailServiceImpl implements SaleDetailsService {
         saleDetailsDto1.setDateUpdate(LocalDateTime.now());
         return saleDetailsMapper.modelToDto(saleDetailsDao.save(saleDetailsMapper.dtoToModel(saleDetailsDto1)));
     }
+
     @Override
     public ResponseDto deleteSaleDetailsById(Long id) throws EntityNotFoundException {
         ResponseDto responseDto = new ResponseDto();

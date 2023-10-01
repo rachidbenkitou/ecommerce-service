@@ -20,10 +20,12 @@ public class SaleDetailsController {
 
     @GetMapping
     public ResponseEntity<List<SaleDetailsDto>> getSaleDetailsByQuery(
-            @RequestParam(name = "saleId", required = false) Long saleId
+            @RequestParam(name = "saleId", required = false) Long saleId,
+            @RequestParam(name = "id", required = false) Long id
     ) {
         SaleDetailsCriteria saleDetailsCriteria = SaleDetailsCriteria.builder()
-                .id(saleId)
+                .id(id)
+                .saleId(saleId)
                 .build();
         return ResponseEntity.ok().body(saleDetailsService.findSaleDetailsByCriteria(saleDetailsCriteria));
     }

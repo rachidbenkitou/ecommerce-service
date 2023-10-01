@@ -13,22 +13,23 @@ public class ClientOrderDto implements Serializable {
     private String description;
     private LocalDateTime dateCreation;
     private LocalDateTime dateUpdate;
-    //private OrderStatus orderStatus;
-    private String orderStatus;
     private Double totalPrice;
     private Long clientId;
     private String clientFirstName;
     private String clientLastName;
     private String clientEmail;
     private String clientPhoneNumber;
+    private Long clientOrderStatusId;
+    private String clientOrderStatusName;
+    private String clientOrderStatusColor;
 
-    public ClientOrderDto(Long id, Double totalPrice, String orderStatus, Long clientId, String clientFirstName, String clientLastName,
+
+    public ClientOrderDto(Long id, Double totalPrice, Long clientId, String clientFirstName, String clientLastName,
                           String clientEmail, String clientPhoneNumber, String description,
-                          LocalDateTime dateCreation, LocalDateTime dateUpdate) {
+                          LocalDateTime dateCreation, LocalDateTime dateUpdate, Long clientOrderStatusId, String clientOrderStatusName, String clientOrderStatusColor) {
 
         this.id = id;
         this.totalPrice = totalPrice;
-        this.orderStatus = orderStatus;
         this.clientId = clientId;
         this.clientFirstName = clientFirstName;
         this.clientLastName = clientLastName;
@@ -37,6 +38,9 @@ public class ClientOrderDto implements Serializable {
         this.description = description;
         this.dateCreation = dateCreation;
         this.dateUpdate = dateUpdate;
+        this.clientOrderStatusId = clientOrderStatusId;
+        this.clientOrderStatusName = clientOrderStatusName;
+        this.clientOrderStatusColor = clientOrderStatusColor;
 
     }
 }

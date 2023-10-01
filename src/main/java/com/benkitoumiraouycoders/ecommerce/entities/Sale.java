@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import java.time.LocalDateTime;
 
@@ -21,9 +23,15 @@ public class Sale {
     private String address;
     private String phone;
     private String email;
-    @Enumerated(EnumType.STRING)
-    private SaleStatus saleStatus;
+    private String saleStatus;
     private LocalDateTime dateCreation;
     private LocalDateTime dateUpdate;
     private Double totalPrice;
+    @Column(name = "SALE_STATUS_ID")
+    private Long saleStatusId;
+
+    @ManyToOne
+    @JoinColumn(name = "SALE_STATUS_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @NotFound(action = NotFoundAction.IGNORE)
+    private OrderStatus orderStatus;
 }

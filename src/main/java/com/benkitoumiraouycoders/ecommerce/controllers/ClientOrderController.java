@@ -1,7 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.controllers;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.ClientOrderDto;
-import com.benkitoumiraouycoders.ecommerce.enums.OrderStatus;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ClientOrderService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +22,9 @@ public class ClientOrderController {
                                                                        @RequestParam(name = "clientId", required = false) Long clientId,
                                                                        @RequestParam(name = "dateCreation", required = false) LocalDateTime dateCreation,
                                                                        @RequestParam(name = "dateUpdate", required = false) LocalDateTime dateUpdate,
-                                                                       @RequestParam(name = "orderStatus", required = false) String orderStatus
+                                                                       @RequestParam(name = "orderStatusId", required = false) Long orderStatusId
     ) {
-        return ResponseEntity.ok().body(clientOrderService.getClientOrdersByQuery(orderId, clientId, orderStatus, dateCreation,
+        return ResponseEntity.ok().body(clientOrderService.getClientOrdersByQuery(orderId, clientId, orderStatusId, dateCreation,
                 dateUpdate));
     }
 

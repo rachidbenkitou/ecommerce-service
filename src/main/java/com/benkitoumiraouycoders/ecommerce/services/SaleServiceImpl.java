@@ -1,4 +1,5 @@
 package com.benkitoumiraouycoders.ecommerce.services;
+
 import com.benkitoumiraouycoders.ecommerce.criteria.SaleCriteria;
 import com.benkitoumiraouycoders.ecommerce.dao.SaleDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.SaleDto;
@@ -23,28 +24,29 @@ public class SaleServiceImpl implements SaleService {
     @Autowired
     private ProductServiceImpl productService;
 
-    public List<SaleDto> findsalesByCriteria(SaleCriteria saleCriteria) throws EntityNotFoundException  {
-    return saleDao.getSalesByQuery(saleCriteria.getId());
+    public List<SaleDto> findsalesByCriteria(SaleCriteria saleCriteria) throws EntityNotFoundException {
+        return saleDao.getSalesByQuery(saleCriteria.getId(), saleCriteria.getSaleStatusId());
     }
 
-    public SaleDto findsalesById(Long id) throws EntityNotFoundException
-    {
+    public SaleDto findsalesById(Long id) throws EntityNotFoundException {
         SaleCriteria saleCriteria = new SaleCriteria();
         saleCriteria.setId(id);
         List<SaleDto> saleDtoList = findsalesByCriteria(saleCriteria);
         if (saleDtoList != null && !saleDtoList.isEmpty()) {
             return saleDtoList.get(0);
         } else {
-            throw new EntityNotFoundException("The sale with the id "+id+ "  is not found.");
+            throw new EntityNotFoundException("The sale with the id " + id + "  is not found.");
         }
     }
 
 
     public SaleDto persistsales(SaleDto saleDto) throws EntityNotFoundException {
-        return  saleMapper.modelToDto(saleDao.save(saleMapper.dtoToModel(saleDto)));
+        saleDto.setId(null);
+
+        return saleMapper.modelToDto(saleDao.save(saleMapper.dtoToModel(saleDto)));
     }
 
-    public SaleDto updatesales(Long id, SaleDto saleDto) throws EntityNotFoundException  {
+    public SaleDto updatesales(Long id, SaleDto saleDto) throws EntityNotFoundException {
         SaleDto saleDto1 = findsalesById(id);
         saleDto1.setId(id);
         saleDto1.setDateUpdate(LocalDateTime.now());

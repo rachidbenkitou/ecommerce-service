@@ -18,10 +18,13 @@ public class SaleController {
 
     @GetMapping
     public ResponseEntity<?> findSalesByCriteria(
-            @RequestParam(name = "id", required = false) Long id
+            @RequestParam(name = "id", required = false) Long id,
+            @RequestParam(name = "saleStatusId", required = false) Long saleStatusId
     ) throws EntityNotFoundException {
-        SaleCriteria salesCriteria = new SaleCriteria();
-        salesCriteria.setId(id);
+        SaleCriteria salesCriteria = SaleCriteria.builder().
+                id(id).
+                saleStatusId(saleStatusId).
+                build();
 
         return ResponseEntity.ok(saleService.findsalesByCriteria(salesCriteria));
     }
