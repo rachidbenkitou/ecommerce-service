@@ -15,27 +15,25 @@ import org.springframework.web.bind.annotation.*;
 public class SaleController {
 
     private final SaleService saleService;
-    
+
     @GetMapping
     public ResponseEntity<?> findSalesByCriteria(
-            @RequestParam(name = "isPayed", required = false) String isPayed,
             @RequestParam(name = "id", required = false) Long id
     ) throws EntityNotFoundException {
-          SaleCriteria salesCriteria = new SaleCriteria();
-          salesCriteria.setIsPayed(isPayed);
-          salesCriteria.setId(id);
+        SaleCriteria salesCriteria = new SaleCriteria();
+        salesCriteria.setId(id);
 
-        return ResponseEntity.ok(  saleService.findsalesByCriteria( salesCriteria));
+        return ResponseEntity.ok(saleService.findsalesByCriteria(salesCriteria));
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> findSalesById(@PathVariable Long id) throws EntityNotFoundException {
-        return ResponseEntity.ok( saleService.findsalesById(id));
+        return ResponseEntity.ok(saleService.findsalesById(id));
     }
 
     @PostMapping
     public ResponseEntity<?> persistSales(@RequestBody SaleDto salesDto) throws EntityNotFoundException {
-        return ResponseEntity.ok(    saleService.persistsales(salesDto));
+        return ResponseEntity.ok(saleService.persistsales(salesDto));
     }
 
     @PutMapping(value = "/{id}")
@@ -45,6 +43,6 @@ public class SaleController {
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> deleteSalesById(@PathVariable Long id) throws EntityNotFoundException {
-        return ResponseEntity.ok(    saleService.deletesalesById(id));
+        return ResponseEntity.ok(saleService.deletesalesById(id));
     }
 }
