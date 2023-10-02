@@ -16,9 +16,10 @@ public class ClientDto implements Serializable {
     private String phoneNumber;
     private Long statusId;
     private String statusName;
+    private String statusColor;
 
     ClientDto(Long id, String firstName, String lastName,
-              String address, Long statusId, String statusName, String email, String phoneNumber) {
+              String address, Long statusId, String statusName, String email, String phoneNumber, String statusColor) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,5 +28,6 @@ public class ClientDto implements Serializable {
         this.statusName = statusName;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.statusColor = statusColor;
     }
 }

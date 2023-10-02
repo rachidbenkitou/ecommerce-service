@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface ClientDao extends JpaRepository<Client, Long>, JpaSpecificationExecutor<Client> {
     @Query("SELECT NEW com.benkitoumiraouycoders.ecommerce.dtos.ClientDto(c.id, c.firstName, c.lastName, c.address," +
-            "c.statusId, cs.name, c.email, c.phoneNumber) " +
+            "c.statusId, cs.name, c.email, c.phoneNumber, cs.color) " +
             "FROM Client c " +
             "LEFT JOIN  ClientStatus cs ON c.statusId = cs.id " +
             "WHERE (:clientId IS NULL OR c.id = :clientId) " +

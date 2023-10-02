@@ -13,4 +13,5 @@ public class ClientStatus {
     @Column(name = "ID")
     private Long id;
     private String name;
+    private String color;
 }
