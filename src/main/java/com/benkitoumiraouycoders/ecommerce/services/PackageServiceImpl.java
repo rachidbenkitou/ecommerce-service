@@ -14,6 +14,7 @@ import com.benkitoumiraouycoders.ecommerce.services.inter.PackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,10 +65,10 @@ public class PackageServiceImpl implements PackageService {
         if(packageDto.getProductDtos()!=null){
             PackageProductDto packageProductDto=new PackageProductDto();
             packageDto.getProductDtos().forEach(productDto -> {
-                ProductDto productDto1 = productService.addProduct(productDto);
-                packageProductDto.setProductId(productDto1.getId());
-                packageProductDto.setPackageId(packageDto.getId());
-                packageProductService.persistPackageProduct(packageProductDto);
+//                ProductDto productDto1 = productService.addProduct(productDto);
+//                packageProductDto.setProductId(productDto1.getId());
+//                packageProductDto.setPackageId(packageDto.getId());
+//                packageProductService.persistPackageProduct(packageProductDto);
             });
         }
         return packageDto;

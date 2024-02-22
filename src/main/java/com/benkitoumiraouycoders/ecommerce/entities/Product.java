@@ -34,6 +34,7 @@ public class Product implements Serializable {
     private Integer quantity;
 
     private String visibility;
+    private String productImagePath;
 
     @Column(name = "CATEGORY_ID")
     private Long categoryId;

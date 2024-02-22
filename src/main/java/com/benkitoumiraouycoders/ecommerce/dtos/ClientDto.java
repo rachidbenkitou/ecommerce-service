@@ -1,5 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.dtos;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,6 +8,7 @@ import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class ClientDto implements Serializable {
     private Long id;
     private String firstName;
@@ -17,6 +19,7 @@ public class ClientDto implements Serializable {
     private Long statusId;
     private String statusName;
     private String statusColor;
+    private String password;
 
     ClientDto(Long id, String firstName, String lastName,
               String address, Long statusId, String statusName, String email, String phoneNumber, String statusColor) {

@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Builder
@@ -38,6 +40,7 @@ public class ProductDto {
     private String productImagePath;
 
     private String productPrincipalImageUrl;
+    private List<MultipartFile> productImages;
 
     public ProductDto(Long id, String name, String description, Double price
             , Double comparePrice, Integer quantity, String visibility, Long categoryId

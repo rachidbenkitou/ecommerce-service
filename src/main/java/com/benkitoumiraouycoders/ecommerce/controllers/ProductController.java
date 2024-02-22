@@ -37,7 +37,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductDto> addProduct(@RequestBody ProductDto productDto) {
+    public ResponseEntity<ProductDto> addProduct(@RequestBody ProductDto productDto) throws IOException {
         return ResponseEntity.ok().body(productService.addProduct(productDto));
     }
 

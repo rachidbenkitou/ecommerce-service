@@ -9,10 +9,12 @@ import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.ProductMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ImageService;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ProuctService;
+import com.benkitoumiraouycoders.ecommerce.services.strategy.inter.ImagesUploadStrategy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -23,14 +25,11 @@ public class ProductServiceImpl implements ProuctService {
     private final ProductDao productDao;
     private final ProductMapper productMapper;
     private final ImageService imageService;
+    private final ImagesUploadStrategy imagesUploadStrategy;
 
     @Override
     public List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visibility, Long categoryId) {
-        List<ProductDto> productDtoList = productDao.getProductsByQuery(id, name, price, quantity, categoryId, visibility);
-        for (ProductDto productDto : productDtoList) {
-            productDto.setProductPrincipalImageUrl(imageService.getImagesUrlsFromAws(productDto.getProductImagePath()));
-        }
-        return productDtoList;
+        return productDao.getProductsByQuery(id, name, price, quantity, categoryId, visibility);
     }
 
     @Override
@@ -43,13 +42,23 @@ public class ProductServiceImpl implements ProuctService {
 
 
     @Override
-    public ProductDto addProduct(ProductDto productDto) {
+    public ProductDto addProduct(ProductDto productDto) throws IOException {
         if (productDao.existsByName(productDto.getName())) {
             throw new EntityAlreadyExistsException(String.format("The product with the name %s  is already exists", productDto.getName()));
         }
         productDto.setId(null);
-
-        return productMapper.modelToDto(productDao.save(productMapper.dtoToModel(productDto)));
+        if (productDto.getProductImages() != null && !productDto.getProductImages().isEmpty()) {
+            productDto.setProductImagePath(productDto.getProductImages().get(0).getOriginalFilename());
+        } else {
+            throw new RuntimeException("At least one image is required.");
+        }
+        ProductDto savedProductDto = productMapper.modelToDto(productDao.save(productMapper.dtoToModel(productDto)));
+        if (savedProductDto != null) {
+            imagesUploadStrategy.uploadImages(productDto.getProductImages(), savedProductDto.getId());
+            return savedProductDto;
+        } else {
+            throw new RuntimeException("Error while saving the product.");
+        }
     }
 
     @Override
