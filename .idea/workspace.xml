@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44bac0e9-3bb6-4e0b-87c2-9ec74edd903c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/BookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/BookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/BookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/CategoryImageUploadStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/ProductImageUploadStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/inter/ImageUploadStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/strategy/inter/ImagesUploadStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/utils/HillCipher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/CategoryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/CategoryDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/ClientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/ClientDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/ProductDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/PackageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/PackageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ProuctService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ProuctService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/utils/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/ProductDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,11 +137,22 @@
       <workItem from="1704301746142" duration="21000" />
       <workItem from="1704461320863" duration="670000" />
       <workItem from="1708471834576" duration="754000" />
-      <workItem from="1708606439024" duration="7241000" />
+      <workItem from="1708606439024" duration="13712000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ProductController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

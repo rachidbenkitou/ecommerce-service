@@ -2,11 +2,14 @@ package com.benkitoumiraouycoders.ecommerce.controllers;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
 import com.benkitoumiraouycoders.ecommerce.services.ProductServiceImpl;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.DataInput;
 import java.io.IOException;
 import java.util.List;
 
@@ -37,8 +40,22 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductDto> addProduct(@RequestBody ProductDto productDto) throws IOException {
-        return ResponseEntity.ok().body(productService.addProduct(productDto));
+    public ResponseEntity<ProductDto> addProduct(
+            @RequestPart(name = "productDto") String productDtoJson
+            , @RequestPart(name = "images", required = false) List<MultipartFile> images
+    ) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ProductDto productDto = null;
+        try {
+            // Convert JSON string to ProductDto
+            productDto = objectMapper.readValue(productDtoJson, ProductDto.class);
+            productDto.setProductImages(images);
+        } catch (IOException e) {
+            throw new RuntimeException("Error while transforming productDtoJson to productDto Object.");
+        }
+        ProductDto savedProduct = productService.addProduct(productDto);
+        return new ResponseEntity<>(savedProduct, HttpStatus.CREATED);
+
     }
 
     @PutMapping("/{productId}")
