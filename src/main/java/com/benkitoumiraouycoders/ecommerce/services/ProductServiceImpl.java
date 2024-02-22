@@ -1,5 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.services;
 
+import com.benkitoumiraouycoders.ecommerce.dao.ImageDao;
 import com.benkitoumiraouycoders.ecommerce.dao.ProductDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Product;
@@ -26,6 +27,7 @@ public class ProductServiceImpl implements ProuctService {
     private final ProductMapper productMapper;
     private final ImageService imageService;
     private final ImagesUploadStrategy imagesUploadStrategy;
+    private final ImageDao imageDao;
 
     @Override
     public List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visibility, Long categoryId) {
@@ -62,17 +64,24 @@ public class ProductServiceImpl implements ProuctService {
     }
 
     @Override
-    public ProductDto updateProduct(Long id, ProductDto productDto) {
+    public ProductDto updateProduct(Long id, ProductDto productDto) throws IOException {
         ProductDto oldProductDto = getProductById(id);
         productDto.setId(oldProductDto.getId());
         Product updatedProduct = productDao.save(productMapper.dtoToModel(productDto));
+
+        if (productDto.getProductImages() != null && !productDto.getProductImages().isEmpty()) {
+            imageService.deleteImageByFilePathFromLocalSystem(oldProductDto.getFilePath());
+            imageDao.deleteAllByProductId(oldProductDto.getId());
+            imagesUploadStrategy.uploadImages(productDto.getProductImages(), updatedProduct.getId());
+        }
         return productMapper.modelToDto(updatedProduct);
     }
 
     @Override
     public ResponseDto deleteProductById(Long id) {
-        getProductById(id);
+        ProductDto productToDelete = getProductById(id);
         productDao.deleteById(id);
+        imageService.deleteImageByFilePathFromLocalSystem(productToDelete.getFilePath());
         return ResponseDto.builder()
                 .message("Product successfully deleted.")
                 .build();

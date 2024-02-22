@@ -36,7 +36,7 @@ public interface ProductDao extends JpaRepository<Product, Long>, JpaSpecificati
 
 
     @Query(value = "SELECT new com.benkitoumiraouycoders.ecommerce.dtos.ProductDto(" +
-            " p.id, p.name, p.description, p.price, p.comparePrice, p.quantity, p.visibility, p.categoryId, c.name, p.dateCreated, p.dateUpdated, i.name)" +
+            " p.id, p.name, p.description, p.price, p.comparePrice, p.quantity, p.visibility, p.categoryId, c.name, p.dateCreated, p.dateUpdated, i.name, i.filePath)" +
             " FROM Product p" +
             " LEFT JOIN Category c ON p.categoryId = c.id" +
             " LEFT JOIN Image i ON p.id = i.productId" + // Left join with Image table
@@ -46,7 +46,7 @@ public interface ProductDao extends JpaRepository<Product, Long>, JpaSpecificati
             " AND (:quantity IS NULL OR p.quantity = :quantity)" +
             " AND (:visibility IS NULL OR p.visibility = :visibility)" +
             " AND (:categoryId IS NULL OR p.categoryId = :categoryId)" +
-            " GROUP BY p.id") // Group by productId
+            " GROUP BY p.id order by c.id asc " ) // Group by productId
     List<ProductDto> getProductsByQuery(
             @Param("id") Long id,
             @Param("name") String name,

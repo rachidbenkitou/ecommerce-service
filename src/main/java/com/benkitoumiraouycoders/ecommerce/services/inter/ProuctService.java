@@ -14,7 +14,7 @@ public interface ProuctService {
 
     ProductDto addProduct(ProductDto productDto) throws IOException;
 
-    ProductDto updateProduct(Long id, ProductDto productDto);
+    ProductDto updateProduct(Long id, ProductDto productDto) throws IOException;
 
     ResponseDto deleteProductById(Long id);
 }

@@ -14,7 +14,7 @@ public interface CategoryService {
 
     CategoryDto addCategory(CategoryDto categoryDto) throws IOException;
 
-    CategoryDto updateCategory(Long id, CategoryDto categoryDto);
+    CategoryDto updateCategory(Long id, CategoryDto categoryDto) throws IOException;
 
     ResponseDto deleteCategoryById(Long id);
 

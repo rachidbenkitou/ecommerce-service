@@ -12,12 +12,12 @@ import java.util.List;
 
 @Repository
 public interface CategoryDao extends JpaRepository<Category, Long>, JpaSpecificationExecutor<Category> {
-    @Query("SELECT NEW com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto(c.id, c.name, c.visbility, i.name) " +
+    @Query("SELECT NEW com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto(c.id, c.name, c.visbility, i.name, i.filePath) " +
             "FROM Category c " +
             "LEFT JOIN  Image i ON c.id = i.categoryId " +
             "WHERE (:categoryId IS NULL OR c.id = :categoryId) " +
             "AND (:visibility IS NULL OR c.visbility = :visibility) " +
-            "AND (:categoryName IS NULL OR LOWER(c.name) LIKE LOWER(CONCAT('%', :categoryName, '%')))")
+            "AND (:categoryName IS NULL OR LOWER(c.name) LIKE LOWER(CONCAT('%', :categoryName, '%'))) order by c.id asc ")
     List<CategoryDto> findAllCategoryIdsAndNames(@Param("categoryId") Long categoryId,
                                                  @Param("categoryName") String categoryName,
                                                  @Param("visibility") String visibility

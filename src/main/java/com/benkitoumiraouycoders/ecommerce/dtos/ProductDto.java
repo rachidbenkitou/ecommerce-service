@@ -38,14 +38,14 @@ public class ProductDto {
     private LocalDate dateUpdated;
 
     private String productImagePath;
-
+    private String filePath;
     private String productPrincipalImageUrl;
     private List<MultipartFile> productImages;
 
     public ProductDto(Long id, String name, String description, Double price
             , Double comparePrice, Integer quantity, String visibility, Long categoryId
             , String categoryName, LocalDate dateCreated, LocalDate dateUpdated
-            , String productImagePath) {
+            , String productImagePath, String filePath) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -58,5 +58,6 @@ public class ProductDto {
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
         this.productImagePath = productImagePath;
+        this.filePath=filePath;
     }
 }

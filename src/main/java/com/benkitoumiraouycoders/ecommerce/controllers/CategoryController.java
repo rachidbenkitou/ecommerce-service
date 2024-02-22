@@ -54,7 +54,19 @@ public class CategoryController {
 
 
     @PutMapping("/{categoryId}")
-    public ResponseEntity<CategoryDto> updateCategory(@PathVariable Long categoryId, @RequestBody CategoryDto categoryDto) {
+    public ResponseEntity<CategoryDto> updateCategory(
+            @PathVariable Long categoryId
+            , @RequestPart(name = "categoryDto") String categoryDtoJson
+            , @RequestPart(name = "image", required = false) MultipartFile image) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        CategoryDto categoryDto = null;
+        try {
+            // Convert JSON string to CategoryDto
+            categoryDto = objectMapper.readValue(categoryDtoJson, CategoryDto.class);
+            categoryDto.setCategoryImage(image);
+        } catch (IOException e) {
+            throw new RuntimeException("Error while transforming productDtoJson to categoryDto Object.");
+        }
         return ResponseEntity.ok().body(categoryService.updateCategory(categoryId, categoryDto));
     }
 

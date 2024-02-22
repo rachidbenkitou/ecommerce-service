@@ -1,5 +1,7 @@
 package com.benkitoumiraouycoders.ecommerce.services;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.*;
 import com.benkitoumiraouycoders.ecommerce.dao.ImageDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.ImageDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Image;
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -21,10 +24,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.*;
-import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @Transactional
@@ -49,7 +48,7 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
 
         String folderName = "categories/category-" + categoryId;
         String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-        String filePath=folderName+"/"+fileName;
+        String filePath = folderName + "/" + fileName;
 
         Optional<Image> existingImage = imageDao.findByFilePath(filePath);
         existingImage.ifPresent(image -> {
@@ -79,7 +78,7 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
         String folderName = "products/product-" + productId;
         String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
 
-        String filePath = folderName +"/"+ fileName;
+        String filePath = folderName + "/" + fileName;
 
         Optional<Image> existingImage = imageDao.findByFilePath(filePath);
         existingImage.ifPresent(image -> {
@@ -120,6 +119,7 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
         }
         return convertedFile;
     }
+
     @Override
     public ImageDto getImageById(Long id) {
 
@@ -207,6 +207,7 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
                     .build();
         }
     }
+
     @Override
     public ResponseDto deleteImagesByProductId(Long productId) {
         List<ImageDto> imageList = getImagesByQuery(null, null, null, null, productId, null);
@@ -256,8 +257,7 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
         //folderPath = "products/product-25"; // You can remove this line if you want to use the folderPath parameter
 
         // Ensure folderPath ends with "/"
-        if(folderPath!=null)
-        {
+        if (folderPath != null) {
             if (!folderPath.endsWith("/")) {
                 folderPath += "/";
             }
@@ -272,7 +272,7 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
             for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
                 // Generate the pre-signed URL for each object and add it to the list of image URLs
                 String key = objectSummary.getKey();
-                String  url = getImagesUrlsFromAws(key);
+                String url = getImagesUrlsFromAws(key);
                 imageUrls.add(url);
             }
             listObjectsRequest.setMarker(objectListing.getNextMarker());
@@ -280,5 +280,61 @@ public class ImageServiceImpl implements com.benkitoumiraouycoders.ecommerce.ser
 
         // Now you have a list of image URLs in the specified folder
         return imageUrls;
+    }
+
+
+    private void deleteFolderAndContents(String folderPath) {
+        File folder = new File(folderPath);
+        if (folder.exists()) {
+            if (folder.isDirectory()) {
+                File[] files = folder.listFiles();
+                if (files != null) {
+                    for (File file : files) {
+                        if (file.isDirectory()) {
+                            // Recursively delete subdirectories
+                            deleteFolderAndContents(file.getAbsolutePath());
+                        } else {
+                            // Delete files within the folder
+                            if (!file.delete()) {
+                                System.err.println("Failed to delete file: " + file.getAbsolutePath());
+                            }
+                        }
+                    }
+                }
+                // Delete the empty folder
+                if (!folder.delete()) {
+                    System.err.println("Failed to delete folder: " + folder.getAbsolutePath());
+                }
+            } else {
+                System.err.println("Path is not a directory: " + folder.getAbsolutePath());
+            }
+        } else {
+            System.err.println("Folder does not exist: " + folder.getAbsolutePath());
+        }
+    }
+
+    @Override
+    public ResponseDto deleteImageByFilePathFromLocalSystem(String path) {
+        Optional<Image> image = imageDao.findByFilePath(path); // Make sure this method retrieves the image entity
+        // Delete the image file from the file system
+        //File imageFile = new File(path);
+//        if (imageFile.exists()) {
+//            if (imageFile.delete()) {
+//                imageDao.deleteAllByFilePath(path);
+//            } else {
+//                throw new RuntimeException("Failed to delete image file");
+//            }
+//        } else {
+//            // If the file doesn't exist, only delete the entity from the database
+//            imageDao.deleteAllByFilePath(path);
+//        }
+
+        String newFolderPath = removeLastSegmentFromPath(path);
+
+        deleteFolderAndContents(newFolderPath);
+        imageDao.deleteAllByFilePath(path);
+        return ResponseDto.builder()
+                .message("Image successfully deleted.")
+                .build();
     }
 }

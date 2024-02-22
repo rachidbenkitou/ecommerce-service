@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.DataInput;
 import java.io.IOException;
 import java.util.List;
 
@@ -59,7 +58,20 @@ public class ProductController {
     }
 
     @PutMapping("/{productId}")
-    public ResponseEntity<ProductDto> updateProduct(@PathVariable Long productId, @RequestBody ProductDto productDto) {
+    public ResponseEntity<ProductDto> updateProduct(
+            @PathVariable Long productId
+            , @RequestPart(name = "productDto") String productDtoJson
+            , @RequestPart(name = "images", required = false) List<MultipartFile> images
+    ) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ProductDto productDto = null;
+        try {
+            // Convert JSON string to ProductDto
+            productDto = objectMapper.readValue(productDtoJson, ProductDto.class);
+            productDto.setProductImages(images);
+        } catch (IOException e) {
+            throw new RuntimeException("Error while transforming productDtoJson to productDto Object.");
+        }
         return ResponseEntity.ok().body(productService.updateProduct(productId, productDto));
     }
 

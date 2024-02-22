@@ -32,4 +32,6 @@ public interface ImageService {
     String getImagesUrlsFromAws(String imagePath);
 
     List<String> getImagesFromAwsInFolder(String folderPath);
+
+    ResponseDto deleteImageByFilePathFromLocalSystem(String filePath);
 }
