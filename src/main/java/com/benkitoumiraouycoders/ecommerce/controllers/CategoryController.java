@@ -3,9 +3,12 @@ package com.benkitoumiraouycoders.ecommerce.controllers;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto;
 import com.benkitoumiraouycoders.ecommerce.services.inter.CategoryService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -33,8 +36,20 @@ public class CategoryController {
 
     @PostMapping
     public ResponseEntity<CategoryDto> addCategory(
-            @RequestBody CategoryDto categoryDto) throws IOException {
-        return ResponseEntity.ok().body(categoryService.addCategory(categoryDto));
+            @RequestPart(name = "categoryDto") String categoryDtoJson
+            , @RequestPart(name = "image", required = false) MultipartFile image
+    ) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        CategoryDto categoryDto = null;
+        try {
+            // Convert JSON string to CategoryDto
+            categoryDto = objectMapper.readValue(categoryDtoJson, CategoryDto.class);
+            categoryDto.setCategoryImage(image);
+        } catch (IOException e) {
+            throw new RuntimeException("Error while transforming productDtoJson to categoryDto Object.");
+        }
+        CategoryDto savedCategory = categoryService.addCategory(categoryDto);
+        return new ResponseEntity<>(savedCategory, HttpStatus.CREATED);
     }
 
 
