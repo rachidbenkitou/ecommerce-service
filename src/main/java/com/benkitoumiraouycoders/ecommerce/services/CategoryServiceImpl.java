@@ -3,7 +3,6 @@ package com.benkitoumiraouycoders.ecommerce.services;
 import com.benkitoumiraouycoders.ecommerce.dao.CategoryDao;
 import com.benkitoumiraouycoders.ecommerce.dao.ImageDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.CategoryDto;
-import com.benkitoumiraouycoders.ecommerce.entities.Category;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
@@ -75,14 +74,12 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryDto updateCategory(Long id, CategoryDto categoryDto) throws IOException {
         CategoryDto oldCategoryDto = getCategoryById(id);
         categoryDto.setId(oldCategoryDto.getId());
-        Category updatedCategory = categoryDao.save(categoryMapper.dtoToModel(categoryDto));
-
         if (categoryDto.getCategoryImage() != null) {
             imageService.deleteImageByFilePathFromLocalSystem(oldCategoryDto.getFilePath());
             imageDao.deleteByCategoryId(oldCategoryDto.getId());
-            imageServiceStrategy.uploadImage(categoryDto.getCategoryImage(), updatedCategory.getId());
+            imageServiceStrategy.uploadImage(categoryDto.getCategoryImage(), categoryDto.getId());
         }
-        return categoryMapper.modelToDto(updatedCategory);
+        return categoryMapper.modelToDto(categoryDao.save(categoryMapper.dtoToModel(categoryDto)));
     }
 
     @Override

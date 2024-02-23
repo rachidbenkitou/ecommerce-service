@@ -7,6 +7,7 @@ import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.ClientOrderMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ClientOrderService;
+import com.benkitoumiraouycoders.ecommerce.utils.OrderStatusIds;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +39,7 @@ public class ClientOrderServiceImpl implements ClientOrderService {
     @Override
     public ClientOrderDto addClientOrder(ClientOrderDto clientOrderDto) throws IOException {
         clientOrderDto.setId(null);
+        clientOrderDto.setClientOrderStatusId(OrderStatusIds.IN_PROGRESS);
         return clientOrderMapper.modelToDto(clientOrderDao.save(clientOrderMapper.dtoToModel(clientOrderDto)));
     }
 
@@ -56,5 +58,44 @@ public class ClientOrderServiceImpl implements ClientOrderService {
         return ResponseDto.builder()
                 .message("ClientOrder successfully deleted.")
                 .build();
+    }
+
+    private ClientOrder retrieveClientOrderById(Long clientOrderId) {
+        return clientOrderDao.findById(clientOrderId)
+                .orElseThrow(() -> new RuntimeException(String.format("The clientOrder with id %d not found.", clientOrderId)));
+    }
+
+    @Override
+    public ClientOrderDto modifyClientOrderDtoStatusToAccepted(Long clientOrderId) {
+        try {
+            ClientOrder clientOrder = retrieveClientOrderById(clientOrderId);
+            clientOrder.setClientOrderStatusId(OrderStatusIds.ACCEPTED);
+            return clientOrderMapper.modelToDto(clientOrderDao.save(clientOrder));
+        } catch (Exception e) {
+            throw new RuntimeException("An error occurred while modifying clientOrder status to accepted.", e);
+
+        }
+    }
+
+    @Override
+    public ClientOrderDto modifyClientOrderDtoStatusToReported(Long clientOrderId) {
+        try {
+            ClientOrder clientOrder = retrieveClientOrderById(clientOrderId);
+            clientOrder.setClientOrderStatusId(OrderStatusIds.REPORTED);
+            return clientOrderMapper.modelToDto(clientOrderDao.save(clientOrder));
+        } catch (Exception e) {
+            throw new RuntimeException("An error occurred while modifying clientOrder status to reported.", e);
+        }
+    }
+
+    @Override
+    public ClientOrderDto modifyClientOrderDtoStatusToCancelled(Long clientOrderId) {
+        try {
+            ClientOrder clientOrder = retrieveClientOrderById(clientOrderId);
+            clientOrder.setClientOrderStatusId(OrderStatusIds.CANELLED);
+            return clientOrderMapper.modelToDto(clientOrderDao.save(clientOrder));
+        } catch (Exception e) {
+            throw new RuntimeException("An error occurred while modifying clientOrder status to cancelled.", e);
+        }
     }
 }

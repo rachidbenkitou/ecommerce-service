@@ -48,4 +48,25 @@ public class SaleController {
     public ResponseEntity<?> deleteSalesById(@PathVariable Long id) throws EntityNotFoundException {
         return ResponseEntity.ok(saleService.deletesalesById(id));
     }
+
+    @PatchMapping("/{saleId}/accepted")
+    public ResponseEntity<SaleDto> modifySaleStatusToAccepted(@PathVariable Long saleId) throws EntityNotFoundException {
+        SaleDto updatedSale = saleService.modifySaleDtoStatusToAccepted(saleId);
+        return ResponseEntity.ok(updatedSale);
+    }
+
+    @PatchMapping("/{saleId}/reported")
+    public ResponseEntity<SaleDto> modifySaleStatusToReported(@PathVariable Long saleId) throws EntityNotFoundException {
+        SaleDto updatedSale = saleService.modifySaleDtoStatusToReported(saleId);
+        return ResponseEntity.ok(updatedSale);
+    }
+
+    @PatchMapping("/{saleId}/cancelled")
+    public ResponseEntity<SaleDto> modifySaleStatusToCancelled(@PathVariable Long saleId) throws EntityNotFoundException {
+        SaleDto updatedSale = saleService.modifySaleDtoStatusToCancelled(saleId);
+        return ResponseEntity.ok(updatedSale);
+    }
+
+
 }
+

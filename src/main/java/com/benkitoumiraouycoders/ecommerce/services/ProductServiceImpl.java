@@ -3,7 +3,6 @@ package com.benkitoumiraouycoders.ecommerce.services;
 import com.benkitoumiraouycoders.ecommerce.dao.ImageDao;
 import com.benkitoumiraouycoders.ecommerce.dao.ProductDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
-import com.benkitoumiraouycoders.ecommerce.entities.Product;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
@@ -67,14 +66,12 @@ public class ProductServiceImpl implements ProuctService {
     public ProductDto updateProduct(Long id, ProductDto productDto) throws IOException {
         ProductDto oldProductDto = getProductById(id);
         productDto.setId(oldProductDto.getId());
-        Product updatedProduct = productDao.save(productMapper.dtoToModel(productDto));
-
         if (productDto.getProductImages() != null && !productDto.getProductImages().isEmpty()) {
             imageService.deleteImageByFilePathFromLocalSystem(oldProductDto.getFilePath());
             imageDao.deleteAllByProductId(oldProductDto.getId());
-            imagesUploadStrategy.uploadImages(productDto.getProductImages(), updatedProduct.getId());
+            imagesUploadStrategy.uploadImages(productDto.getProductImages(), productDto.getId());
         }
-        return productMapper.modelToDto(updatedProduct);
+        return productMapper.modelToDto(productDao.save(productMapper.dtoToModel(productDto)));
     }
 
     @Override

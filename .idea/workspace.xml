@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44bac0e9-3bb6-4e0b-87c2-9ec74edd903c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/config/CorsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/utils/OrderStatusIds.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/CategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/CategoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/ImageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/ImageDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/CategoryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/CategoryDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/ProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ClientOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ClientOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/SaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/SaleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ImageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ImageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ClientOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ClientOrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ImageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ProuctService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ProuctService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/SaleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/SaleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ClientOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ClientOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/SaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/SaleService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,32 +42,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Desktop/Projects/1-Ecommerce/ecommerce-service/src/main/java/com/benkitoumiraouycoders/ecommerce/services&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;5b91aaddfc50841206008b4fdb61f1f1&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/PC/Desktop/Projects/1-Ecommerce/ecommerce-service/src/main/java/com/benkitoumiraouycoders/ecommerce/config",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "spring.configuration.checksum": "5b91aaddfc50841206008b4fdb61f1f1",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\Desktop\Projects\1-Ecommerce\ecommerce-service\src\main\java\com\benkitoumiraouycoders\ecommerce\config" />
       <recent name="C:\Users\PC\Desktop\Projects\1-Ecommerce\ecommerce-service\src\main\java\com\benkitoumiraouycoders\ecommerce\services" />
       <recent name="C:\Users\PC\Desktop\Projects\1-Ecommerce\ecommerce-service\src\main\java\com\benkitoumiraouycoders\ecommerce\controllers" />
       <recent name="C:\Users\PC\Desktop\Projects\1-Ecommerce\ecommerce-service\src\main\java\com\benkitoumiraouycoders\ecommerce" />
@@ -151,7 +149,11 @@
       <workItem from="1708606439024" duration="13809000" />
       <workItem from="1708624079524" duration="225000" />
       <workItem from="1708628413686" duration="1814000" />
-      <workItem from="1708634682795" duration="10645000" />
+      <workItem from="1708634682795" duration="10833000" />
+      <workItem from="1708646317423" duration="69000" />
+      <workItem from="1708647051268" duration="534000" />
+      <workItem from="1708648155755" duration="405000" />
+      <workItem from="1708725316364" duration="4273000" />
     </task>
     <servers />
   </component>

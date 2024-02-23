@@ -17,4 +17,10 @@ public interface ClientOrderService {
     ClientOrderDto updateClientOrder(Long id, ClientOrderDto clientOrderDto);
 
     ResponseDto deleteClientOrderById(Long id);
+
+    ClientOrderDto modifyClientOrderDtoStatusToAccepted(Long clientOrderId);
+
+    ClientOrderDto modifyClientOrderDtoStatusToReported(Long clientOrderId);
+
+    ClientOrderDto modifyClientOrderDtoStatusToCancelled(Long clientOrderId);
 }

@@ -1,6 +1,7 @@
 package com.benkitoumiraouycoders.ecommerce.controllers;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.ClientOrderDto;
+import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ClientOrderService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -48,5 +49,23 @@ public class ClientOrderController {
     @DeleteMapping("/{clientOrderId}")
     public ResponseEntity<?> deleteClientOrderById(@PathVariable Long clientOrderId) {
         return ResponseEntity.ok().body(clientOrderService.deleteClientOrderById(clientOrderId));
+    }
+
+    @PatchMapping("/{clientOrderId}/accepted")
+    public ResponseEntity<ClientOrderDto> modifyClientOrderStatusToAccepted(@PathVariable Long clientOrderId) throws EntityNotFoundException {
+        ClientOrderDto updatedClientOrder = clientOrderService.modifyClientOrderDtoStatusToAccepted(clientOrderId);
+        return ResponseEntity.ok(updatedClientOrder);
+    }
+
+    @PatchMapping("/{clientOrderId}/reported")
+    public ResponseEntity<ClientOrderDto> modifyClientOrderStatusToReported(@PathVariable Long clientOrderId) throws EntityNotFoundException {
+        ClientOrderDto updatedClientOrder = clientOrderService.modifyClientOrderDtoStatusToReported(clientOrderId);
+        return ResponseEntity.ok(updatedClientOrder);
+    }
+
+    @PatchMapping("/{clientOrderId}/cancelled")
+    public ResponseEntity<ClientOrderDto> modifyClientOrderStatusToCancelled(@PathVariable Long clientOrderId) throws EntityNotFoundException {
+        ClientOrderDto updatedClientOrder = clientOrderService.modifyClientOrderDtoStatusToCancelled(clientOrderId);
+        return ResponseEntity.ok(updatedClientOrder);
     }
 }

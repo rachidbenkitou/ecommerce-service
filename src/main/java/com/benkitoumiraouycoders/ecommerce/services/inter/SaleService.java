@@ -13,4 +13,10 @@ public interface SaleService {
     public SaleDto persistsales(SaleDto saleDto) throws EntityNotFoundException ;
     public SaleDto updatesales(Long id, SaleDto saleDto) throws EntityNotFoundException  ;
     public ResponseDto deletesalesById(Long id) throws EntityNotFoundException ;
-    }
+
+    SaleDto modifySaleDtoStatusToAccepted(Long saleId);
+
+    SaleDto modifySaleDtoStatusToReported(Long saleId);
+
+    SaleDto modifySaleDtoStatusToCancelled(Long saleId);
+}
