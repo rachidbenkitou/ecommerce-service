@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44bac0e9-3bb6-4e0b-87c2-9ec74edd903c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +149,11 @@
       <workItem from="1708648155755" duration="405000" />
       <workItem from="1708725316364" duration="4393000" />
       <workItem from="1708731136317" duration="10000" />
-      <workItem from="1708765470105" duration="1257000" />
+      <workItem from="1708765470105" duration="1998000" />
+      <workItem from="1708783288102" duration="239000" />
+      <workItem from="1708783619502" duration="98000" />
+      <workItem from="1708792628188" duration="2672000" />
+      <workItem from="1708852312222" duration="1117000" />
     </task>
     <servers />
   </component>

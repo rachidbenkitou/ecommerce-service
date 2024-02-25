@@ -48,11 +48,6 @@ public class ProductServiceImpl implements ProuctService {
             throw new EntityAlreadyExistsException(String.format("The product with the name %s  is already exists", productDto.getName()));
         }
         productDto.setId(null);
-        if (productDto.getProductImages() != null && !productDto.getProductImages().isEmpty()) {
-            productDto.setProductImagePath(productDto.getProductImages().get(0).getOriginalFilename());
-        } else {
-            throw new RuntimeException("At least one image is required.");
-        }
         ProductDto savedProductDto = productMapper.modelToDto(productDao.save(productMapper.dtoToModel(productDto)));
         if (savedProductDto != null) {
             imagesUploadStrategy.uploadImages(productDto.getProductImages(), savedProductDto.getId());

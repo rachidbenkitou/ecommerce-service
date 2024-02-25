@@ -1,8 +1,8 @@
 cloud:
   aws:
     credentials:
-      access-key: 
-      secret-key: 
+      access-key:
+      secret-key:
     region:
       static: eu-west-1
     stack:
@@ -32,3 +32,9 @@ server:
   servlet:
     context-path: /api
   port: 9090
+
+keycloak:
+  realm: ecommerce-service-realm
+  resource: ecommerce-service-client-id
+  public-client: true
+  bearer-only: true
