@@ -10,6 +10,10 @@ public interface ProuctService {
 
     List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visbility, Long categoryId);
 
+    List<ProductDto> getLastRecordedProductsByQuery();
+
+    List<ProductDto> getTop15MostOrderedProducts();
+
     ProductDto getProductById(Long id);
 
     ProductDto addProduct(ProductDto productDto) throws IOException;

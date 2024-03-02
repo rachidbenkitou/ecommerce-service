@@ -58,6 +58,6 @@ public class ProductDto {
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
         this.productImagePath = productImagePath;
-        this.filePath=filePath;
+        this.filePath = filePath;
     }
 }

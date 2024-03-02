@@ -34,6 +34,15 @@ public class ProductServiceImpl implements ProuctService {
     }
 
     @Override
+    public List<ProductDto> getLastRecordedProductsByQuery() {
+        return productDao.getLastRecordedProductsByQuery();
+    }
+
+    @Override
+    public List<ProductDto> getTop15MostOrderedProducts() {
+        return productDao.getTop15MostOrderedProducts();
+    }
+    @Override
     public ProductDto getProductById(Long id) {
         List<ProductDto> productDtoList = productDao.getProductsByQuery(id, null, null, null, null, null);
         return productDtoList.stream()

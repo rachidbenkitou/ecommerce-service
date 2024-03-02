@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44bac0e9-3bb6-4e0b-87c2-9ec74edd903c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dtos/ProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/entities/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/mappers/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/mappers/ProductMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ProuctService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/inter/ProuctService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Desktop/Projects/1-Ecommerce/ecommerce-service/src/main/java/com/benkitoumiraouycoders/ecommerce/config&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Desktop/Projects/1-Ecommerce/ecommerce-service&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -153,7 +156,14 @@
       <workItem from="1708783288102" duration="239000" />
       <workItem from="1708783619502" duration="98000" />
       <workItem from="1708792628188" duration="2672000" />
-      <workItem from="1708852312222" duration="1117000" />
+      <workItem from="1708852312222" duration="1168000" />
+      <workItem from="1708859122034" duration="362000" />
+      <workItem from="1708890050603" duration="22000" />
+      <workItem from="1708941080251" duration="51000" />
+      <workItem from="1709135896457" duration="1184000" />
+      <workItem from="1709253330867" duration="1636000" />
+      <workItem from="1709307125623" duration="3609000" />
+      <workItem from="1709328401855" duration="4600000" />
     </task>
     <servers />
   </component>

@@ -32,7 +32,16 @@ public class ProductController {
 
         return ResponseEntity.ok().body(productService.getProductsByQuery(id, name, price, quantity, productVisibility, categoryId));
     }
+    @GetMapping("/lastRecorded")
+    public ResponseEntity<List<ProductDto>> getLastRecordedProductsByQuery() {
 
+        return ResponseEntity.ok().body(productService.getLastRecordedProductsByQuery());
+    }
+    @GetMapping("/mostOrdered")
+    public ResponseEntity<List<ProductDto>> getTop15MostOrderedProducts() {
+
+        return ResponseEntity.ok().body(productService.getLastRecordedProductsByQuery());
+    }
     @GetMapping("/{productId}")
     public ResponseEntity<ProductDto> getProductById(@PathVariable Long productId) {
         return ResponseEntity.ok().body(productService.getProductById(productId));
