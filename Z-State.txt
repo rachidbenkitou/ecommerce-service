@@ -1,0 +1,6 @@
+1-Quiz: if user passed successfully, he will ge a reuction.
+2-Real Time notification using websocket: when client affect an order the admin should get notification
+3-Security with kecloak
+4-Send an invoice via email to client when making an order
+5-Angular (client and admin)
+6-Deploy and test the first version of project
