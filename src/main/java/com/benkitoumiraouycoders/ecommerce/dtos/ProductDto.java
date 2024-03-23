@@ -1,5 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.dtos;
 
+import com.benkitoumiraouycoders.ecommerce.entities.Image;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

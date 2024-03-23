@@ -20,12 +20,10 @@ public interface PackageProductRepository extends JpaRepository<PackageProduct, 
         "where (:id is null or packageProduct.id=:id ) " +
         "and (:productId is null or packageProduct.productId=:productId )"+
         "and (:packageId is null or packageProduct.packageId=:packageId )"
-
 )
 public List<PackageProductDto> getAllServiceOptionByQuery(
         @Param("id") Long id,
         @Param("packageId") Long packageId,
         @Param("productId") Long serviceOptionId
-
 );
 }
