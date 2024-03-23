@@ -40,4 +40,7 @@ public class Package implements Serializable {
     @Column(name = "PRICE")
     private  Double price;
 
+
+
+
 }

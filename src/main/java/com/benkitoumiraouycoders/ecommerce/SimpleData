@@ -1,0 +1,67 @@
+-- Sample data for `book` table
+INSERT INTO book (id, name, price) VALUES (1, 'Book A', 29.99);
+INSERT INTO book (id, name, price) VALUES (2, 'Book B', 39.99);
+INSERT INTO book (id, name, price) VALUES (3, 'Book C', 49.99);
+
+-- Sample data for `category` table
+INSERT INTO category (id, name, visbility) VALUES (1, 'Category A', 'Public');
+INSERT INTO category (id, name, visbility) VALUES (2, 'Category B', 'Private');
+INSERT INTO category (id, name, visbility) VALUES (3, 'Category C', 'Public');
+
+-- Sample data for `client_status` table
+INSERT INTO client_status (id, color, name) VALUES (1, 'Green', 'Active');
+INSERT INTO client_status (id, color, name) VALUES (2, 'Red', 'Inactive');
+
+-- Sample data for `client` table
+INSERT INTO client (id, address, date_creation, email, first_name, last_name, phone_number, status_id) VALUES (1, '123 Main St', '2023-01-15 10:00:00', 'client1@example.com', 'John', 'Doe', '123-456-7890', 1);
+INSERT INTO client (id, address, date_creation, email, first_name, last_name, phone_number, status_id) VALUES (2, '456 Elm St', '2023-02-20 11:30:00', 'client2@example.com', 'Jane', 'Smith', '987-654-3210', 2);
+INSERT INTO client (id, address, date_creation, email, first_name, last_name, phone_number, status_id) VALUES (3, '789 Oak St', '2023-03-25 09:45:00', 'client3@example.com', 'Michael', 'Johnson', '111-222-3333', 1);
+
+-- Sample data for `client_order` table
+INSERT INTO client_order (id, client_id, order_status_id, date_creation, date_update, description, total_price) VALUES (1, 1, 1, '2023-01-20 08:00:00', '2023-01-25 08:30:00', 'Order 1', 100.00);
+INSERT INTO client_order (id, client_id, order_status_id, date_creation, date_update, description, total_price) VALUES (2, 2, 2, '2023-02-25 10:15:00', '2023-02-28 11:00:00', 'Order 2', 150.00);
+INSERT INTO client_order (id, client_id, order_status_id, date_creation, date_update, description, total_price) VALUES (3, 3, 1, '2023-03-30 09:30:00', '2023-04-05 10:00:00', 'Order 3', 200.00);
+
+-- Sample data for `client_order_details` table
+INSERT INTO client_order_details (id, client_order_id, price, product_id, quantity) VALUES (1, 1, 29.99, 1, 1);
+INSERT INTO client_order_details (id, client_order_id, price, product_id, quantity) VALUES (2, 2, 39.99, 2, 2);
+INSERT INTO client_order_details (id, client_order_id, price, product_id, quantity) VALUES (3, 3, 49.99, 3, 3);
+
+-- Sample data for `discount_coupon` table
+INSERT INTO discount_coupon (id, active, amount, code, date_creation, date_update, description, discount, discount_coupon_type, end_date, package_id, percentage, product_id, start_date, user_creation, user_update) VALUES (1, 'Yes', 10.00, 'DISCOUNT10', '2023-01-01 00:00:00', '2023-01-10 00:00:00', '10% off coupon', 10.00, 1, '2023-12-31 23:59:59', 1, 10.00, 1, '2023-01-01 00:00:00', 1, 1);
+INSERT INTO discount_coupon (id, active, amount, code, date_creation, date_update, description, discount, discount_coupon_type, end_date, package_id, percentage, product_id, start_date, user_creation, user_update) VALUES (2, 'Yes', 20.00, 'DISCOUNT20', '2023-02-01 00:00:00', '2023-02-10 00:00:00', '20% off coupon', 20.00, 1, '2023-12-31 23:59:59', 2, 20.00, 2, '2023-02-01 00:00:00', 1, 1);
+INSERT INTO discount_coupon (id, active, amount, code, date_creation, date_update, description, discount, discount_coupon_type, end_date, package_id, percentage, product_id, start_date, user_creation, user_update) VALUES (3, 'No', 0.00, 'DISCOUNT30', '2023-03-01 00:00:00', '2023-03-10 00:00:00', '30% off coupon', 30.00, 1, '2023-12-31 23:59:59', 3, 30.00, 3, '2023-03-01 00:00:00', 1, 1);
+
+-- Sample data for `image` table
+INSERT INTO image (id, category_id, file_path, name, product_id, type) VALUES (1, 1, '/images/category/category1.jpg', 'Category A Image', NULL, 'Category');
+INSERT INTO image (id, category_id, file_path, name, product_id, type) VALUES (2, 2, '/images/category/category2.jpg', 'Category B Image', NULL, 'Category');
+INSERT INTO image (id, category_id, file_path, name, product_id, type) VALUES (3, NULL, '/images/product/product1.jpg', 'Product A Image', 1, 'Product');
+
+-- Sample data for `order_status` table
+INSERT INTO order_status (id, color, name) VALUES (1, 'Blue', 'Pending');
+INSERT INTO order_status (id, color, name) VALUES (2, 'Green', 'Completed');
+
+-- Sample data for `package` table
+INSERT INTO package (id, active, date_creation, date_update, description, name, price, user_creation, user_update) VALUES (1, 'Yes', '2023-01-01 00:00:00', '2023-01-10 00:00:00', 'Sample Package 1', 'Package A', 99.99, 1, 1);
+INSERT INTO package (id, active, date_creation, date_update, description, name, price, user_creation, user_update) VALUES (2, 'Yes', '2023-02-01 00:00:00', '2023-02-10 00:00:00', 'Sample Package 2', 'Package B', 149.99, 1, 1);
+INSERT INTO package (id, active, date_creation, date_update, description, name, price, user_creation, user_update) VALUES (3, 'No', '2023-03-01 00:00:00', '2023-03-10 00:00:00', 'Sample Package 3', 'Package C', 199.99, 1, 1);
+
+-- Sample data for `package_product` table
+INSERT INTO package_product (id, date_creation, date_update, package_id, product_id, product_quantity, user_creation, user_update) VALUES (1, '2023-01-05 00:00:00', '2023-01-10 00:00:00', 1, 1, 1, 1, 1);
+INSERT INTO package_product (id, date_creation, date_update, package_id, product_id, product_quantity, user_creation, user_update) VALUES (2, '2023-02-05 00:00:00', '2023-02-10 00:00:00', 2, 2, 2, 1, 1);
+INSERT INTO package_product (id, date_creation, date_update, package_id, product_id, product_quantity, user_creation, user_update) VALUES (3, '2023-03-05 00:00:00', '2023-03-10 00:00:00', 3, 3, 3, 1, 1);
+
+-- Sample data for `product` table
+INSERT INTO product (id, category_id, compare_price, date_created, date_updated, description, name, price, product_image_path, quantity, visibility) VALUES (1, 1, 39.99, '2023-01-01', '2023-01-05', 'Product A Description', 'Product A', 29.99, '/images/product/productA.jpg', 100, 'Public');
+INSERT INTO product (id, category_id, compare_price, date_created, date_updated, description, name, price, product_image_path, quantity, visibility) VALUES (2, 2, 49.99, '2023-02-01', '2023-02-05', 'Product B Description', 'Product B', 39.99, '/images/product/productB.jpg', 200, 'Public');
+INSERT INTO product (id, category_id, compare_price, date_created, date_updated, description, name, price, product_image_path, quantity, visibility) VALUES (3, 3, 59.99, '2023-03-01', '2023-03-05', 'Product C Description', 'Product C', 49.99, '/images/product/productC.jpg', 150, 'Private');
+
+-- Sample data for `sale` table
+INSERT INTO sale (id, address, date_creation, date_update, email, phone, sale_status, sale_status_id, total_price) VALUES (1, '123 Main St', '2023-01-10 12:00:00', '2023-01-15 14:00:00', 'sale1@example.com', '123-456-7890', 'Active', 1, 199.99);
+INSERT INTO sale (id, address, date_creation, date_update, email, phone, sale_status, sale_status_id, total_price) VALUES (2, '456 Elm St', '2023-02-15 15:30:00', '2023-02-20 16:45:00', 'sale2@example.com', '987-654-3210', 'Inactive', 2, 149.99);
+INSERT INTO sale (id, address, date_creation, date_update, email, phone, sale_status, sale_status_id, total_price) VALUES (3, '789 Oak St', '2023-03-20 10:00:00', '2023-03-25 11:15:00', 'sale3@example.com', '111-222-3333', 'Active', 1, 299.99);
+
+-- Sample data for `sale_details` table
+INSERT INTO sale_details (id, date_creation, date_update, package_id, package_quantity, product_id, product_quantity, sale_id) VALUES (1, '2023-01-15 14:00:00', '2023-01-20 10:00:00', 1, 1, NULL, NULL, 1);
+INSERT INTO sale_details (id, date_creation, date_update, package_id, package_quantity, product_id, product_quantity, sale_id) VALUES (2, '2023-02-20 16:45:00', '2023-02-25 12:00:00', 2, 2, NULL, NULL, 2);
+INSERT INTO sale_details (id, date_creation, date_update, package_id, package_quantity, product_id, product_quantity, sale_id) VALUES (3, '2023-03-25 11:15:00', '2023-03-30 08:30:00', 3, 1, NULL, NULL, 3);

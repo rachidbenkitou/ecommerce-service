@@ -39,6 +39,8 @@ public class Product implements Serializable {
     @Column(name = "CATEGORY_ID")
     private Long categoryId;
 
+
+
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDate dateCreated;
@@ -51,5 +53,7 @@ public class Product implements Serializable {
     @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
     private Category category;
+
+
 
 }
