@@ -13,9 +13,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class UpsellDto implements Serializable {
     private Long id;
-    private String Title;
-    private String Description;
-    private String Bottom_Title;
+    private String title;
+    private String description;
+    private String bottom_title;
 
 
 
