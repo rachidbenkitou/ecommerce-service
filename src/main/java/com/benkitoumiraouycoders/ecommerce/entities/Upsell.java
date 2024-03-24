@@ -25,7 +25,7 @@ public class Upsell implements Serializable {
     private Long id;
     private String title;
     private String description;
-    private String bottom_Title;
+    private String bottomtitle;
 
 
     @Column(name = "PRODUCT_ID")
