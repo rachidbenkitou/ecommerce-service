@@ -9,9 +9,10 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpsellDto implements Serializable {
+public class SupplierProductDto implements Serializable {
     private Long id;
-    private String title;
-    private String description;
-    private String bottomTitle;
+    private Long productId;
+    private Long supplierId;
+    private Double price;
+    private Integer quantity;
 }

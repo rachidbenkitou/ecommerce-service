@@ -1,6 +1,5 @@
 package com.benkitoumiraouycoders.ecommerce.entities;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,32 +15,25 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Data
 @Builder
-public class Upsell implements Serializable {
-
+public class SupplierProduct implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
-    private String title;
-    private String description;
-    private String bottomTitle;
-
-
     @Column(name = "PRODUCT_ID")
     private Long productId;
-    @Column(name = "PACKAGE_ID")
-    private Long packageId;
-
-
-    @ManyToOne
-    @JoinColumn(name = "PACKAGE_ID", referencedColumnName = "ID", insertable = false, updatable = false)
-    @NotFound(action = NotFoundAction.IGNORE)
-    private Package Package;
-
+    @Column(name = "SUPPLIER_ID")
+    private Long supplierId;
+    private Double price;
+    private Integer quantity;
 
     @ManyToOne
     @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
     private Product product;
 
+    @ManyToOne
+    @JoinColumn(name = "SUPPLIER_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @NotFound(action = NotFoundAction.IGNORE)
+    private Supplier supplier;
 }
