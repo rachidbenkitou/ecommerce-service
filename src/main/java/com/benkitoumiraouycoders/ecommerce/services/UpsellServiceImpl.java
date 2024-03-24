@@ -11,16 +11,11 @@ import com.benkitoumiraouycoders.ecommerce.mappers.UpsellMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.UpsellService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 import java.io.IOException;
-import java.text.MessageFormat;
-import java.util.List;
 
 @Service
 @Transactional
@@ -30,15 +25,8 @@ public class UpsellServiceImpl implements UpsellService {
     private final UpsellDao upsellDao;
     private final UpsellMapper upsellMapper;
 
-
     @Override
-    public List<Upsell> getUpsell() {
-
-        return upsellDao.findAll();
-    }
-
-    @Override
-    public Page<Upsell> getUpsell(Pageable pageable) {
+    public Page<Upsell> getUpsells(Pageable pageable) {
         return upsellDao.findAll(pageable);
     }
 
