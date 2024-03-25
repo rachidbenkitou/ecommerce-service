@@ -41,7 +41,8 @@ public class ClientController {
 
 
     @PutMapping("/{clientId}")
-    public ResponseEntity<ClientDto> updateClient(@PathVariable Long clientId, @RequestBody ClientDto clientDto) {
+    public ResponseEntity<ClientDto> updateClient
+            (@PathVariable Long clientId, @RequestBody ClientDto clientDto) {
         return ResponseEntity.ok().body(clientService.updateClient(clientId, clientDto));
     }
 

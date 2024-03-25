@@ -26,7 +26,6 @@ public class Upsell implements Serializable {
     private String description;
     private String bottomTitle;
 
-
     @Column(name = "PRODUCT_ID")
     private Long productId;
     @Column(name = "PACKAGE_ID")
@@ -43,5 +42,4 @@ public class Upsell implements Serializable {
     @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
     private Product product;
-
 }
