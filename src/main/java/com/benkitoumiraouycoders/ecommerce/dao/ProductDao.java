@@ -24,7 +24,7 @@ public interface ProductDao extends JpaRepository<Product, Long>, JpaSpecificati
             " AND (:quantity IS NULL OR p.quantity = :quantity)" +
             " AND (:visibility IS NULL OR p.visibility = :visibility)" +
             " AND (:categoryId IS NULL OR p.categoryId = :categoryId)" +
-            " GROUP BY p.id order by c.id asc ")
+            " GROUP BY p.id  ")
         // Group by productId
     List<ProductDto> getProductsByQuery(
             @Param("id") Long id,

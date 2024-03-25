@@ -4,8 +4,9 @@ import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
 import com.benkitoumiraouycoders.ecommerce.services.ProductServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,9 +31,13 @@ public class ProductController {
                                                                @RequestParam(name = "productQuantity", required = false) Integer quantity,
                                                                @RequestParam(name = "productVisibility", required = false) String productVisibility,
                                                                @RequestParam(name = "categoryId", required = false) Long categoryId,
-                                                               @PageableDefault(sort = "id", size = 10) Pageable pageable
-    ) {
+                                                               @RequestParam(defaultValue = "0") int page, // Default page number
+                                                               @RequestParam(defaultValue = "10") int size, // Default page size
+                                                               @RequestParam(defaultValue = "id") String sortProperty, // Sort property
+                                                               @RequestParam(defaultValue = "ASC") String sortDirection) {
 
+        Sort sort = Sort.by(Sort.Direction.fromString(sortDirection), sortProperty);
+        Pageable pageable = PageRequest.of(page, size, sort);
         return ResponseEntity.ok().body(productService.getProductsByQuery(id, name, price, quantity, productVisibility, categoryId, pageable));
     }
 

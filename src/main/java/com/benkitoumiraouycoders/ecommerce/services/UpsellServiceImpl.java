@@ -40,13 +40,11 @@ public class UpsellServiceImpl implements UpsellService {
 
     @Override
     public UpsellDto addUpsell(UpsellDto upsellDto) throws IOException {
-        try
-        {
+        try {
             upsellDto.setId(null);
             Upsell saveUpsell = upsellDao.save(upsellMapper.dtoToModel(upsellDto));
             return upsellMapper.modelToDto(saveUpsell);
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             throw new EntityServiceException("An error occurred while storing the upsell.", e);
         }
 
@@ -54,7 +52,7 @@ public class UpsellServiceImpl implements UpsellService {
 
     @Override
     public UpsellDto updateUpsell(Long id, UpsellDto upsellDto) {
-        try{
+        try {
             UpsellDto oldUpsellDto = getUpsellById(id);
 
             Upsell upsellToUpdate = upsellMapper.dtoToModel(upsellDto);
@@ -62,10 +60,8 @@ public class UpsellServiceImpl implements UpsellService {
 
             Upsell updatedUpsell = upsellDao.save(upsellToUpdate);
             return upsellMapper.modelToDto(updatedUpsell);
-        }
-        catch (Exception e)
-        {
-            throw new EntityServiceException("An error occurred while updat the upsell.",e);
+        } catch (Exception e) {
+            throw new EntityServiceException("An error occurred while updat the upsell.", e);
         }
 
     }

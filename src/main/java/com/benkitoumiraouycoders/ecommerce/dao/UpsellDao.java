@@ -10,6 +10,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UpsellDao extends JpaRepository<Upsell, Long>
 {
-    Page<Upsell> findAll(Pageable pageable);
-
 }
