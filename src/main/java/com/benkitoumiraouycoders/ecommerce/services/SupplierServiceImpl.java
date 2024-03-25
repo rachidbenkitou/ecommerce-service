@@ -5,6 +5,7 @@ import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.services.inter.SupplierService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SupplierServiceImpl implements SupplierService {
     @Override
-    public List<SupplierDto> getSuppliers(Long supplierId, String name, String email, String phoneNumber) {
+    public List<SupplierDto> getSuppliers(Long supplierId, String name, String email, String phoneNumber, Pageable pageable) {
         return null;
     }
 

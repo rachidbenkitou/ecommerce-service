@@ -3,6 +3,8 @@ package com.benkitoumiraouycoders.ecommerce.controllers;
 import com.benkitoumiraouycoders.ecommerce.dtos.SupplierDto;
 import com.benkitoumiraouycoders.ecommerce.services.inter.SupplierService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,10 +21,11 @@ public class SupplierController {
     public ResponseEntity<List<SupplierDto>> getSuppliersByQuery(@RequestParam(name = "supplierId", required = false) Long supplierId,
                                                                  @RequestParam(name = "name", required = false) String name,
                                                                  @RequestParam(name = "email", required = false) String email,
-                                                                 @RequestParam(name = "phoneNumber", required = false) String phoneNumber
+                                                                 @RequestParam(name = "phoneNumber", required = false) String phoneNumber,
+                                                                 @PageableDefault(sort = "id", size = 10) Pageable pageable
     ) {
 
-        return ResponseEntity.ok().body(supplierService.getSuppliers(supplierId, name, email, phoneNumber));
+        return ResponseEntity.ok().body(supplierService.getSuppliers(supplierId, name, email, phoneNumber, pageable));
     }
 
     @GetMapping("/{supplierId}")

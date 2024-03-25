@@ -11,6 +11,7 @@ import com.benkitoumiraouycoders.ecommerce.services.inter.ImageService;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ProuctService;
 import com.benkitoumiraouycoders.ecommerce.services.strategy.inter.ImagesUploadStrategy;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,8 +30,8 @@ public class ProductServiceImpl implements ProuctService {
     private final ImageDao imageDao;
 
     @Override
-    public List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visibility, Long categoryId) {
-        return productDao.getProductsByQuery(id, name, price, quantity, categoryId, visibility);
+    public List<ProductDto> getProductsByQuery(Long id, String name, Double price, Integer quantity, String visibility, Long categoryId, Pageable pageable) {
+        return productDao.getProductsByQuery(id, name, price, quantity, categoryId, visibility, pageable);
     }
 
     @Override
@@ -42,9 +43,10 @@ public class ProductServiceImpl implements ProuctService {
     public List<ProductDto> getTop15MostOrderedProducts() {
         return productDao.getTop15MostOrderedProducts();
     }
+
     @Override
     public ProductDto getProductById(Long id) {
-        List<ProductDto> productDtoList = productDao.getProductsByQuery(id, null, null, null, null, null);
+        List<ProductDto> productDtoList = productDao.getProductsByQuery(id, null, null, null, null, null, null);
         return productDtoList.stream()
                 .findFirst()
                 .orElseThrow(() -> new EntityNotFoundException(String.format("The product with the id %d is not found.", id)));

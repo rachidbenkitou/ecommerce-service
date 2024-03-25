@@ -2,6 +2,7 @@ package com.benkitoumiraouycoders.ecommerce.dao;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Product;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
@@ -31,7 +32,8 @@ public interface ProductDao extends JpaRepository<Product, Long>, JpaSpecificati
             @Param("price") Double price,
             @Param("quantity") Integer quantity,
             @Param("categoryId") Long categoryId,
-            @Param("visibility") String visibility
+            @Param("visibility") String visibility,
+            Pageable pageable
     );
 
     @Query(value = "SELECT new com.benkitoumiraouycoders.ecommerce.dtos.ProductDto(" +

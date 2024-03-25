@@ -4,6 +4,8 @@ import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
 import com.benkitoumiraouycoders.ecommerce.services.ProductServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,21 +29,25 @@ public class ProductController {
                                                                @RequestParam(name = "productPrice", required = false) Double price,
                                                                @RequestParam(name = "productQuantity", required = false) Integer quantity,
                                                                @RequestParam(name = "productVisibility", required = false) String productVisibility,
-                                                               @RequestParam(name = "categoryId", required = false) Long categoryId
+                                                               @RequestParam(name = "categoryId", required = false) Long categoryId,
+                                                               @PageableDefault(sort = "id", size = 10) Pageable pageable
     ) {
 
-        return ResponseEntity.ok().body(productService.getProductsByQuery(id, name, price, quantity, productVisibility, categoryId));
+        return ResponseEntity.ok().body(productService.getProductsByQuery(id, name, price, quantity, productVisibility, categoryId, pageable));
     }
+
     @GetMapping("/lastRecorded")
     public ResponseEntity<List<ProductDto>> getLastRecordedProductsByQuery() {
 
         return ResponseEntity.ok().body(productService.getLastRecordedProductsByQuery());
     }
+
     @GetMapping("/mostOrdered")
     public ResponseEntity<List<ProductDto>> getTop15MostOrderedProducts() {
 
         return ResponseEntity.ok().body(productService.getLastRecordedProductsByQuery());
     }
+
     @GetMapping("/{productId}")
     public ResponseEntity<ProductDto> getProductById(@PathVariable Long productId) {
         return ResponseEntity.ok().body(productService.getProductById(productId));
