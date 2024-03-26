@@ -6,6 +6,7 @@ import com.benkitoumiraouycoders.ecommerce.entities.Product;
 import com.benkitoumiraouycoders.ecommerce.entities.Supplier;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -18,4 +19,7 @@ public interface SupplierMapper {
     List<SupplierDto> modelsToDtos(List<Supplier> supplierList);
 
     Supplier dtoToModel(SupplierDto supplierDto);
+
+    void updateModelWithDto(SupplierDto dto, @MappingTarget Supplier entity);
+
 }

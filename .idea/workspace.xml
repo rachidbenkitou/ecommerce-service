@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/EcommerceServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/EcommerceServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/SupplierDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/dao/SupplierDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/handlers/ResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/handlers/ResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/mappers/SupplierMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/mappers/SupplierMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/SupplierServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/SupplierServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/UpsellServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/benkitoumiraouycoders/ecommerce/services/UpsellServiceImpl.java" afterDir="false" />
@@ -47,9 +49,9 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.EcommerceServiceApplication.executor": "Run",
+    "Spring Boot.EcommerceServiceApplication.executor": "Debug",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "othmaneDev",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/pc/springApp/ecommerce-service",
@@ -109,7 +111,7 @@
       <updated>1711337061906</updated>
       <workItem from="1711337064717" duration="1617000" />
       <workItem from="1711339293640" duration="2421000" />
-      <workItem from="1711443812541" duration="10202000" />
+      <workItem from="1711443812541" duration="11031000" />
     </task>
     <servers />
   </component>

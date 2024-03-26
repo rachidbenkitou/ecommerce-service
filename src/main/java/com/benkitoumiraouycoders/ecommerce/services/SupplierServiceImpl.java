@@ -65,12 +65,37 @@ public class SupplierServiceImpl implements SupplierService {
     @Override
     public SupplierDto updateSupplier(Long id, SupplierDto supplierDto)
     {
-        return null;
+        try {
+            Supplier existingSupplier = supplierDao.findById(id)
+                    .orElseThrow(() -> new EntityNotFoundException("Supplier not found with id: " + id));
+            supplierMapper.updateModelWithDto(supplierDto, existingSupplier);
+            Supplier updatedSupplier = supplierDao.save(existingSupplier);
+            log.info("Updated supplier with id: {}", updatedSupplier.getId());
+            return supplierMapper.modelToDto(updatedSupplier);
+        } catch (EntityNotFoundException enfe) {
+            log.error("Supplier not found with id: {}", id, enfe);
+            throw enfe;
+        } catch (Exception e) {
+            log.error("Error updating supplier with id: {}", id, e);
+            throw new RuntimeException("Error updating supplier with id: " + id, e);
+        }
     }
 
     @Override
     public ResponseDto deleteSupplierById(Long id)
     {
-        return null;
+        try {
+            Supplier supplier = supplierDao.findById(id)
+                    .orElseThrow(() -> new EntityNotFoundException("Supplier not found with id: " + id));
+            supplierDao.delete(supplier);
+            log.info("Deleted supplier with id: {}", id);
+            return new ResponseDto("Supplier successfully deleted", true);
+        } catch (EntityNotFoundException enfe) {
+            log.error("Supplier not found with id: {}", id, enfe);
+            throw enfe;
+        } catch (Exception e) {
+            log.error("Error deleting supplier with id: {}", id, e);
+            throw new RuntimeException("Error deleting supplier with id: " + id, e);
+        }
     }
 }
