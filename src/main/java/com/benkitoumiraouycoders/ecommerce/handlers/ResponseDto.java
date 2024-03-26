@@ -13,6 +13,9 @@ public class ResponseDto {
     private Object value;
     private String reason;
 
+    public ResponseDto(String supplierSuccessfullyDeleted, boolean b) {
+    }
+
     public int getErrorCode() {
         return this.errorCode;
     }

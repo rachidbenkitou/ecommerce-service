@@ -49,7 +49,6 @@ public class CategoryServiceImpl implements CategoryService {
         CategoryDto categoryDto = getCategoriesByQuery(id, null, null).get(0);
         if (categoryDto != null) {
             return categoryDto;
-
         } else {
             throw new EntityNotFoundException(String.format("The category with the id %d is not found.", id));
         }
