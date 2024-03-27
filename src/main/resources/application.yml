@@ -11,7 +11,22 @@ cloud:
 application:
   bucket:
     name: ecommerce-file
+
+
+jwt:
+  auth:
+    converter:
+      resource-id: ecommerce-service-client
+      principle-attribute: preferred_username
+
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/ecommerce-service-realm
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
   servlet:
     multipart:
       max-file-size: 100MB
@@ -20,9 +35,6 @@ spring:
     url: jdbc:mysql://localhost/ecommerce?createDatabaseIfNotExist=true
     username: root
     password:
-    #url: jdbc:mysql://ecommerce.cvgjytfrsxst.eu-west-1.rds.amazonaws.com:3306/ecommerce?createDatabaseIfNotExist=true
-    #username: ecommerce
-    #password: ecommerce
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -33,8 +45,3 @@ server:
     context-path: /api
   port: 9090
 
-keycloak:
-  realm: ecommerce-service-realm
-  resource: ecommerce-service-client-id
-  public-client: true
-  bearer-only: true

@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,6 +26,7 @@ public class ProductController {
 
 
     @GetMapping
+    @PreAuthorize("hasRole('client_admin')")
     public ResponseEntity<List<ProductDto>> getProductsByQuery(@RequestParam(name = "productId", required = false) Long id,
                                                                @RequestParam(name = "productName", required = false) String name,
                                                                @RequestParam(name = "productPrice", required = false) Double price,
@@ -54,6 +56,7 @@ public class ProductController {
     }
 
     @GetMapping("/{productId}")
+    @PreAuthorize("hasRole('client_user')")
     public ResponseEntity<ProductDto> getProductById(@PathVariable Long productId) {
         return ResponseEntity.ok().body(productService.getProductById(productId));
     }
