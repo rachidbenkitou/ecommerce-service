@@ -1,7 +1,7 @@
 package com.benkitoumiraouycoders.ecommerce.services.inter;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.SupplierProductDto;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 
 import java.io.IOException;
 import java.util.List;

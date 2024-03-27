@@ -7,7 +7,7 @@ import com.benkitoumiraouycoders.ecommerce.dtos.ImageDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Image;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.ImageMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

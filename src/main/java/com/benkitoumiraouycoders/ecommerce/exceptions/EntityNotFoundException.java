@@ -1,5 +1,4 @@
 package com.benkitoumiraouycoders.ecommerce.exceptions;
-import com.benkitoumiraouycoders.ecommerce.handlers.ApiBasedException;
 import org.springframework.http.HttpStatus;
 
 public class EntityNotFoundException extends ApiBasedException {

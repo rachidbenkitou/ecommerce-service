@@ -1,4 +1,4 @@
-package com.benkitoumiraouycoders.ecommerce.handlers;
+package com.benkitoumiraouycoders.ecommerce.exceptions;
 
 import org.springframework.http.HttpStatus;
 

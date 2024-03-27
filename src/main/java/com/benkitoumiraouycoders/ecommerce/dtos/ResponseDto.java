@@ -1,4 +1,4 @@
-package com.benkitoumiraouycoders.ecommerce.handlers;
+package com.benkitoumiraouycoders.ecommerce.dtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;

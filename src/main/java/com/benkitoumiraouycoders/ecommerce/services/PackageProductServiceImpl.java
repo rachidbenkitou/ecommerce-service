@@ -4,7 +4,7 @@ import com.benkitoumiraouycoders.ecommerce.criteria.PackageProductCriteria;
 import com.benkitoumiraouycoders.ecommerce.dao.PackageProductRepository;
 import com.benkitoumiraouycoders.ecommerce.dtos.PackageProductDto;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.PackageProductMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.PackageProductService;
 import org.springframework.beans.factory.annotation.Autowired;

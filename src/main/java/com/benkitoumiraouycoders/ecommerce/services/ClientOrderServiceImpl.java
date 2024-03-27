@@ -4,7 +4,7 @@ import com.benkitoumiraouycoders.ecommerce.dao.ClientOrderDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.ClientOrderDto;
 import com.benkitoumiraouycoders.ecommerce.entities.ClientOrder;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.ClientOrderMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ClientOrderService;
 import com.benkitoumiraouycoders.ecommerce.utils.OrderStatusIds;

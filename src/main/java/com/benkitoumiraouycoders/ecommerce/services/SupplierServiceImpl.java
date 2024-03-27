@@ -4,7 +4,7 @@ import com.benkitoumiraouycoders.ecommerce.dao.SupplierDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.SupplierDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Supplier;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.SupplierMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.SupplierService;
 import lombok.RequiredArgsConstructor;

@@ -1,5 +1,6 @@
 package com.benkitoumiraouycoders.ecommerce.handlers;
 
+import com.benkitoumiraouycoders.ecommerce.exceptions.ApiBasedException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;

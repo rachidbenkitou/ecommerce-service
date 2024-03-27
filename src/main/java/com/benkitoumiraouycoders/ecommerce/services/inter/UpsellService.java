@@ -2,7 +2,7 @@ package com.benkitoumiraouycoders.ecommerce.services.inter;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.UpsellDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Upsell;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

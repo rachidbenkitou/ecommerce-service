@@ -2,7 +2,7 @@ package com.benkitoumiraouycoders.ecommerce.services;
 
 import com.benkitoumiraouycoders.ecommerce.dao.ClientOrderDetailsDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.ClientOrderDetailsDto;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.ClientOrderDetailsMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ClientOrderDetailsService;
 import lombok.RequiredArgsConstructor;

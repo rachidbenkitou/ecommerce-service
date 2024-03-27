@@ -5,7 +5,7 @@ import com.benkitoumiraouycoders.ecommerce.dao.SaleDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.SaleDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Sale;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.SaleMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.SaleService;
 import com.benkitoumiraouycoders.ecommerce.utils.OrderStatusIds;

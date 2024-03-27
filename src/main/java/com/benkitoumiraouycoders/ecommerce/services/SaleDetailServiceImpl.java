@@ -4,7 +4,7 @@ import com.benkitoumiraouycoders.ecommerce.criteria.SaleDetailsCriteria;
 import com.benkitoumiraouycoders.ecommerce.dao.SaleDetailsDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.SaleDetailsDto;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.SaleDetailsMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.SaleDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;

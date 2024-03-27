@@ -5,7 +5,7 @@ import com.benkitoumiraouycoders.ecommerce.dtos.ClientDto;
 import com.benkitoumiraouycoders.ecommerce.entities.Client;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.ClientMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ClientService;
 import lombok.RequiredArgsConstructor;

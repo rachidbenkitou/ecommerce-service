@@ -4,7 +4,7 @@ import com.benkitoumiraouycoders.ecommerce.dao.DiscountCouponRepository;
 import com.benkitoumiraouycoders.ecommerce.dtos.DiscountCouponDto;
 import com.benkitoumiraouycoders.ecommerce.entities.DiscountCoupon;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.DiscountCouponMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.DiscountCoupanService;
 import org.springframework.beans.factory.annotation.Autowired;

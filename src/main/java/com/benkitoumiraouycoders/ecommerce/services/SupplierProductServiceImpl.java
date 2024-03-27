@@ -1,7 +1,7 @@
 package com.benkitoumiraouycoders.ecommerce.services;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.SupplierProductDto;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.services.inter.SupplierProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

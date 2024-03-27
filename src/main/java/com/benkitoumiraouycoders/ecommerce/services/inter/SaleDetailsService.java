@@ -3,7 +3,7 @@ package com.benkitoumiraouycoders.ecommerce.services.inter;
 import com.benkitoumiraouycoders.ecommerce.criteria.SaleDetailsCriteria;
 import com.benkitoumiraouycoders.ecommerce.dtos.SaleDetailsDto;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 
 import java.util.List;
 

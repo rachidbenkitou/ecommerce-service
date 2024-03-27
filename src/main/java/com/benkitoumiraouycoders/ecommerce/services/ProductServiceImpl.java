@@ -6,7 +6,7 @@ import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityAlreadyExistsException;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityServiceException;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.ProductMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ImageService;
 import com.benkitoumiraouycoders.ecommerce.services.inter.ProuctService;

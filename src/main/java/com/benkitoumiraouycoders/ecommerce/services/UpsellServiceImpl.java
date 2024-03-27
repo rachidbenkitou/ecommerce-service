@@ -3,11 +3,10 @@ package com.benkitoumiraouycoders.ecommerce.services;
 
 import com.benkitoumiraouycoders.ecommerce.dao.UpsellDao;
 import com.benkitoumiraouycoders.ecommerce.dtos.UpsellDto;
-import com.benkitoumiraouycoders.ecommerce.entities.Product;
 import com.benkitoumiraouycoders.ecommerce.entities.Upsell;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityServiceException;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.UpsellMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.UpsellService;
 import lombok.RequiredArgsConstructor;

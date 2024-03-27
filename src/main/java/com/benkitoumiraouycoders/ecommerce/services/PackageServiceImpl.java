@@ -7,14 +7,13 @@ import com.benkitoumiraouycoders.ecommerce.dtos.PackageDto;
 import com.benkitoumiraouycoders.ecommerce.dtos.PackageProductDto;
 import com.benkitoumiraouycoders.ecommerce.dtos.ProductDto;
 import com.benkitoumiraouycoders.ecommerce.exceptions.EntityNotFoundException;
-import com.benkitoumiraouycoders.ecommerce.handlers.ResponseDto;
+import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.mappers.PackageMapper;
 import com.benkitoumiraouycoders.ecommerce.services.inter.PackageProductService;
 import com.benkitoumiraouycoders.ecommerce.services.inter.PackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
