@@ -4,3 +4,10 @@
 4-Send an invoice via email to client when making an order
 5-Angular (client and admin)
 6-Deploy and test the first version of project
+
+
+What is next:
+	Finishing keycloak users management in my app
+	Cleaning project
+	Give formation to outhman on angular, and start
+	watch tutorials about invoice, email, kafka, websocket to get idea before starting

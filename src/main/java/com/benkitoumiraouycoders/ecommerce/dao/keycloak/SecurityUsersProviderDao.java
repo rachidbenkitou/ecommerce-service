@@ -7,13 +7,13 @@ import com.benkitoumiraouycoders.ecommerce.entities.User;
 import java.util.List;
 
 public interface SecurityUsersProviderDao {
-    List<SecurityUserDto> getAllUsers();
+    List<SecurityUserDto> getAllUsers(String accessToken);
 
-    SecurityUserDto getUserByUsername(String username);
+    SecurityUserDto getUserByUsername(String username, String token);
 
-    SecurityUserDto addUser(User user);
+    SecurityUserDto addUser(SecurityUserDto user, String token);
 
-    SecurityUserDto updateUser(User user);
+    SecurityUserDto updateUser(SecurityUserDto user, String token);
 
-    ResponseDto deleteUserByUsername(String username);
+    ResponseDto deleteUserByUsername(String username, String token);
 }

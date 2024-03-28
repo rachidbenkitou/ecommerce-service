@@ -46,4 +46,5 @@ server:
   port: 9090
 
 myKeycloak:
-  realm-id: ecommerce-service-realm
+  users-endpoint: http://localhost:8080/admin/realms/ecommerce-service-realm/users
+  token-endpoint: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/token
