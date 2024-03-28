@@ -1,19 +1,18 @@
-package com.benkitoumiraouycoders.ecommerce.dao.keycloak;
+package com.benkitoumiraouycoders.ecommerce.services.inter;
 
 import com.benkitoumiraouycoders.ecommerce.dtos.ResponseDto;
 import com.benkitoumiraouycoders.ecommerce.dtos.SecurityUserDto;
-import com.benkitoumiraouycoders.ecommerce.entities.User;
 
 import java.util.List;
 
-public interface SecurityUsersProviderDao {
+public interface SecurityUsersProviderService {
     List<SecurityUserDto> getAllUsers(String accessToken);
 
     SecurityUserDto getUserByUsername(String username, String token);
 
     SecurityUserDto addUser(SecurityUserDto user, String token);
 
-    SecurityUserDto updateUser(SecurityUserDto user, String token);
+    ResponseDto updateUser(SecurityUserDto user,String id, String token);
 
-    ResponseDto deleteUserByUsername(String username, String token);
+    ResponseDto deleteUserById(String id, String token);
 }
