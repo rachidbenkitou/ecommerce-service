@@ -26,7 +26,7 @@ public class SupplierProductController {
         return ResponseEntity.ok().body(supplierProductService.getSupplierProductById(supplierProductId));
     }
 
-    @GetMapping("/{supplierId}")
+    @GetMapping("/by-supplier/{supplierId}")
     public ResponseEntity<SupplierProductDto> getSupplierProductBySupplierId(@PathVariable Long supplierId) {
         return ResponseEntity.ok().body(supplierProductService.getSupplierProductBySupplierId(supplierId));
     }

@@ -37,7 +37,7 @@ public class UpsellServiceImpl implements UpsellService {
 
     @Override
     public UpsellDto getUpsellById(Long id) {
-        log.debug("Fetching upsell with id: {}", id);
+        log.info("Fetching upsell getUpsellById with id: {} execution started.", id);
         return upsellDao.findById(id)
                 .map(upsell -> {
                     log.info("Upsell found with id: {}", id);
@@ -51,11 +51,12 @@ public class UpsellServiceImpl implements UpsellService {
 
     @Override
     public UpsellDto addUpsell(UpsellDto upsellDto) throws IOException {
-        log.debug("Adding new upsell: {}", upsellDto);
+        log.info("addUpsell: Adding new upsell execution started.");
         try {
+            log.debug("Adding new upsell: {}", upsellDto);
             upsellDto.setId(null);
             Upsell savedUpsell = upsellDao.save(upsellMapper.dtoToModel(upsellDto));
-            log.info("Upsell successfully added with id: {}", savedUpsell.getId());
+            log.debug("Upsell successfully added with id: {}", savedUpsell.getId());
             return upsellMapper.modelToDto(savedUpsell);
         } catch (Exception e) {
             log.error("An error occurred while storing the upsell: {}", upsellDto, e);
@@ -67,14 +68,14 @@ public class UpsellServiceImpl implements UpsellService {
     @Override
     public UpsellDto updateUpsell(Long id, UpsellDto upsellDto) {
 
-        log.debug("Updating upsell with id: {}", id);
+        log.info("Updating upsell with id: {}", id);
         try {
             UpsellDto oldUpsellDto = getUpsellById(id);
             Upsell upsellToUpdate = upsellMapper.dtoToModel(upsellDto);
             upsellToUpdate.setId(oldUpsellDto.getId()); // Preserve the original ID
 
             Upsell updatedUpsell = upsellDao.save(upsellToUpdate);
-            log.info("Upsell successfully updated for id: {}", id);
+            log.debug("Upsell successfully updated for id: {}", id);
             return upsellMapper.modelToDto(updatedUpsell);
         } catch (Exception e) {
             log.error("An error occurred while updating the upsell with id: {}", id, e);
@@ -84,16 +85,15 @@ public class UpsellServiceImpl implements UpsellService {
 
     @Override
     public ResponseDto deleteUpsellById(Long id) {
-        log.debug("Deleting upsell with id: {}", id);
+        log.info("Deleting upsell with id: {}", id);
         try {
             if (getUpsellById(id) != null) {
                 upsellDao.deleteById(id);
-                log.info("Upsell successfully deleted with id: {}", id);
+                log.debug("Upsell successfully deleted with id: {}", id);
                 return ResponseDto.builder()
                         .message("Upsell successfully deleted.")
                         .build();
             } else {
-                log.warn("Attempted to delete upsell, but it was not found with id: {}", id);
                 throw new EntityServiceException("The id is not found");
             }
         } catch (Exception e) {

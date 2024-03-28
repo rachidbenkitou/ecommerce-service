@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface SupplierProductDao extends JpaRepository<SupplierProduct, Long> {
     List<SupplierProduct> findBySupplierId(Long supplierId);
+
+
 }
